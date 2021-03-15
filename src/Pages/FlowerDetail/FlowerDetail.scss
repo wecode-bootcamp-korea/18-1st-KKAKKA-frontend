@@ -1,0 +1,128 @@
+h2 {
+  font-size: 26px;
+  line-height: 38px;
+  font-weight: 500;
+  letter-spacing: -0.39px;
+  color: #222;
+}
+
+span {
+  font-size: 16px;
+  line-height: 24px;
+  font-weight: 500;
+  letter-spacing: -0.24px;
+  color: #222;
+}
+
+p {
+  font-size: 14px;
+  line-height: 20px;
+  font-weight: 100;
+  letter-spacing: -0.21px;
+  color: #222;
+}
+
+.detail-container {
+  position: relative;
+  display: block;
+  .category-nav {
+    display: block;
+    width: 100%;
+    height: 80px;
+    margin: 0 auto;
+    padding: 40px 60px 0;
+  }
+
+  .detail-contents {
+    display: flex;
+    width: 100%;
+    margin: 0 57px;
+    padding: 0 60px;
+
+    .product-thumnail {
+      display: flex;
+      flex-direction: column;
+      width: 550px;
+      height: 664px;
+      .thumnail {
+        width: 550px;
+        height: 550px;
+        resize: both;
+      }
+
+      .detail-slider {
+        display: flex;
+        justify-content: space-between;
+        img {
+          width: 94px;
+          height: 94px;
+        }
+      }
+    }
+    .product-detail-right {
+      display: flex;
+      flex-direction: column;
+      width: 560px;
+      height: auto;
+      padding-left: 70px;
+      .detail-title {
+        margin-bottom: 10px;
+        .strong {
+          font-weight: 700;
+        }
+
+        span {
+          margin-bottom: 8px;
+        }
+
+        h2 {
+          margin-bottom: 10px;
+        }
+      }
+
+      .detail-info {
+        position: relative;
+        width: 100%;
+        height: auto;
+        padding-top: 17px;
+        border-top: 1px solid #ececec;
+
+        .detail-option {
+          .subscribe-option {
+            .opener {
+            }
+            .options {
+              .option {
+              }
+            }
+            .detail-amount {
+              .btn-amount {
+              }
+            }
+            .detail-price {
+            }
+            .total-price {
+              margin-bottom: 20px;
+            }
+            .detail-buttons {
+              display: flex;
+              .detail-btn {
+                display: block;
+                width: 240px;
+                height: 48px;
+                margin: 0 5px;
+                border: none;
+                border-radius: 5px;
+                background-color: #ffcd32;
+                color: #0d0d0d;
+              }
+              .cart {
+                background-color: #ececec;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
