@@ -1,23 +1,18 @@
-import React from 'react';
-import {
-  BrowserRouter as Router,
-  Switch,
-  Route,
-} from 'react-router-dom';
-
-import Main from './Pages/Main/Main.js';
-import Login from './Pages/Login/Login.js';
-import Cart from './Pages/Cart/Cart.js';
-import FlowerClassDetail from './Pages/FlowerClassDetail/FlowerClassDetail.js';
-import FlowerClassList from './Pages/FlowerClassList/FlowerClassList.js';
-import FlowerDetail from './Pages/FlowerDetail/FlowerDetail.js';
-import FlowerList from './Pages/FlowerList/FlowerList.js';
-import Mypage from './Pages/Mypage/Mypage.js';
-import Order from './Pages/Order/Order.js';
-import OrderList from './Pages/OrderListf/OrderList.js';
-import SignUp from './Pages/SignUp/SignUp.js';
-import SubscribeDetail from './Pages/SubscribeDetail/SubscribeDetail.js';
-import SubscribeList from './Pages/SubscribeList/SubscribeList.js';
+import React from "react";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import Main from "./Pages/Main/Main.js";
+import Login from "./Pages/Login/Login.js";
+import Cart from "./Pages/Cart/Cart.js";
+import FlowerClassDetail from "./Pages/FlowerClassDetail/FlowerClassDetail.js";
+import FlowerClassList from "./Pages/FlowerClassList/FlowerClassList.js";
+import FlowerDetail from "./Pages/FlowerDetail/FlowerDetail.js";
+import FlowerList from "./Pages/FlowerList/FlowerList.js";
+import Mypage from "./Pages/Mypage/Mypage.js";
+import Order from "./Pages/Order/Order.js";
+import OrderList from "./Pages/OrderListf/OrderList.js";
+import SignUp from "./Pages/SignUp/SignUp.js";
+import SubscribeDetail from "./Pages/SubscribeDetail/SubscribeDetail.js";
+import SubscribeList from "./Pages/SubscribeList/SubscribeList.js";
 
 class Routes extends React.Component {
   render() {
@@ -27,7 +22,11 @@ class Routes extends React.Component {
           <Route exact path="/main" component={Main} />
           <Route exact path="/login" component={Login} />
           <Route exact path="/cart" component={Cart} />
-          <Route exact path="/flower-class-detail" component={FlowerClassDetail} />
+          <Route
+            exact
+            path="/flower-class-detail"
+            component={FlowerClassDetail}
+          />
           <Route exact path="/flower-class-list" component={FlowerClassList} />
           <Route exact path="/flower-detail" component={FlowerDetail} />
           <Route exact path="/flower-list" component={FlowerList} />
@@ -39,7 +38,7 @@ class Routes extends React.Component {
           <Route exact path="/subscribe-list" component={SubscribeList} />
         </Switch>
       </Router>
-    )
+    );
   }
 }
 
