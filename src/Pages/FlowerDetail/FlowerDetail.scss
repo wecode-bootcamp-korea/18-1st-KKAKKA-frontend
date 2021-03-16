@@ -36,14 +36,18 @@
 
 .detail-container {
   position: relative;
-  display: block;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
 
   .category-nav {
-    display: block;
-    width: 100%;
+    position: relative;
+    display: flex;
+    justify-content: flex-start;
+    width: 1240px;
     height: 80px;
-    margin: 0 auto;
     padding: 40px 60px 0;
+    margin: 0 auto;
 
     li {
       display: inline-block;
@@ -65,9 +69,12 @@
   }
 
   .detail-contents {
+    position: relative;
     display: flex;
-    width: 100%;
-    margin: 0 57px;
+    justify-content: center;
+    height: 100vh;
+    margin: 0 auto;
+    padding: 0 60px;
 
     .product-thumnail {
       display: flex;
@@ -101,16 +108,59 @@
 
       .detail-title {
         margin-bottom: 10px;
+
         .sub-title {
           @include sub-title();
         }
+
         .title {
           @include title();
           margin-bottom: 10px;
         }
 
+        .price::after {
+          content: "원";
+        }
+
         .strong {
           @include strong();
+        }
+
+        .detail-discount {
+          @include sub-title();
+
+          .discountPer {
+            font-weight: 700;
+            color: #ff4e50;
+
+            &::after {
+              content: "%";
+              padding-right: 6px;
+            }
+          }
+
+          .oldPrice {
+            margin-right: 10px;
+            text-decoration: line-through;
+
+            &::after {
+              content: "원";
+            }
+          }
+
+          .title {
+            @include title();
+            display: inline-block;
+            font-size: 26px;
+            line-height: 38px;
+            font-weight: 500;
+            letter-spacing: -0.39px;
+            color: #222;
+          }
+
+          .price::after {
+            content: "원";
+          }
         }
       }
 
@@ -235,6 +285,10 @@
                 @include contents();
               }
 
+              .price::after {
+                content: "원";
+              }
+
               .sub-contents {
                 @include sub-contents();
               }
@@ -283,8 +337,13 @@
                   @include title();
                   margin-left: 10px;
                 }
+
+                .price::after {
+                  content: "원";
+                }
               }
             }
+
             .detail-buttons {
               display: flex;
 

@@ -51,7 +51,12 @@ class FlowerDetail extends Component {
             <div className="detail-title">
               <span className="sub-title">꽃이 일상이 되는 가벼운 시작</span>
               <h2 className="title strong">가벼운 S 꽃구독</h2>
-              <h2 className="title">17,900원</h2>
+              <h2 className="title price">17,900</h2>
+              <div className="detail-discount">
+                <span className="discountPer">10</span>
+                <span className="oldPrice sub-title">17,900</span>
+                <h2 className="title price">17,900</h2>
+              </div>
             </div>
             <div className="detail-info">
               <span className="contents">정기구독 전상품</span>
@@ -135,13 +140,13 @@ class FlowerDetail extends Component {
                       <span className="contents">상품 가격</span>
                       <p className="sub-contents">구독 기간을 선택해주세요</p>
                     </div>
-                    <span>35,000원</span>
+                    <span className="price">35,000</span>
                   </div>
                   <div className="total-price">
                     <p className="shipping-free">무료배송</p>
                     <div>
                       <p className="sub-contents">총 주문금액</p>
-                      <h2 className="title">35,000원</h2>
+                      <h2 className="title price">35,000</h2>
                     </div>
                   </div>
                   <div className="detail-buttons">
