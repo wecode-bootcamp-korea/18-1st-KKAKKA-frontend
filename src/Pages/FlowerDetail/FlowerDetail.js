@@ -54,20 +54,20 @@ class FlowerDetail extends Component {
               <h2 className="title">17,900원</h2>
             </div>
             <div className="detail-info">
-              <span className="contents">정기구독 전상품, 무료배송!</span>
+              <span className="contents">정기구독 전상품</span>
+              <p className="contents-highlight">무료배송!</p>
               <div className="detail-option">
                 <div className="subscribe-option">
                   <table>
                     <thead>
-                      <th></th>
+                      <th className="option-th-1"></th>
                       <th></th>
                     </thead>
                     <tbody>
                       <tr>
-                        <td>
-                          <th></th>
+                        <th>
                           <span className="contents">구독옵션</span>
-                        </td>
+                        </th>
                         <td>
                           <input
                             type="text"
@@ -100,10 +100,9 @@ class FlowerDetail extends Component {
                         </td>
                       </tr>
                       <tr>
-                        <td>
-                          <th></th>
+                        <th>
                           <span className="contents">편지 추가</span>
-                        </td>
+                        </th>
                         <td>
                           <div className="letter-checkboxes">
                             <div className="letter-checkbox">
@@ -136,13 +135,13 @@ class FlowerDetail extends Component {
                       <span className="contents">상품 가격</span>
                       <p className="sub-contents">구독 기간을 선택해주세요</p>
                     </div>
-                    <span>35000원</span>
+                    <span>35,000원</span>
                   </div>
                   <div className="total-price">
                     <p className="shipping-free">무료배송</p>
                     <div>
                       <p className="sub-contents">총 주문금액</p>
-                      <h2 className="title">35000원</h2>
+                      <h2 className="title">35,000원</h2>
                     </div>
                   </div>
                   <div className="detail-buttons">

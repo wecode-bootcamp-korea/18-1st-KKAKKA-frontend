@@ -122,19 +122,34 @@
         border-top: 1px solid #ececec;
         @include contents();
 
+        .contents-highlight {
+          display: inline-block;
+          margin-left: 4px;
+          font-weight: 600;
+          color: #46cfa7;
+        }
+
         .detail-option {
           margin-top: 17px;
           padding-top: 17px;
           border-top: 1px solid #ececec;
 
           .subscribe-option {
+            width: 100%;
+
             table {
               width: 100%;
+              margin-bottom: 30px;
+              table-layout: fixed;
+
+              .option-th-1 {
+                width: 150px;
+              }
 
               th {
-                width: 150px;
                 text-align: left;
               }
+
               .selected {
                 width: 100%;
                 height: 46px;
@@ -157,10 +172,12 @@
                 cursor: pointer;
                 z-index: 1;
               }
+
               .options {
                 .option {
                 }
               }
+
               .detail-amount {
                 .btn-amount {
                   width: 24px;
@@ -170,6 +187,7 @@
                   background-color: #ececec;
                   cursor: pointer;
                 }
+
                 span {
                   margin: 0 12px;
                 }
@@ -192,16 +210,18 @@
                       color: #ffcd32;
                     }
                   }
+
                   .contents {
                     @include contents();
                   }
                 }
               }
             }
+
             .detail-price {
               display: flex;
               justify-content: space-between;
-              align-items: center;
+              align-items: flex-start;
               width: 490px;
               height: 82px;
               margin: 10px 0 20px;
@@ -231,6 +251,7 @@
               padding: 20px;
               border: none;
               color: #0d0d0d;
+
               .shipping-free {
                 display: block;
                 height: 20px;
@@ -266,6 +287,7 @@
             }
             .detail-buttons {
               display: flex;
+
               .detail-btn {
                 display: block;
                 width: 240px;
@@ -279,6 +301,7 @@
                 letter-spacing: -0.21px;
                 cursor: pointer;
               }
+
               .cart {
                 background-color: #ececec;
               }
