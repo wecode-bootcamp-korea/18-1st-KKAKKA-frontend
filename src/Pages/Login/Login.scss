@@ -52,14 +52,26 @@
         height: 40px;
       }
 
-      .inputId {
+      .id {
         @extend %input-setting;
         margin-bottom: 10px;
+        &:focus {
+          border: 1px solid #ffcd32;
+        }
       }
 
-      .inputPwd {
+      .pwd {
         @extend %input-setting;
+        &:focus {
+          border: 1px solid #ffcd32;
+        }
       }
+
+      .inputColorChange {
+        @extend %input-setting;
+        border: 1px solid #ffcd32;
+      }
+
       .checkboxContainer {
         display: flex;
         align-items: center;
