@@ -1,36 +1,75 @@
 @import url("https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap");
 
-%flex-setting {
-  display: flex;
-  flex-direction: column;
-}
-
 %btn-setting {
+  width: 350px;
   height: 48px;
   border: none;
   border-radius: 5px;
   font-size: 14px;
   margin-bottom: 10px;
+  background-color: #ececec;
 }
 
 %input-setting {
+  width: 350px;
   height: 44px;
   padding: 0 20px;
+  margin: 0 20px 20px 0;
   border: #d3d3d3 1px solid;
   border-radius: 5px;
   font-weight: 300;
   color: #222;
   outline: none;
-  :focus {
+  &:focus {
     border: 1px solid #ffcd32;
   }
 }
 
 .signUp {
-  @extend %flex-setting;
+  display: flex;
+  flex-direction: column;
   align-items: center;
+  height: 100vh;
   font-family: "Noto Sans KR";
 
-  .emailInput {
+  .headBox {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 80%;
+    padding: 40px;
+    border-bottom: 1px solid #d3d3d3;
+
+    .headText {
+      font-size: 30px;
+    }
+  }
+
+  .inputBox {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 800px;
+    padding: 50px;
+
+    .inputLabelText {
+      display: inline-block;
+      width: 120px;
+      font-size: 15px;
+    }
+
+    .emailInput,
+    .pwdInput,
+    .pwdCheckInput,
+    .nameInput,
+    .phoneNumInput {
+      @extend %input-setting;
+    }
+  }
+  .signUpBtnBox {
+    margin-left: 33px;
+    .signUpBtn {
+      @extend %btn-setting;
+    }
   }
 }
