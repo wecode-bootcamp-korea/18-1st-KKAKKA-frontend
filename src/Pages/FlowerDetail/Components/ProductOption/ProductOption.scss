@@ -1,0 +1,114 @@
+@mixin contents {
+  font-size: 16px;
+  line-height: 24px;
+  font-weight: 500;
+  letter-spacing: -0.24px;
+  color: #222;
+}
+
+table {
+  width: 100%;
+  margin-bottom: 30px;
+  table-layout: fixed;
+
+  .option-th-1 {
+    width: 150px;
+  }
+
+  th {
+    text-align: left;
+  }
+
+  .option-row-1 {
+    height: 70px;
+
+    select {
+      width: 100%;
+      height: 46px;
+      padding: 0 50px 0 20px;
+      border-radius: 5px;
+      border: 1px solid #ffcd32;
+      background: url(https://farm1.staticflickr.com/379/19928272501_4ef877c265_t.jpg)
+        no-repeat 95% 50%;
+      font-size: 14px;
+      line-height: 46px;
+      font-weight: 300;
+      letter-spacing: -0.21px;
+      -webkit-appearance: none;
+      -moz-appearance: none;
+      appearance: none;
+
+      &:hover {
+        border-color: #ffcd32;
+      }
+
+      &:focus {
+        border-color: #ffcd32;
+        color: #222;
+        outline: #ffcd32;
+      }
+
+      &:disabled {
+        opacity: 0.5;
+      }
+
+      .option {
+        width: 100%;
+        height: 42px;
+        margin: 0;
+        border: none;
+        outline: 0;
+        background-color: transparent;
+        cursor: pointer;
+        z-index: 1;
+      }
+    }
+  }
+
+  .option-row-2 {
+    height: 50px;
+
+    .detail-amount {
+      .btn-amount {
+        width: 24px;
+        height: 24px;
+        border-radius: 50%;
+        border: none;
+        background-color: #ececec;
+        cursor: pointer;
+      }
+
+      span {
+        margin: 0 12px;
+      }
+    }
+  }
+
+  .option-row-3 {
+    height: 50px;
+
+    .letter-checkboxes {
+      display: flex;
+
+      .letter-checkbox {
+        display: block;
+
+        &:not(:last-child) {
+          margin-right: 20px;
+        }
+
+        input {
+          margin-right: 4px;
+
+          .checked {
+            color: #ffcd32;
+          }
+        }
+
+        .contents {
+          @include contents();
+        }
+      }
+    }
+  }
+}

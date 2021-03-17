@@ -1,0 +1,99 @@
+@mixin title {
+  font-size: 26px;
+  line-height: 38px;
+  font-weight: 500;
+  letter-spacing: -0.39px;
+  color: #222;
+}
+
+@mixin contents {
+  font-size: 16px;
+  line-height: 24px;
+  font-weight: 500;
+  letter-spacing: -0.24px;
+  color: #222;
+}
+
+@mixin sub-contents {
+  font-size: 14px;
+  line-height: 20px;
+  font-weight: 100;
+  letter-spacing: -0.21px;
+  color: #222;
+}
+
+.detail-price {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  width: 490px;
+  height: 82px;
+  margin: 10px 0 20px;
+  padding: 20px;
+  border: none;
+  border-radius: 5px;
+  background-color: #f7f7f7;
+  color: #0d0d0d;
+
+  .contents {
+    @include contents();
+  }
+
+  .price::after {
+    content: "원";
+  }
+
+  .sub-contents {
+    @include sub-contents();
+  }
+}
+
+.total-price {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-end;
+  width: 490px;
+  height: 82px;
+  margin: 20px 0;
+  padding: 20px;
+  border: none;
+  color: #0d0d0d;
+
+  .shipping-free {
+    display: block;
+    height: 20px;
+    margin-bottom: 10px;
+    padding: 0 8px;
+    border-radius: 10px;
+    border: 1px solid #ececec;
+    background-color: #ececec;
+    font-size: 9px;
+    line-height: 18px;
+    font-weight: 300px;
+    letter-spacing: -0.14px;
+  }
+
+  div {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+
+    .sub-contents {
+      display: inline-block;
+      @include sub-contents();
+      line-height: 30px;
+    }
+
+    .title {
+      display: inline-block;
+      @include title();
+      margin-left: 10px;
+    }
+
+    .price::after {
+      content: "원";
+    }
+  }
+}
