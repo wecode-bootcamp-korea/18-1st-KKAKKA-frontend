@@ -25,6 +25,7 @@ class FlowerDetail extends Component {
   }
 
   render() {
+    const { subscribeList } = this.state;
     return (
       <section className="detail-container">
         <ul className="category-nav">
@@ -76,7 +77,14 @@ class FlowerDetail extends Component {
             </div>
           </div>
           <div className="product-detail-right">
-            <ProductInfo />
+            <ProductInfo
+              key={subscribeList.id}
+              itemComment={subscribeList.itemComment}
+              prouductTitle={subscribeList.prouductTitle}
+              price={subscribeList.price}
+              contents={subscribeList.contents}
+              productImg={subscribeList.productImg}
+            />
             <div className="detail-info">
               <span className="contents">정기구독 전상품</span>
               <p className="contents-highlight">무료배송!</p>
