@@ -1,5 +1,7 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
+import "./SubChild.scss";
+
 class SubChild extends Component {
   render() {
     const {

@@ -1,0 +1,91 @@
+@mixin title {
+  font-size: 26px;
+  line-height: 38px;
+  font-weight: 500;
+  letter-spacing: -0.39px;
+  color: #222;
+}
+
+@mixin sub-title {
+  font-size: 16px;
+  line-height: 24px;
+  font-weight: 100;
+  letter-spacing: -0.24px;
+  color: #787878;
+}
+
+@mixin strong {
+  font-weight: 700;
+}
+
+.sublist-box {
+  display: flex;
+  margin: 40px 20px 0;
+  padding-bottom: 20px;
+  border-bottom: 1px solid #ececec;
+
+  a {
+    text-decoration: none;
+  }
+
+  .sub-image-box {
+    .sub-image {
+      width: 512px;
+      height: 304px;
+      object-fit: cover;
+    }
+  }
+
+  .detail-title {
+    padding: 40px 0 0 60px;
+    margin-bottom: 10px;
+
+    .sub-title {
+      @include sub-title();
+    }
+
+    .title {
+      @include title();
+      margin-bottom: 10px;
+    }
+
+    .price::after {
+      content: "원 ~";
+    }
+
+    .strong {
+      @include strong();
+    }
+
+    .content-box {
+      display: flex;
+      flex-direction: column;
+      margin-bottom: 16px;
+
+      .detail-content {
+        display: block;
+        width: 520px;
+        font-size: 14px;
+        line-height: 24px;
+        font-weight: 100;
+        letter-spacing: -0.21px;
+        color: #222;
+      }
+    }
+
+    .shipping-free {
+      display: block;
+      width: 55px;
+      height: 20px;
+      margin-bottom: 10px;
+      padding: 0 8px;
+      border-radius: 10px;
+      border: 1px solid #ececec;
+      background-color: #ececec;
+      font-size: 9px;
+      line-height: 18px;
+      font-weight: 300px;
+      letter-spacing: -0.14px;
+    }
+  }
+}
