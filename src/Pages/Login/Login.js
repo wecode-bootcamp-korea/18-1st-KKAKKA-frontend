@@ -1,15 +1,9 @@
 import React, { Component } from "react";
 import { withRouter } from "react-router";
+import { Link } from "react-router-dom";
 import "./Login.scss";
 
 class Login extends Component {
-  constructor() {
-    super();
-    this.state = {
-      borderColor: true,
-    };
-  }
-
   goToMain = () => {
     this.props.history.push("/main");
     // 추후 백엔드 데이터를 받으면 아래 함수 사용 예정
@@ -21,39 +15,25 @@ class Login extends Component {
     }*/
   };
 
-  handelInputValue = e => {
-    e.preventDefault();
-    const name = e.target.className;
-    const { value } = e.target;
-
-    this.setState({
-      [name]: value,
-    });
-  };
-
   render() {
-    const { id, pwd } = this.state;
     return (
       <div className="login">
         <div className="loginBox">
           <h1 className="loginText">로그인</h1>
           <form className="loginField">
-            <input
-              className="id"
-              placeholder="아이디(이메일)"
-              onChange={this.handelInputValue}
-            />
-            <input
-              className="pwd"
-              type="password"
-              placeholder="비밀번호"
-              onChange={this.handelInputValue}
-            />
+            <input className="id" placeholder="아이디(이메일)" />
+            <input className="pwd" type="password" placeholder="비밀번호" />
             <div className="inputBtnBuffer"></div>
 
-            <button className="loginBtn">로그인</button>
+            <button className="loginBtn" onClick={this.goToMain}>
+              로그인
+            </button>
             <div className="signUpArea">
-              <button className="signUpBtn">회원가입</button>
+              <button className="signUpBtn">
+                <Link to="/signup" style={{ textDecoration: "none" }}>
+                  회원가입
+                </Link>
+              </button>
             </div>
           </form>
         </div>
