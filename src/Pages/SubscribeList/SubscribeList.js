@@ -36,15 +36,19 @@ class SubscribeList extends Component {
 
         <article className="sublist-box">
           <div className="sub-image-box">
-            <img
-              alt="정기구독 상품1"
-              src="https://user-images.githubusercontent.com/46774456/111404908-eff67680-8712-11eb-8f25-8ae36c32578e.png"
-              className="sub-image"
-            />
+            <Link to="./SubscribeDetail">
+              <img
+                alt="정기구독 상품1"
+                src="https://user-images.githubusercontent.com/46774456/111404908-eff67680-8712-11eb-8f25-8ae36c32578e.png"
+                className="sub-image"
+              />
+            </Link>
           </div>
           <div className="detail-title">
             <span className="sub-title">꽃이 일상이 되는 가벼운 시작</span>
-            <h2 className="title strong">가벼운 S 꽃구독</h2>
+            <Link to="./SubscribeDetail">
+              <h2 className="title strong">가벼운 S 꽃구독</h2>
+            </Link>
             <h2 className="title price">17,900</h2>
             <div className="detail-discount">
               <span className="discountPer">10</span>
@@ -78,15 +82,19 @@ class SubscribeList extends Component {
 
         <article className="sublist-box">
           <div className="sub-image-box">
-            <img
-              alt="정기구독 상품1"
-              src="https://user-images.githubusercontent.com/46774456/111404908-eff67680-8712-11eb-8f25-8ae36c32578e.png"
-              className="sub-image"
-            />
+            <Link to="./SubscribeDetail">
+              <img
+                alt="정기구독 상품1"
+                src="https://user-images.githubusercontent.com/46774456/111404908-eff67680-8712-11eb-8f25-8ae36c32578e.png"
+                className="sub-image"
+              />
+            </Link>
           </div>
           <div className="detail-title">
             <span className="sub-title">꽃이 일상이 되는 가벼운 시작</span>
-            <h2 className="title strong">가벼운 S 꽃구독</h2>
+            <Link to="./SubscribeDetail">
+              <h2 className="title strong">가벼운 S 꽃구독</h2>
+            </Link>
             <h2 className="title price">17,900</h2>
             <div className="detail-discount">
               <span className="discountPer">10</span>
@@ -117,18 +125,21 @@ class SubscribeList extends Component {
           />
           <Link></Link>
         </article>
-
         <article className="sublist-box">
           <div className="sub-image-box">
-            <img
-              alt="정기구독 상품1"
-              src="https://user-images.githubusercontent.com/46774456/111404908-eff67680-8712-11eb-8f25-8ae36c32578e.png"
-              className="sub-image"
-            />
+            <Link to="./SubscribeDetail">
+              <img
+                alt="정기구독 상품1"
+                src="https://user-images.githubusercontent.com/46774456/111404908-eff67680-8712-11eb-8f25-8ae36c32578e.png"
+                className="sub-image"
+              />
+            </Link>
           </div>
           <div className="detail-title">
             <span className="sub-title">꽃이 일상이 되는 가벼운 시작</span>
-            <h2 className="title strong">가벼운 S 꽃구독</h2>
+            <Link to="./SubscribeDetail">
+              <h2 className="title strong">가벼운 S 꽃구독</h2>
+            </Link>
             <h2 className="title price">17,900</h2>
             <div className="detail-discount">
               <span className="discountPer">10</span>
