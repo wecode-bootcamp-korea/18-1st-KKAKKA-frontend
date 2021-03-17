@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import SubscribeDetail from "./SubscribeDetail/SubscribeDetail";
 import SubChild from "./SubChild";
 import "./SubscribeList.scss";
 
@@ -46,14 +45,6 @@ class SubscribeList extends Component {
             />
           );
         })}
-        <SubscribeDetail
-          key={subscribeList.id}
-          itemComment={subscribeList.itemComment}
-          prouductTitle={subscribeList.prouductTitle}
-          price={subscribeList.price}
-          contents={subscribeList.contents}
-          productImg={subscribeList.productImg}
-        />
       </section>
     );
   }
