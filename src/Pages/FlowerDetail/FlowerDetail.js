@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { Link, withRouter } from "react-router-dom";
 import ProductInfo from "./Components/ProductInfo/ProductInfo";
 import ProductOption from "./Components/ProductOption/ProductOption";
 import ProductSum from "./Components/ProductSum/ProductSum";
@@ -10,9 +11,15 @@ class FlowerDetail extends Component {
     return (
       <section className="detail-container">
         <ul className="category-nav">
-          <li>HOME</li>
-          <li>꽃 정기구독</li>
-          <li>가벼운 S 꽃구독</li>
+          <li>
+            <Link to="/main">HOME</Link>
+          </li>
+          <li>
+            <Link to="/subscribe-list">꽃 정기구독</Link>
+          </li>
+          <li>
+            <Link to="subscribe-detail">가벼운 S 꽃구독</Link>
+          </li>
         </ul>
         <div className="detail-contents">
           <div className="product-thumnail">
@@ -70,4 +77,4 @@ class FlowerDetail extends Component {
     );
   }
 }
-export default FlowerDetail;
+export default withRouter(FlowerDetail);
