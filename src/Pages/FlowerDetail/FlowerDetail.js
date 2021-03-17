@@ -7,6 +7,23 @@ import ProductBtn from "./Components/ProductBtn/ProductBtn";
 import "./FlowerDetail.scss";
 
 class FlowerDetail extends Component {
+  constructor() {
+    super();
+    this.state = {
+      subscribeList: [],
+    };
+  }
+
+  componentDidMount() {
+    fetch("/data/subscribeData.json")
+      .then(res => res.json())
+      .then(data => {
+        this.setState({
+          subscribeList: data,
+        });
+      });
+  }
+
   render() {
     return (
       <section className="detail-container">
@@ -25,35 +42,35 @@ class FlowerDetail extends Component {
           <div className="product-thumnail">
             <img
               alt="꽃 이미지"
-              src="https://lh3.googleusercontent.com/proxy/D36gvJKAbmz-6WstI8gQRBOQVfu1IxXTczck8KN9Z3BJ9v1HVqi2zoy_fzxxSRGVMmnVcgiRQcqmYEuZ4lkP84ZYEpEYdZwObSDm_TMrHPaTTJlz0i6nuQDdtG86xmfMPM-mjVxRz3DUv8HVwN4ImfYD8PhanNwCmJ6dG7GjWlDFABjMlw2lwgfhgHWd4AEHVK81rYze_TrvjfAz37p2wZ4NwZuAS2LDJTjrKjlEMzkRzfwm9u4Lu5E9Q9XA0-vuZx9MLbwP_WYnkeq4gqsaG9cWTFZiCK5krMDnWBPyoidj1sjvGQgJaqB0q4ADSjIZRs9hGV4PE3maHv5uR55kNt0"
+              src="https://user-images.githubusercontent.com/46774456/111404908-eff67680-8712-11eb-8f25-8ae36c32578e.png"
               className="thumnail"
             />
             <div className="detail-slider">
               <img
                 alt="꽃 미니 썸네일1"
-                src="https://i.pinimg.com/originals/37/d3/56/37d3567b0aacc4d36b4f35e2bf91f7df.jpg"
+                src="https://user-images.githubusercontent.com/46774456/111404851-d48b6b80-8712-11eb-963a-959179b2bb76.png"
                 className="thumnail-mini"
               />
               <img
                 alt="꽃 미니 썸네일2"
-                src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR3yfsNpsJUIk_Rcywam0WEW3zuTk_yuELzRQ&usqp=CAU"
+                src="https://user-images.githubusercontent.com/46774456/111404953-fedd2900-8712-11eb-918f-d35b9ca935c0.jpg"
                 className="thumnail-mini"
               />
               <img
                 alt="꽃 미니 썸네일3"
-                src="https://lh3.googleusercontent.com/proxy/D36gvJKAbmz-6WstI8gQRBOQVfu1IxXTczck8KN9Z3BJ9v1HVqi2zoy_fzxxSRGVMmnVcgiRQcqmYEuZ4lkP84ZYEpEYdZwObSDm_TMrHPaTTJlz0i6nuQDdtG86xmfMPM-mjVxRz3DUv8HVwN4ImfYD8PhanNwCmJ6dG7GjWlDFABjMlw2lwgfhgHWd4AEHVK81rYze_TrvjfAz37p2wZ4NwZuAS2LDJTjrKjlEMzkRzfwm9u4Lu5E9Q9XA0-vuZx9MLbwP_WYnkeq4gqsaG9cWTFZiCK5krMDnWBPyoidj1sjvGQgJaqB0q4ADSjIZRs9hGV4PE3maHv5uR55kNt0"
+                src="https://user-images.githubusercontent.com/46774456/111404908-eff67680-8712-11eb-8f25-8ae36c32578e.png"
                 className="thumnail-mini"
               />
 
               <img
                 alt="꽃 미니 썸네일4"
-                src="https://lh3.googleusercontent.com/proxy/D36gvJKAbmz-6WstI8gQRBOQVfu1IxXTczck8KN9Z3BJ9v1HVqi2zoy_fzxxSRGVMmnVcgiRQcqmYEuZ4lkP84ZYEpEYdZwObSDm_TMrHPaTTJlz0i6nuQDdtG86xmfMPM-mjVxRz3DUv8HVwN4ImfYD8PhanNwCmJ6dG7GjWlDFABjMlw2lwgfhgHWd4AEHVK81rYze_TrvjfAz37p2wZ4NwZuAS2LDJTjrKjlEMzkRzfwm9u4Lu5E9Q9XA0-vuZx9MLbwP_WYnkeq4gqsaG9cWTFZiCK5krMDnWBPyoidj1sjvGQgJaqB0q4ADSjIZRs9hGV4PE3maHv5uR55kNt0"
+                src="https://user-images.githubusercontent.com/46774456/111404908-eff67680-8712-11eb-8f25-8ae36c32578e.png"
                 className="thumnail-mini"
               />
 
               <img
                 alt="꽃 미니 썸네일5"
-                src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTw1qCVTfj9IReqU0VvafDxKsC9Xukz44hqWA&usqp=CAU"
+                src="https://user-images.githubusercontent.com/46774456/111404853-d48b6b80-8712-11eb-8375-e20afa6b9c38.png"
                 className="thumnail-mini"
               />
             </div>
