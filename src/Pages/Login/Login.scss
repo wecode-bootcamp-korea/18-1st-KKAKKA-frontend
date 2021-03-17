@@ -16,7 +16,7 @@
   font-weight: 300;
   color: #222;
   outline: none;
-  :focus {
+  &:focus {
     border: 1px solid #ffcd32;
   }
 }
@@ -55,16 +55,10 @@
       .id {
         @extend %input-setting;
         margin-bottom: 10px;
-        &:focus {
-          border: 1px solid #ffcd32;
-        }
       }
 
       .pwd {
         @extend %input-setting;
-        &:focus {
-          border: 1px solid #ffcd32;
-        }
       }
 
       .inputColorChange {
@@ -101,6 +95,10 @@
         .signUpBtn {
           @extend %btn-setting;
           background-color: #ececec;
+
+          .signUpLink {
+            text-decoration: none;
+          }
         }
       }
     }

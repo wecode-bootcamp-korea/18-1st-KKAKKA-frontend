@@ -30,7 +30,7 @@ class Login extends Component {
             </button>
             <div className="signUpArea">
               <button className="signUpBtn">
-                <Link to="/signup" style={{ textDecoration: "none" }}>
+                <Link to="/signup" className="signUpLink">
                   회원가입
                 </Link>
               </button>
