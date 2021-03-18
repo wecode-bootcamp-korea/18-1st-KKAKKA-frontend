@@ -14,6 +14,7 @@ class SubscribeList extends Component {
 
   clickHandler = id => {
     this.setState({ currentId: id });
+    console.log(this.state.currentId);
   };
 
   componentDidMount() {
@@ -25,42 +26,48 @@ class SubscribeList extends Component {
         });
       });
   }
-  // {this.state.currentId === 1 && <SubCard />};
-  // {this.state.currentId === 2 && <SubStart />};
+
   render() {
     const { subscribeList } = this.state;
     return (
       <section className="sublistContainer">
         <nav className="subToggle">
-          <button
-            className="toggleBtn"
-            onclick={() => this.clickHandler(1)}
-            type="button"
-          >
-            <h4 className="toggle">정기구독 상품</h4>
-          </button>
-          <button
-            className="toggleBtn"
-            onclick={() => this.clickHandler(2)}
-            type="button"
-          >
-            <h4 className="toggle">이용 방법</h4>
-          </button>
+          <ul className="toggleBtns">
+            <li
+              className={
+                this.state.currentId === 1 ? "toggleBtn selected" : "toggleBtn"
+              }
+              onClick={() => this.clickHandler(1)}
+            >
+              정기구독 상품
+            </li>
+            <li
+              className={
+                this.state.currentId === 2 ? "toggleBtn selected" : "toggleBtn"
+              }
+              onClick={() => this.clickHandler(2)}
+            >
+              이용 방법
+            </li>
+          </ul>
         </nav>
-        {subscribeList.map(sub => {
-          return (
-            <SubCard
-              key={sub.id}
-              id={sub.id}
-              itemComment={sub.itemComment}
-              productTitle={sub.prouductTitle}
-              price={sub.price}
-              contents={sub.contents}
-              productImg={sub.productImg}
-            />
-          );
-        })}
-        <SubStart />
+        <div className="contentsBox">
+          {this.state.currentId === 2 && <SubStart />}
+          {this.state.currentId === 1 &&
+            subscribeList.map(sub => {
+              return (
+                <SubCard
+                  key={sub.id}
+                  id={sub.id}
+                  itemComment={sub.itemComment}
+                  productTitle={sub.prouductTitle}
+                  price={sub.price}
+                  contents={sub.contents}
+                  productImg={sub.productImg}
+                />
+              );
+            })}
+        </div>
       </section>
     );
   }

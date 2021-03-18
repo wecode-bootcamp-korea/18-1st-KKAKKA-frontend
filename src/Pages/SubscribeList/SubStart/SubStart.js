@@ -6,6 +6,7 @@ class SubStart extends Component {
   render() {
     return (
       <section className="subStart">
+        <h2 className="title">꽃 정기구독, 이렇게 시작해보세요!</h2>
         <ol>
           <li className="subSteplist">
             <div className="steplistImg">
