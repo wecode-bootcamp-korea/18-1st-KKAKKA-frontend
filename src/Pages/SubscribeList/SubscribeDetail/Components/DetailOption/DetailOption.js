@@ -7,6 +7,7 @@ class DetailOption extends Component {
     this.state = {
       // api 연결 이후 fetch 로그인 상태 인증으로 로직 변경
       isLogin: true,
+      count: 1,
     };
   }
 
@@ -23,6 +24,20 @@ class DetailOption extends Component {
       this.props.history.push("/order");
     } else {
       this.props.history.push("/login");
+    }
+  };
+
+  addCount = () => {
+    this.setState({
+      count: this.state.count + 1,
+    });
+  };
+
+  minusCount = () => {
+    if (this.state.count > 1) {
+      this.setState({
+        count: this.state.count - 1,
+      });
     }
   };
 
@@ -61,11 +76,19 @@ class DetailOption extends Component {
                   </th>
                   <td>
                     <div className="detailAmount">
-                      <button type="button" className="btnAmount">
+                      <button
+                        type="button"
+                        className="btnAmount"
+                        onClick={this.minusCount}
+                      >
                         -
                       </button>
-                      <span>1</span>
-                      <button type="button" className="btnAmount">
+                      <span>{this.state.count}</span>
+                      <button
+                        type="button"
+                        className="btnAmount"
+                        onClick={this.addCount}
+                      >
                         +
                       </button>
                     </div>
