@@ -12,26 +12,26 @@ class SubChild extends Component {
       productImg,
     } = this.props;
     return (
-      <article className="sublist-box">
-        <div className="sub-image-box">
+      <article className="sublistBox">
+        <div className="subImageBox">
           <Link to="./SubscribeDetail">
             <img
               alt="정기구독 상품1"
               src={productImg.img1}
-              className="sub-image"
+              className="subImage"
             />
           </Link>
         </div>
-        <div className="detail-title">
-          <span className="sub-title">{itemComment}</span>
+        <div className="detailTitle">
+          <span className="subTitle">{itemComment}</span>
           <Link to="./SubscribeDetail">
             <h2 className="title strong">{productTitle}</h2>
           </Link>
           <h2 className="title price">{price}</h2>
-          <div className="content-box">
+          <div className="contentBox">
             {contents.split("\n").map(line => {
               return (
-                <span className="detail-content">
+                <span className="detailContent">
                   {line}
                   <br />
                 </span>
@@ -39,7 +39,7 @@ class SubChild extends Component {
             })}
           </div>
 
-          <span className="shipping-free">무료배송</span>
+          <span className="shippingFree">무료배송</span>
         </div>
       </article>
     );

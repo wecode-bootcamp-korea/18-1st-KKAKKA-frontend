@@ -7,8 +7,13 @@ class SubscribeList extends Component {
     super();
     this.state = {
       subscribeList: [],
+      currentId: 1,
     };
   }
+
+  clickHandler = id => {
+    this.setState({ currentId: id });
+  };
 
   componentDidMount() {
     fetch("/data/subscribeData.json")
@@ -19,21 +24,29 @@ class SubscribeList extends Component {
         });
       });
   }
-
+  // {this.state.currentId === 1 && <SubChild />};
+  // {this.state.currentId === 2 && <SubChild />};
   render() {
     const { subscribeList } = this.state;
     return (
       <>
-        <section className="sublist-container">
-          <nav className="sub-toggle">
-            <button className="toggleBtn" type="button">
+        <section className="sublistContainer">
+          <nav className="subToggle">
+            <button
+              className="toggleBtn"
+              onclick={() => this.clickHandler(1)}
+              type="button"
+            >
               <h4 className="toggle">정기구독 상품</h4>
             </button>
-            <button className="toggleBtn" type="button">
+            <button
+              className="toggleBtn"
+              onclick={() => this.clickHandler(2)}
+              type="button"
+            >
               <h4 className="toggle">이용 방법</h4>
             </button>
           </nav>
-
           {subscribeList.map(sub => {
             return (
               <SubChild
@@ -47,17 +60,17 @@ class SubscribeList extends Component {
             );
           })}
         </section>
-        <section className="sub-start">
+        <section className="subStart">
           <ol>
-            <li className="sub-steplist">
-              <div className="steplist-img">
+            <li className="subSteplist">
+              <div className="steplistImg">
                 <img
                   alt="정기구독 방법 step 1"
                   src="https://user-images.githubusercontent.com/46774456/111411544-1a016600-871e-11eb-91a4-4ef2f03121f0.png"
-                  className="sub-step"
+                  className="subStep"
                 />
               </div>
-              <strong className="step-num">01</strong>
+              <strong className="stepNum">01</strong>
               <span>
                 정기구독 상품 중{" "}
                 <strong>
@@ -67,15 +80,15 @@ class SubscribeList extends Component {
                 를 선택해주세요.
               </span>
             </li>
-            <li className="sub-steplist">
-              <div className="steplist-img">
+            <li className="subSteplist">
+              <div className="steplistImg">
                 <img
                   alt="정기구독 방법 step 2"
                   src="https://user-images.githubusercontent.com/46774456/111411544-1a016600-871e-11eb-91a4-4ef2f03121f0.png"
-                  className="sub-step"
+                  className="subStep"
                 />
               </div>
-              <strong className="step-num">02</strong>
+              <strong className="stepNum">02</strong>
               <span>
                 꽃을{" "}
                 <strong>
@@ -85,30 +98,30 @@ class SubscribeList extends Component {
                 을 선택해주세요.
               </span>
             </li>
-            <li className="sub-steplist">
-              <div className="steplist-img">
+            <li className="subSteplist">
+              <div className="steplistImg">
                 <img
                   alt="정기구독 방법 step 3"
                   src="https://user-images.githubusercontent.com/46774456/111411544-1a016600-871e-11eb-91a4-4ef2f03121f0.png"
-                  className="sub-step"
+                  className="subStep"
                 />
               </div>
-              <strong className="step-num">03</strong>
+              <strong className="stepNum">03</strong>
               <span>
                 꽃을 <strong>받고 싶은 요일</strong>을
                 <br />
                 선택해주세요.
               </span>
             </li>
-            <li className="sub-steplist">
-              <div className="steplist-img">
+            <li className="subSteplist">
+              <div className="steplistImg">
                 <img
                   alt="정기구독 방법 step 4"
                   src="https://user-images.githubusercontent.com/46774456/111411544-1a016600-871e-11eb-91a4-4ef2f03121f0.png"
-                  className="sub-step"
+                  className="subStep"
                 />
               </div>
-              <strong className="step-num">04</strong>
+              <strong className="stepNum">04</strong>
               <span>
                 <strong>
                   2주에 한번 그 계절 가장
@@ -119,8 +132,8 @@ class SubscribeList extends Component {
               </span>
             </li>
           </ol>
-          <div className="sub-tip">
-            <span className="change-date">
+          <div className="subTip">
+            <span className="changeDate">
               혹시, 일정을 변경하고 싶으신가요? 마이페이지 혹은 고객센터를 통해
               미리 일정을 변경하실 수 있습니다.
             </span>

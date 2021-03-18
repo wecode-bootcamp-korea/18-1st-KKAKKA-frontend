@@ -1,4 +1,4 @@
-@mixin title {
+%title {
   font-size: 26px;
   line-height: 38px;
   font-weight: 500;
@@ -6,7 +6,7 @@
   color: #222;
 }
 
-@mixin sub-title {
+%sub-title {
   font-size: 16px;
   line-height: 24px;
   font-weight: 100;
@@ -14,11 +14,11 @@
   color: #787878;
 }
 
-@mixin strong {
+%strong {
   font-weight: 700;
 }
 
-.sublist-box {
+.sublistBox {
   display: flex;
   margin: 40px 20px 0;
   padding-bottom: 20px;
@@ -28,24 +28,24 @@
     text-decoration: none;
   }
 
-  .sub-image-box {
-    .sub-image {
+  .subImageBox {
+    .subImage {
       width: 512px;
       height: 304px;
       object-fit: cover;
     }
   }
 
-  .detail-title {
+  .detailTitle {
     padding: 40px 0 0 60px;
     margin-bottom: 10px;
 
-    .sub-title {
-      @include sub-title();
+    .subTitle {
+      @extend %sub-title;
     }
 
     .title {
-      @include title();
+      @extend %title;
       margin-bottom: 10px;
     }
 
@@ -54,15 +54,15 @@
     }
 
     .strong {
-      @include strong();
+      @extend %strong;
     }
 
-    .content-box {
+    .contentBox {
       display: flex;
       flex-direction: column;
       margin-bottom: 16px;
 
-      .detail-content {
+      .detailContent {
         display: block;
         width: 520px;
         font-size: 14px;
@@ -73,7 +73,7 @@
       }
     }
 
-    .shipping-free {
+    .shippingFree {
       display: block;
       width: 55px;
       height: 20px;
