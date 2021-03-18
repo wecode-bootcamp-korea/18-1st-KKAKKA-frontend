@@ -69,23 +69,6 @@
         color: #ff4e50;
       }
 
-      .inputColorChange {
-        @extend %input-setting;
-        border: 1px solid #ffcd32;
-      }
-
-      .checkboxContainer {
-        display: flex;
-        align-items: center;
-        height: 70px;
-
-        .loginSettingText {
-          margin: 10px;
-          font-family: "Noto Sans KR";
-          font-size: 14px;
-        }
-      }
-
       .loginBtn {
         @extend %btn-setting;
         background-color: #ffcd32;
