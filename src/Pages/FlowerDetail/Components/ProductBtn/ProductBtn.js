@@ -1,32 +1,52 @@
 import React, { Component } from "react";
-import { Link } from "react-router-dom";
+import { withRouter } from "react-router-dom";
 import "./ProductBtn.scss";
 
 class ProductBtn extends Component {
   constructor() {
     super();
     this.state = {
+      // api 연결 이후 fetch 로그인 상태 인증으로 로직 변경
       isLogin: true,
     };
   }
 
+  goToCart = () => {
+    if (this.state.isLogin) {
+      this.props.history.push("/cart");
+    } else {
+      this.props.history.push("/login");
+    }
+  };
+
+  goToOrder = () => {
+    if (this.state.isLogin) {
+      this.props.history.push("/order");
+    } else {
+      this.props.history.push("/login");
+    }
+  };
+
   render() {
-    const { isLogin } = this.state;
     return (
-      <div className="detail-buttons">
-        <Link to="/cart">
-          <button type="button" className="detail-btn cart">
-            장바구니
-          </button>
-        </Link>
-        <Link to={isLogin ? "/order" : "/login"}>
-          <button type="button" className="detail-btn order">
-            바로 구독 신청
-          </button>
-        </Link>
+      <div className="detailButtons">
+        <button
+          type="button"
+          className="detailBtn cart"
+          onClick={this.goToCart}
+        >
+          장바구니
+        </button>
+        <button
+          type="button"
+          className="detailBtn order"
+          onClick={this.goToOrder}
+        >
+          바로 구독 신청
+        </button>
       </div>
     );
   }
 }
 
-export default ProductBtn;
+export default withRouter(ProductBtn);

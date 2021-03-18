@@ -1,12 +1,4 @@
-@mixin title {
-  font-size: 26px;
-  line-height: 38px;
-  font-weight: 500;
-  letter-spacing: -0.39px;
-  color: #222;
-}
-
-@mixin contents {
+%contents {
   font-size: 16px;
   line-height: 24px;
   font-weight: 500;
@@ -14,25 +6,13 @@
   color: #222;
 }
 
-@mixin sub-contents {
-  font-size: 14px;
-  line-height: 20px;
-  font-weight: 100;
-  letter-spacing: -0.21px;
-  color: #222;
-}
-
-@mixin strong {
-  font-weight: 700;
-}
-
-.detail-container {
+.detailContainer {
   position: relative;
   display: flex;
   flex-direction: column;
   width: 100%;
 
-  .category-nav {
+  .categoryNav {
     position: relative;
     display: flex;
     justify-content: flex-start;
@@ -60,7 +40,7 @@
     }
   }
 
-  .detail-contents {
+  .detailContents {
     position: relative;
     display: flex;
     justify-content: center;
@@ -68,7 +48,7 @@
     margin: 0 auto;
     padding: 0 60px;
 
-    .product-thumnail {
+    .productThumnail {
       display: flex;
       flex-direction: column;
       width: 550px;
@@ -81,7 +61,7 @@
         resize: both;
       }
 
-      .detail-slider {
+      .detailSlider {
         display: flex;
         justify-content: space-between;
         img {
@@ -91,34 +71,34 @@
       }
     }
 
-    .product-detail-right {
+    .productDetailRight {
       display: flex;
       flex-direction: column;
       width: 560px;
       height: auto;
       padding-left: 70px;
 
-      .detail-info {
+      .detailInfo {
         position: relative;
         width: 100%;
         height: auto;
         padding-top: 17px;
         border-top: 1px solid #ececec;
-        @include contents();
+        @extend %contents;
 
-        .contents-highlight {
+        .contentsHighlight {
           display: inline-block;
           margin-left: 4px;
           font-weight: 600;
           color: #46cfa7;
         }
 
-        .detail-option {
+        .detailOption {
           margin-top: 17px;
           padding-top: 17px;
           border-top: 1px solid #ececec;
 
-          .subscribe-option {
+          .subscribeOption {
             width: 100%;
           }
         }
