@@ -61,6 +61,14 @@
         @extend %input-setting;
       }
 
+      .validation {
+        margin-top: 15px;
+        padding-left: 20px;
+        font-family: "Noto Sans KR";
+        font-size: 13px;
+        color: #ff4e50;
+      }
+
       .inputColorChange {
         @extend %input-setting;
         border: 1px solid #ffcd32;
