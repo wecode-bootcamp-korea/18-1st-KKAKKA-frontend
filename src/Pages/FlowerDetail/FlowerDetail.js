@@ -2,8 +2,6 @@ import React, { Component } from "react";
 import { Link, withRouter } from "react-router-dom";
 import ProductInfo from "./Components/ProductInfo/ProductInfo";
 import ProductOption from "./Components/ProductOption/ProductOption";
-import ProductSum from "./Components/ProductSum/ProductSum";
-import ProductBtn from "./Components/ProductBtn/ProductBtn";
 import "./FlowerDetail.scss";
 
 class FlowerDetail extends Component {
@@ -88,13 +86,7 @@ class FlowerDetail extends Component {
             <div className="detailInfo">
               <span className="contents">정기구독 전상품</span>
               <p className="contentsHighlight">무료배송!</p>
-              <div className="detailOption">
-                <div className="subscribeOption">
-                  <ProductOption />
-                  <ProductSum />
-                  <ProductBtn />
-                </div>
-              </div>
+              <ProductOption />
             </div>
           </div>
         </div>
