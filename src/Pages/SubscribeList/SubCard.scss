@@ -33,6 +33,7 @@
       width: 512px;
       height: 304px;
       object-fit: cover;
+      cursor: pointer;
     }
   }
 
@@ -47,6 +48,7 @@
     .title {
       @extend %title;
       margin-bottom: 10px;
+      cursor: pointer;
     }
 
     .price::after {

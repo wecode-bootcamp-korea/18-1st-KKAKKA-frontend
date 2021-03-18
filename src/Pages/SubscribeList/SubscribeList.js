@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import SubChild from "./SubChild";
+import SubCard from "./SubCard";
 import "./SubscribeList.scss";
 
 class SubscribeList extends Component {
@@ -24,8 +24,8 @@ class SubscribeList extends Component {
         });
       });
   }
-  // {this.state.currentId === 1 && <SubChild />};
-  // {this.state.currentId === 2 && <SubChild />};
+  // {this.state.currentId === 1 && <SubCard />};
+  // {this.state.currentId === 2 && <SubCard />};
   render() {
     const { subscribeList } = this.state;
     return (
@@ -49,8 +49,9 @@ class SubscribeList extends Component {
           </nav>
           {subscribeList.map(sub => {
             return (
-              <SubChild
+              <SubCard
                 key={sub.id}
+                id={sub.id}
                 itemComment={sub.itemComment}
                 productTitle={sub.prouductTitle}
                 price={sub.price}
