@@ -5,35 +5,17 @@ import DetailOption from "./Components/DetailOption/DetailOption";
 import "./SubDetailCard.scss";
 
 class SubDetailCard extends Component {
-  constructor() {
-    super();
-    this.state = {
-      subscribeList: [],
-    };
-  }
-
-  fetchData() {
-    fetch(`/data/subscribeData.json/${this.props.match.params.id}`)
-      .then(res => res.json())
-      .then(data => {
-        this.setState({
-          subscribeList: data,
-        });
-      });
-  }
-
-  componentDidMount() {
-    this.fetchData();
-  }
-
-  componentDidUpdate(preProps, preState) {
-    if (preProps.match.params.id !== this.props.match.params.id) {
-      this.fetchData();
-    }
-  }
-
   render() {
-    const { subscribeList } = this.state;
+    console.log("SubDetailCar", this.props);
+    const {
+      id,
+      itemComment,
+      productTitle,
+      price,
+      contents,
+      productImg,
+    } = this.props;
+
     return (
       <section className="detailContainer">
         <ul className="categoryNav">
@@ -85,22 +67,18 @@ class SubDetailCard extends Component {
             </div>
           </div>
           <div className="productDetailRight">
-            {subscribeList.map(sub => {
-              return (
-                <DetailInfo
-                  key={sub.id}
-                  itemComment={sub.itemComment}
-                  prouductTitle={sub.prouductTitle}
-                  price={sub.price}
-                  contents={sub.contents}
-                  productImg={sub.productImg}
-                />
-              );
-            })}
+            <DetailInfo
+              key={id}
+              itemComment={itemComment}
+              prouductTitle={productTitle}
+              price={price}
+              contents={contents}
+              productImg={productImg}
+            />
             <div className="detailInfo">
               <span className="contents">정기구독 전상품</span>
               <p className="contentsHighlight">무료배송!</p>
-              <DetailOption />
+              <DetailOption key={id} price={price} />;
             </div>
           </div>
         </div>

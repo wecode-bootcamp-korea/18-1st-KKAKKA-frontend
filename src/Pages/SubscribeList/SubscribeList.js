@@ -28,6 +28,7 @@ class SubscribeList extends Component {
   }
 
   render() {
+    console.log("SubscribeList");
     const { subscribeList } = this.state;
     return (
       <section className="sublistContainer">

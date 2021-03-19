@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { withRouter } from "react-router-dom";
 import "./DetailOption.scss";
 
 class DetailOption extends Component {
@@ -8,6 +9,7 @@ class DetailOption extends Component {
       // api 연결 이후 fetch 로그인 상태 인증으로 로직 변경
       isLogin: true,
       count: 1,
+      subscribeList: [],
     };
   }
 
@@ -160,4 +162,4 @@ class DetailOption extends Component {
   }
 }
 
-export default DetailOption;
+export default withRouter(DetailOption);
