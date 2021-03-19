@@ -12,7 +12,7 @@ class FlowerDetail extends Component {
         {
           id: 1,
           itemComment: "핑크빛 분위기의 완성",
-          prouductTitle: "폴인로즈 에디션",
+          productTitle: "폴인로즈 에디션",
           price: 59900,
           isDiscount: true,
           discountPer: 0.1,
@@ -40,16 +40,6 @@ class FlowerDetail extends Component {
       ],
     };
   }
-
-  // componentDidMount() {
-  //   fetch("/data/subscribeData.json")
-  //     .then(res => res.json())
-  //     .then(data => {
-  //       this.setState({
-  //         subscribeList: data,
-  //       });
-  //     });
-  // }
 
   render() {
     const { subscribeList } = this.state;

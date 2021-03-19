@@ -8,7 +8,9 @@ class ProductOption extends Component {
     this.state = {
       // api 연결 이후 fetch 로그인 상태 인증으로 로직 변경
       isLogin: true,
-      count: 1,
+      orderCount: 1,
+      productPrice: "",
+      totalPrice: "",
     };
   }
 
@@ -30,20 +32,31 @@ class ProductOption extends Component {
 
   addCount = () => {
     this.setState({
-      count: this.state.count + 1,
+      orderCount: this.state.orderCount + 1,
     });
   };
 
   minusCount = () => {
-    if (this.state.count > 1) {
+    if (this.state.orderCount > 1) {
       this.setState({
-        count: this.state.count - 1,
+        orderCount: this.state.orderCount - 1,
       });
     }
   };
 
+  addProductPrice = () => {
+    this.setState({
+      productPrice: this.props.resultPrice * this.state.orderCount,
+    });
+  };
+
+  addTotalPrice = () => {
+    this.setState({
+      totalPrice: this.addProcuct(),
+    });
+  };
+
   render() {
-    console.log("props:", this.props);
     const { resultPrice } = this.props;
     return (
       <>
@@ -85,7 +98,7 @@ class ProductOption extends Component {
                       >
                         -
                       </button>
-                      <span>{this.state.count}</span>
+                      <span>{this.state.orderCount}</span>
                       <button
                         type="button"
                         className="btnAmount"
@@ -131,13 +144,17 @@ class ProductOption extends Component {
             <span className="contents">상품 가격</span>
             <p className="subContents">구독 기간을 선택해주세요</p>
           </div>
-          <span className="price">{resultPrice.toLocaleString()}</span>
+          <span className="price">
+            {(resultPrice * this.state.orderCount).toLocaleString()}
+          </span>
         </div>
         <div className="totalPrice">
           <p className="shippingFree">무료배송</p>
           <div>
             <p className="subContents">총 주문금액</p>
-            <h2 className="title price">{resultPrice.toLocaleString()}</h2>
+            <h2 className="title price">
+              {(resultPrice * this.state.orderCount).toLocaleString()}
+            </h2>
           </div>
         </div>
 
