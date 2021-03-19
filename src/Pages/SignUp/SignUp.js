@@ -11,50 +11,74 @@ class SignUp extends Component {
       passwordCheck: "",
       name: "",
       phone: "",
+      isEmailvalid: true,
+      isPwdInputValid: true,
+      isPwdLengthValid: true,
+      inputFillPass: true,
     };
   }
-
+  //input값 받는 함수
   handleInput = e => {
     this.setState({
       [e.target.name]: e.target.value,
     });
   };
 
-  pwdCheck() {
+  // 비밀번호 재입력 체크 > state갑 업데이트 함수
+  pwdInputCheck() {
     const { password, passwordCheck } = this.state;
     if (password !== passwordCheck) {
-      alert("different password");
+      this.setState({
+        isPwdInputValid: false,
+      });
     }
   }
 
+  //비밀번호 글자수 (8자) 체크 함수
+  pwdLengthCheck() {
+    if (this.state.password.length < 9) {
+      this.setState({
+        isPwdLengthValid: false,
+      });
+    }
+  }
+
+  //input 창에 다 들어가있는지 확인하는 함수
   inputCheck() {
     const { email, password, passwordCheck, name, phone } = this.state;
-    if ((email, password, passwordCheck, name, phone === "")) {
-      alert("input your value");
+    if (!(email && password && passwordCheck && name && phone)) {
+      this.setState({
+        inputFillPass: false,
+      });
     }
   }
 
-  /* onchange > 정규식 
-    함수 ( 변수에 조건에 맞는 정규식 표현 쓰고 , 비번) > if 함수 써서 조건문 돌리고 console.log("기다" "아니다")
-    변수.test(this.state.email)
-  */
-
+  //이메일 유효성 검사 후 state값을 바꾸는 함수
   emailValidCheck() {
     const regExpression = /^([0-9a-zA-Z_\.-]+)@([0-9a-zA-Z_-]+)(\.[0-9a-zA-Z_-]+){1,12}$/i;
 
     if (!regExpression.test(this.state.email)) {
-      alert("형식에 맞지 않는 이메일입니다.");
+      this.setState({
+        isEmailvalid: false,
+      });
     }
   }
 
-  pwdLengthCheck() {
-    if (this.state.password.length < 9) {
-      alert("비밀번호가 8자 미만입니다.");
-    }
+  //onClick시 실행할 모든 검사 함수
+  validCheck() {
+    this.emailValidCheck();
+    this.pwdInputCheck();
+    this.pwdLengthCheck();
+    this.inputCheck();
   }
 
   render() {
-    console.log(this.state);
+    const {
+      isEmailvalid,
+      isPwdInputValid,
+      isPwdLengthValid,
+      inputFillPass,
+    } = this.state;
     return (
       <div className="signUp">
         <div className="headBox">
@@ -72,6 +96,9 @@ class SignUp extends Component {
                   placeholder="예)kkakka@kkakka.kr"
                   onChange={this.handleInput}
                 />
+                {!isEmailvalid && (
+                  <p className="warningText">Email 형식이 올바르지 않습니다.</p>
+                )}
               </div>
               <div className="pwdBox">
                 <span className="inputLabelText">비밀번호</span>
@@ -82,6 +109,9 @@ class SignUp extends Component {
                   placeholder="비밀번호를 입력해주세요."
                   onChange={this.handleInput}
                 />
+                {!isPwdLengthValid && (
+                  <p className="warningText">비밀번호는 8자 이상입니다.</p>
+                )}
               </div>
               <div className="pwdCheckBox">
                 <span className="inputLabelText">비밀번호확인</span>
@@ -92,6 +122,9 @@ class SignUp extends Component {
                   placeholder="비밀번호를 한 번 더 입력해주세요."
                   onChange={this.handleInput}
                 />
+                {!isPwdInputValid && (
+                  <p className="warningText">비밀번호가 일치하지 않습니다.</p>
+                )}
               </div>
               <div className="nameBox">
                 <span className="inputLabelText">이름</span>
@@ -112,18 +145,14 @@ class SignUp extends Component {
                   onChange={this.handleInput}
                 />
               </div>
+              {!inputFillPass && (
+                <p className="warningText">모든 값을 입력해주세요.</p>
+              )}
             </form>
           </div>
         </div>
         <div className="signUpBtnBox">
-          {/* this.pwdCheckor.bind(this) */}
-          <button
-            className="signUpBtn"
-            onClick={() => {
-              this.pwdCheck();
-              this.inputCheck();
-            }}
-          >
+          <button className="signUpBtn" onClick={this.validCheck.bind(this)}>
             회원가입
           </button>
         </div>

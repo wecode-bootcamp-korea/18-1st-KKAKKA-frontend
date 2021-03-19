@@ -1,6 +1,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap");
 
-%btn-setting {
+%btnSetting {
   width: 350px;
   height: 48px;
   border: none;
@@ -10,7 +10,7 @@
   background-color: #ececec;
 }
 
-%input-setting {
+%inputSetting {
   width: 350px;
   height: 44px;
   padding: 0 20px;
@@ -23,6 +23,13 @@
   &:focus {
     border: 1px solid #ffcd32;
   }
+}
+
+%warningTextSetting {
+  padding-left: 130px;
+  padding-bottom: 5px;
+  font-size: 13px;
+  color: #ff4e50;
 }
 
 .signUp {
@@ -63,13 +70,16 @@
     .pwdCheckInput,
     .nameInput,
     .phoneNumInput {
-      @extend %input-setting;
+      @extend %inputSetting;
+    }
+    .warningText {
+      @extend %warningTextSetting;
     }
   }
   .signUpBtnBox {
     margin-left: 33px;
     .signUpBtn {
-      @extend %btn-setting;
+      @extend %btnSetting;
     }
   }
 }
