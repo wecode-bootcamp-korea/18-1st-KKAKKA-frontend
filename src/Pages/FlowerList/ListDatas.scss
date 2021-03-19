@@ -1,0 +1,70 @@
+.listDatas {
+  border: 1px solid black;
+}
+
+/*.list {width: 85vw;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-gap: 20px;
+}*/
+
+img {
+  width: 100%;
+  height: auto;
+}
+
+.isFreeShipping {
+  display: inline;
+  height: 20px;
+  margin-bottom: 10px;
+  padding: 0 8px;
+  border-radius: 10px;
+  border: 1px solid #ececec;
+  background-color: #ececec;
+  font-size: 9px;
+  line-height: 18px;
+  font-weight: 300px;
+  letter-spacing: -0.14px;
+}
+
+// .detailDiscount {
+//     .sub-title {
+//       font-size: 16px;
+//       line-height: 24px;
+//       font-weight: 100;
+//       letter-spacing: -0.24px;
+//       color: #787878;
+//     }
+//   .discountPer {
+//     font-weight: 700;
+//     color: #ff4e50;
+//     &::after {
+//       content: "%";
+//       padding-right: 6px;
+//     }
+//   }
+//     .resultPrice {
+//       margin-right: 10px;
+//       font-size: 16px;
+//       line-height: 24px;
+//       font-weight: 100;
+//       letter-spacing: -0.24px;
+//       color: #787878;
+//       text-decoration: line-through;
+//       &::after {
+//         content: "원";
+//       }
+//     }
+//     .title {
+//       display: inline-block;
+//       font-size: 26px;
+//       line-height: 38px;
+//       font-weight: 500;
+//       letter-spacing: -0.39px;
+//       color: #222;
+//     }
+//   .price:after {
+//     content: "원";
+//   }
+// }

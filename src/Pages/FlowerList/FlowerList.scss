@@ -1,0 +1,17 @@
+.flowerListMain {
+  padding: 15%;
+}
+
+.opener {
+  //display: block;
+  float: right;
+}
+
+.list {
+  display: flex;
+  //padding: 15%;
+  text-align: center;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-gap: 20px;
+}
