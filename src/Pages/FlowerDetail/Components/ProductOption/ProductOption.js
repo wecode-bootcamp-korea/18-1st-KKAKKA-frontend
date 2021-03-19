@@ -9,6 +9,7 @@ class ProductOption extends Component {
       // api 연결 이후 fetch 로그인 상태 인증으로 로직 변경
       isLogin: true,
       orderCount: 1,
+      hasLetter: true,
       productPrice: "",
       totalPrice: "",
     };
@@ -44,16 +45,28 @@ class ProductOption extends Component {
     }
   };
 
-  addProductPrice = () => {
+  chkHasLetter = () => {
     this.setState({
-      productPrice: this.props.resultPrice * this.state.orderCount,
+      hasLetter: !this.state.hasLetter,
+    });
+  };
+
+  changePrice = () => {
+    let updatePrice = this.props.resultPrice * this.state.orderCount;
+    this.setState({
+      productPrice: updatePrice(),
     });
   };
 
   addTotalPrice = () => {
-    this.setState({
-      totalPrice: this.addProcuct(),
-    });
+    this.setState(
+      {
+        totalPrice: this.addProcuct(),
+      },
+      () => {
+        this.changePrice();
+      }
+    );
   };
 
   render() {
@@ -114,24 +127,30 @@ class ProductOption extends Component {
                     <span className="contents">편지 추가</span>
                   </th>
                   <td>
-                    <div className="letterCheckboxes">
+                    <form className="letterCheckboxes">
                       <div className="letterCheckbox">
                         <input
+                          className="contents"
+                          id="letter"
                           type="radio"
-                          className="checked"
-                          data-value="True"
+                          name="letter"
+                          value="letter"
+                          checked={true}
                         />
-                        <span className="contents">추가할게요 (+2,500원)</span>
+                        <label for="letter">추가할게요(FREE)</label>
                       </div>
                       <div className="letterCheckbox">
                         <input
+                          className="contents"
+                          id="letterNo"
                           type="radio"
-                          className="checked"
-                          data-value="False"
+                          name="letter"
+                          value="noLetter"
+                          checked={false}
                         />
-                        <span className="contents">추가하지 않을게요</span>
+                        <label for="letterNo">추가하지 않을게요</label>
                       </div>
-                    </div>
+                    </form>
                   </td>
                 </tr>
               </tbody>

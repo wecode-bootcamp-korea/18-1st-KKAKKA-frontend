@@ -2,7 +2,7 @@
   {
     "id": 1,
     "itemComment": "핑크빛 분위기의 완성",
-    "prouductTitle": "폴인로즈 에디션",
+    "productTitle": "폴인로즈 에디션",
     "price": 59900,
     "isDiscount": true,
     "discountPer": 10,
@@ -24,7 +24,7 @@
   {
     "id": 2,
     "itemComment": "상큼한 에너지",
-    "prouductTitle": "금귤에디션",
+    "productTitle": "금귤에디션",
     "price": 42900,
     "isDiscount": true,
     "discountPer": 10,
@@ -46,7 +46,7 @@
   {
     "id": 3,
     "itemComment": "순수한 마음을 전하는",
-    "prouductTitle": "그리너리 릴리 에디션",
+    "productTitle": "그리너리 릴리 에디션",
     "price": 53900,
     "isDiscount": false,
     "discountPer": null,
@@ -68,7 +68,7 @@
   {
     "id": 4,
     "itemComment": "상큼한 에너지",
-    "prouductTitle": "금귤에디션",
+    "productTitle": "금귤에디션",
     "price": 42900,
     "isDiscount": true,
     "discountPer": 10,
@@ -90,7 +90,7 @@
   {
     "id": 5,
     "itemComment": "핑크빛 분위기의 완성",
-    "prouductTitle": "폴인로즈 에디션",
+    "productTitle": "폴인로즈 에디션",
     "price": 59900,
     "isDiscount": true,
     "discountPer": 10,
@@ -112,7 +112,7 @@
   {
     "id": 6,
     "itemComment": "상큼한 에너지",
-    "prouductTitle": "금귤에디션",
+    "productTitle": "금귤에디션",
     "price": 42900,
     "isDiscount": true,
     "discountPer": 10,
@@ -134,7 +134,7 @@
   {
     "id": 7,
     "itemComment": "핑크빛 분위기의 완성",
-    "prouductTitle": "폴인로즈 에디션",
+    "productTitle": "폴인로즈 에디션",
     "price": 59900,
     "isDiscount": true,
     "discountPer": 10,
@@ -156,7 +156,7 @@
   {
     "id": 8,
     "itemComment": "상큼한 에너지",
-    "prouductTitle": "금귤에디션",
+    "productTitle": "금귤에디션",
     "price": 42900,
     "isDiscount": true,
     "discountPer": 10,
