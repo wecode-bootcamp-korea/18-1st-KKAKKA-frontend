@@ -15,8 +15,9 @@ class Login extends Component {
 
   handleInput = e => {
     e.preventDefault();
+    const { name, value } = e.target;
     this.setState({
-      [e.target.name]: e.target.value,
+      [name]: value,
     });
   };
 
@@ -24,7 +25,7 @@ class Login extends Component {
     e.preventDefault();
     const regExpression = /^([0-9a-zA-Z_\.-]+)@([0-9a-zA-Z_-]+)(\.[0-9a-zA-Z_-]+){1,12}$/i;
 
-    if (regExpression.test(this.state.email) === false) {
+    if (!regExpression.test(this.state.email)) {
       this.setState({
         isValid: false,
       });
@@ -48,7 +49,7 @@ class Login extends Component {
 
   render() {
     console.log(this.state);
-    const { email, password, isValid } = this.state;
+    const { isValid } = this.state;
     return (
       <div className="login">
         <div className="loginBox">
