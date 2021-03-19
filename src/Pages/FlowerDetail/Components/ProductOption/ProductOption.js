@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { withRouter } from "react-router-dom";
 import "./ProductOption.scss";
 
 class ProductOption extends Component {
@@ -7,6 +8,7 @@ class ProductOption extends Component {
     this.state = {
       // api 연결 이후 fetch 로그인 상태 인증으로 로직 변경
       isLogin: true,
+      count: 1,
     };
   }
 
@@ -26,8 +28,23 @@ class ProductOption extends Component {
     }
   };
 
+  addCount = () => {
+    this.setState({
+      count: this.state.count + 1,
+    });
+  };
+
+  minusCount = () => {
+    if (this.state.count > 1) {
+      this.setState({
+        count: this.state.count - 1,
+      });
+    }
+  };
+
   render() {
-    // const { } = this.props;
+    console.log("props:", this.props);
+    const { resultPrice } = this.props;
     return (
       <>
         <div className="detailOption">
@@ -44,7 +61,7 @@ class ProductOption extends Component {
                   </th>
                   <td>
                     <select>
-                      <label for="option">구독 옵션</label>
+                      <label htmlFor="option">구독 옵션</label>
                       <option className="selected">
                         구독기간을 선택해주세요
                       </option>
@@ -61,11 +78,19 @@ class ProductOption extends Component {
                   </th>
                   <td>
                     <div className="detailAmount">
-                      <button type="button" className="btnAmount">
+                      <button
+                        type="button"
+                        className="btnAmount"
+                        onClick={this.minusCount}
+                      >
                         -
                       </button>
-                      <span>1</span>
-                      <button type="button" className="btnAmount">
+                      <span>{this.state.count}</span>
+                      <button
+                        type="button"
+                        className="btnAmount"
+                        onClick={this.addCount}
+                      >
                         +
                       </button>
                     </div>
@@ -106,13 +131,13 @@ class ProductOption extends Component {
             <span className="contents">상품 가격</span>
             <p className="subContents">구독 기간을 선택해주세요</p>
           </div>
-          <span className="price">35,000</span>
+          <span className="price">{resultPrice.toLocaleString()}</span>
         </div>
         <div className="totalPrice">
           <p className="shippingFree">무료배송</p>
           <div>
             <p className="subContents">총 주문금액</p>
-            <h2 className="title price">35,000</h2>
+            <h2 className="title price">{resultPrice.toLocaleString()}</h2>
           </div>
         </div>
 
@@ -137,4 +162,4 @@ class ProductOption extends Component {
   }
 }
 
-export default ProductOption;
+export default withRouter(ProductOption);
