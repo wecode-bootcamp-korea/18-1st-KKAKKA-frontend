@@ -2,14 +2,13 @@
   padding: 15%;
 }
 
-.opener {
-  //display: block;
-  float: right;
+.sortButton {
+  display: flex;
 }
 
 .list {
   display: flex;
-  //padding: 15%;
+
   text-align: center;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;

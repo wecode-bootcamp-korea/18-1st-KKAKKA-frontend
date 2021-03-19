@@ -3,7 +3,6 @@ import "./ListDatas.scss";
 
 class ListDatas extends React.Component {
   render() {
-    //console.log(this.props.productImg);
     const {
       id,
       itemComment,

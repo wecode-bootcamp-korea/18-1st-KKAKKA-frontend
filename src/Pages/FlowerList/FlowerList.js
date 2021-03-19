@@ -14,93 +14,53 @@ class FlowerList extends Component {
     fetch("/data/FlowerList.json")
       .then(res => res.json())
       .then(data => {
-        //console.log(data);
         this.setState({
           listDatas: data,
         });
       });
   }
 
-  // startLowPrice = (a,b) => {
-  //   this.setState({
-  //     listDatas: this.state.listDatas.sort(a.{resultPrice}-(b.{resultPrice}),
+  startBrandnew = () => {
+    const { listDatas } = this.state;
+    this.setState({
+      listDatas: listDatas.sort((a, b) => a.id - b.id),
+    });
+  };
 
-  //   });
+  startLowPrice = () => {
+    const { listDatas } = this.state;
+    this.setState({
+      listDatas: listDatas.sort((a, b) => a.resultPrice - b.resultPrice),
+    });
+  };
+
+  startHighPrice = () => {
+    const { listDatas } = this.state;
+    this.setState({
+      listDatas: listDatas.sort((a, b) => b.resultPrice - a.resultPrice),
+    });
+  };
+  // startLowPrice = e => {
+  //   this.state.listDatas.sort((a, b) => a - b);
   // };
 
-  // fetch('https://jsonplaceholder.typicode.com/posts').then((res) => res.json())
-  // .then((data) => {
-  //     data.sort((a, b) => a.userId - b.userId);
-  //     this.setState({data: data});
-
-  // });
-
-  //   listDatas.sort((a, b) => {
-  //     return parseFloat(a.price) - parseFloat(b.price);
-  // });
-  // test.sort(function(a,b) {
-
-  //   return parseFloat(a.order) - parseFloat(b.order);
-
-  // });
-
-  // var sortingNumbers1 = (a,b) => {
-
-  // 	return (a-b);
-
-  // }
-
   render() {
+    console.log(this.state.listDatas);
     const { listDatas } = this.state;
 
     return (
       <div className="flowerListMain">
-        <button class="startLowPrice" onClick={this.startLowPrice}>
-          가격낮은순
-        </button>
-
-        <div class="sort">
-          <div class="select_sort_product">
-            <span class="blind">상품 정렬 방식 :</span>
-            <span class="selected">신상품순</span>
-            <button type="button" class="opener">
-              <span class="blind">정렬방식 변경</span>
-            </button>
-            <ul class="other">
-              <li class="type">
-                <button
-                  type="button"
-                  class="change"
-                  data-text="추천순"
-                  data-code="PICK"
-                >
-                  추천순<span class="blind">정렬</span>
-                </button>
-              </li>
-              <li class="type">
-                <button
-                  type="button"
-                  class="change"
-                  data-text="인기순"
-                  data-code="BEST"
-                >
-                  인기순<span class="blind">정렬</span>
-                </button>
-              </li>
-              <li class="type is_select">
-                <button
-                  type="button"
-                  class="change"
-                  data-text="신상품순"
-                  data-code="NEW"
-                >
-                  신상품순<span class="blind">정렬</span>
-                </button>
-              </li>
-            </ul>
-          </div>
+        <div className="sortButton">
+          <button class="startLowPrice" onClick={this.startBrandnew}>
+            신상품순
+          </button>
+          <button class="startLowPrice" onClick={this.startLowPrice}>
+            가격낮은순
+          </button>
+          <button class="startHighPrice" onClick={this.startHighPrice}>
+            가격높은순
+          </button>
         </div>
-
         <div className="list">
           {listDatas.map(list => {
             return (
