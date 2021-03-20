@@ -19,10 +19,24 @@
       .iconBox {
         border: 1px solid black;
       }
+
+      .upperBtn {
+        outline: transparent;
+        background-color: transparent;
+        border: 1px solid white;
+        border-radius: 30px;
+      }
     }
 
     .lowerBox {
       border: 1px solid purple;
+
+      .bottomBtn {
+        outline: transparent;
+        border: none;
+        background-color: transparent;
+        cursor: pointer;
+      }
     }
   }
 }
