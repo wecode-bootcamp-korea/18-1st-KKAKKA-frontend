@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { withRouter } from "react-router";
+import axios from "axios";
 import "./SignUp.scss";
 
 class SignUp extends Component {
@@ -66,25 +67,46 @@ class SignUp extends Component {
 
   //fetch 함수로 백엔드와 통신
   getInfo() {
-    fetch("api주소", {
+    fetch("http://127.30.1.53:8000/account/signup", {
       method: "POST",
       body: JSON.stringify({
-        email: this.state.id,
-        password: this.state.pw,
+        email: this.state.email,
+        password: this.state.password,
+        name: this.state.name,
+        phone: this.state.phone,
       }),
     })
       .then(response => response.json())
-      .then(result => console.log("결과: ", result));
+      .then(result => console.log("결과: ", result))
+      .catch(error => console.error("에러:", error));
+  }
+
+  getInfoFakeServer() {
+    axios({
+      method: "POST",
+      url: "https://reqres.in/api/users",
+      data: {
+        name: "morpheus",
+        job: "leader",
+      },
+    })
+      .then(res => {
+        console.log(res);
+      })
+      .catch(error => {
+        console.log(error);
+        throw new Error(error);
+      });
   }
 
   //onClick시 실행할 모든 검사 함수
-  validCheck() {
-    this.emailValidCheck();
-    this.pwdInputCheck();
-    this.pwdLengthCheck();
-    this.inputCheck();
-    this.getInfo();
-  }
+  // validCheck() {
+  //   this.emailValidCheck();
+  //   this.pwdInputCheck();
+  //   this.pwdLengthCheck();
+  //   this.inputCheck();
+  //   this.getInfo();
+  // }
 
   render() {
     const {
@@ -124,7 +146,7 @@ class SignUp extends Component {
                   onChange={this.handleInput}
                 />
                 {!isPwdLengthValid && (
-                  <p className="warningText">비밀번호는 8자 이상입니다.</p>
+                  <p className="warningText">비밀번호는 9자 이상입니다.</p>
                 )}
               </div>
               <div className="pwdCheckBox">
@@ -166,7 +188,10 @@ class SignUp extends Component {
           </div>
         </div>
         <div className="signUpBtnBox">
-          <button className="signUpBtn" onClick={this.validCheck.bind(this)}>
+          <button
+            className="signUpBtn"
+            onClick={this.getInfoFakeServer.bind(this)}
+          >
             회원가입
           </button>
         </div>
