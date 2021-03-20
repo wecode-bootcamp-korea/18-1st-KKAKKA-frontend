@@ -24,7 +24,7 @@ class SignUp extends Component {
     });
   };
 
-  // 비밀번호 재입력 체크 > state갑 업데이트 함수
+  // 비밀번호 재입력 체크 > state값 업데이트 함수
   pwdInputCheck() {
     const { password, passwordCheck } = this.state;
     if (password !== passwordCheck) {
@@ -55,7 +55,7 @@ class SignUp extends Component {
 
   //이메일 유효성 검사 후 state값을 바꾸는 함수
   emailValidCheck() {
-    const regExpression = /^([0-9a-zA-Z_\.-]+)@([0-9a-zA-Z_-]+)(\.[0-9a-zA-Z_-]+){1,12}$/i;
+    const regExpression = /^[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*.[a-zA-Z]{2,3}$/i;
 
     if (!regExpression.test(this.state.email)) {
       this.setState({
@@ -64,12 +64,26 @@ class SignUp extends Component {
     }
   }
 
+  //fetch 함수로 백엔드와 통신
+  getInfo() {
+    fetch("api주소", {
+      method: "POST",
+      body: JSON.stringify({
+        email: this.state.id,
+        password: this.state.pw,
+      }),
+    })
+      .then(response => response.json())
+      .then(result => console.log("결과: ", result));
+  }
+
   //onClick시 실행할 모든 검사 함수
   validCheck() {
     this.emailValidCheck();
     this.pwdInputCheck();
     this.pwdLengthCheck();
     this.inputCheck();
+    this.getInfo();
   }
 
   render() {
