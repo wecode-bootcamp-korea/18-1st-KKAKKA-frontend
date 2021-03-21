@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { withRouter } from "react-router";
+import Congratulation from "./Congratulation";
 import axios from "axios";
 import "./SignUp.scss";
 
@@ -77,25 +78,27 @@ class SignUp extends Component {
       }),
     })
       .then(response => response.json())
-      .then(result => console.log("결과: ", result))
-      .catch(error => console.error("에러:", error));
+      .then(result => console.log("결과: ", result));
   }
 
+  //결과가 200이면 축하페이지로 넘어가기 props로 이름 데이터 전달
+  //결과가 존재한 아이디면 > alert창 띄우기
   getInfoFakeServer() {
     axios({
       method: "POST",
-      url: "https://reqres.in/api/users",
+      url: "http://192.168.0.13:8000/kkakka/signup",
       data: {
-        name: "morpheus",
-        job: "leader",
+        name: this.state.name,
+        email: this.state.email,
+        phone: this.state.phone,
+        password: this.state.password,
       },
     })
       .then(res => {
-        console.log(res);
+        console.log("결과 >>", res.data);
       })
       .catch(error => {
-        console.log(error);
-        throw new Error(error);
+        console.log("에러", error);
       });
   }
 
@@ -195,6 +198,7 @@ class SignUp extends Component {
             회원가입
           </button>
         </div>
+        <Congratulation userName={this.state.name} />
       </div>
     );
   }
