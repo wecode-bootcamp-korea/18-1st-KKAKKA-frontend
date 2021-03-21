@@ -4,11 +4,12 @@ import { BsPerson, BsBucket } from "react-icons/bs";
 import "./Nav.scss";
 
 class Nav extends React.Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.state = {
       // api 연결 이후 fetch 로그인 상태 인증으로 로직 변경
       isLogin: true,
+      ticking: false,
     };
   }
 
@@ -17,6 +18,26 @@ class Nav extends React.Component {
       this.props.history.push("/mypage");
     } else {
       this.props.history.push("/login");
+    }
+  };
+
+  componentDidMount() {
+    window.addEventListener("scroll", this.handleScroll);
+  }
+
+  componentWillUnmount() {
+    window.removeEventListener("scroll");
+  }
+
+  handleScroll = () => {
+    if (window.pageYOffset > 80) {
+      if (!this.state.nav) {
+        this.setState({ nav: false });
+      }
+    } else {
+      if (this.state.nav) {
+        this.setState({ nav: true });
+      }
     }
   };
 
@@ -37,7 +58,7 @@ class Nav extends React.Component {
             <p>(10000 포인트 지급!)</p>
           </li>
         </div>
-        <nav className="navbar navUp">
+        <nav className="navbar">
           <div className="navLogo">
             <Link to="./main">KKAKKA</Link>
           </div>
@@ -65,7 +86,7 @@ class Nav extends React.Component {
               <BsPerson
                 value={{ className: "navIcon" }}
                 size="2em"
-                verticalAlign="middle"
+                verticalalign="middle"
                 onClick={this.goToMypage}
               />
             </li>
@@ -74,7 +95,7 @@ class Nav extends React.Component {
                 <BsBucket
                   value={{ className: "navIcon" }}
                   size="2em"
-                  verticalAlign="middle"
+                  verticalalign="middle"
                 />
               </Link>
             </li>
