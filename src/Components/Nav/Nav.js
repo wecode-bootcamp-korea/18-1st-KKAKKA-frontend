@@ -27,7 +27,7 @@ class Nav extends React.Component {
   }
 
   componentWillUnmount() {
-    window.removeEventListener("scroll");
+    window.removeEventListener("scroll", this.handleScroll);
   }
 
   handleScroll = () => {
@@ -52,33 +52,33 @@ class Nav extends React.Component {
         </div>
         <div className="navInfo">
           <li className="navUser">
-            <Link to="./login">로그인</Link>
+            <Link to="../login">로그인</Link>
           </li>
           <li className="navUser">
-            <Link to="./signup">회원가입</Link>
+            <Link to="../signup">회원가입</Link>
             <p>(10000 포인트 지급!)</p>
           </li>
         </div>
         <nav className={`navbar ${this.state.navTop && "sticky"}`}>
           <div className="navLogo">
-            <Link to="./main">KKAKKA</Link>
+            <Link to="../main">KKAKKA</Link>
           </div>
 
           <ul className="navMenu">
             <li>
-              <Link to="./subscribe-list">쿠키 정기구독</Link>
+              <Link to="../subscribe-list">쿠키 정기구독</Link>
             </li>
             <li>
-              <Link to="./flower-list">쿠키쿠키</Link>
+              <Link to="../flower-list">쿠키쿠키</Link>
             </li>
             <li>
-              <Link to="/flower-class-list">쿠킹클래스</Link>
+              <Link to="../flower-class-list">쿠킹클래스</Link>
             </li>
             <li>
-              <Link to="./main">쿠킹샵</Link>
+              <Link to="../main">쿠킹샵</Link>
             </li>
             <li>
-              <Link to="./main">이벤트</Link>
+              <Link to="../main">이벤트</Link>
             </li>
           </ul>
 
