@@ -1,0 +1,43 @@
+.letterContainer {
+  h4 {
+  }
+  .letterBox {
+    .letterHeader {
+      .letterTag {
+      }
+      .noText {
+      }
+    }
+    .letterBody {
+      .inputLetter {
+        .text {
+        }
+        p {
+        }
+      }
+      .previewLetter {
+        .textview {
+        }
+        p {
+        }
+      }
+    }
+    .letterFotter {
+      .letterBtns {
+        .letterBtn {
+          width: 234px;
+          height: 50px;
+          margin-left: 12px;
+          font-size: 16px;
+          background-color: #fff;
+          color: #626262;
+
+          &.next {
+            background-color: #3a3a3a;
+            color: #fff;
+          }
+        }
+      }
+    }
+  }
+}
