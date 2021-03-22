@@ -39,7 +39,7 @@ class Routes extends React.Component {
           <Route exact path="/subscribe-list" component={SubscribeList} />
           <Route
             exact
-            path="/register-congratulation"
+            path="/signup-congratulation"
             component={Congratulation}
           />
         </Switch>

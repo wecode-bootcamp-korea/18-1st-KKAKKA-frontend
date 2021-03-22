@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import { withRouter } from "react-router";
-import Congratulation from "./Congratulation";
-import axios from "axios";
+import { signupAPI } from "../../config";
 import "./SignUp.scss";
 
 class SignUp extends Component {
@@ -26,37 +25,37 @@ class SignUp extends Component {
     });
   };
 
-  // 비밀번호 재입력 체크 > state값 업데이트 함수
-  pwdInputCheck() {
+  // 비밀번호 재입력 체크
+  pwdInputCheck = () => {
     const { password, passwordCheck } = this.state;
     if (password !== passwordCheck) {
       this.setState({
         isPwdInputValid: false,
       });
     }
-  }
+  };
 
-  //비밀번호 글자수 (8자) 체크 함수
-  pwdLengthCheck() {
+  //비밀번호 글자수 (9자) 체크 함수
+  pwdLengthCheck = () => {
     if (this.state.password.length < 9) {
       this.setState({
         isPwdLengthValid: false,
       });
     }
-  }
+  };
 
   //input 창에 다 들어가있는지 확인하는 함수
-  inputCheck() {
+  inputCheck = () => {
     const { email, password, passwordCheck, name, phone } = this.state;
     if (!(email && password && passwordCheck && name && phone)) {
       this.setState({
         inputFillPass: false,
       });
     }
-  }
+  };
 
   //이메일 유효성 검사 후 state값을 바꾸는 함수
-  emailValidCheck() {
+  emailValidCheck = () => {
     const regExpression = /^[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*.[a-zA-Z]{2,3}$/i;
 
     if (!regExpression.test(this.state.email)) {
@@ -64,11 +63,11 @@ class SignUp extends Component {
         isEmailvalid: false,
       });
     }
-  }
+  };
 
   //fetch 함수로 백엔드와 통신
-  getInfo() {
-    fetch("http://127.30.1.53:8000/account/signup", {
+  getInfo = () => {
+    fetch(signupAPI, {
       method: "POST",
       body: JSON.stringify({
         email: this.state.email,
@@ -78,42 +77,38 @@ class SignUp extends Component {
       }),
     })
       .then(response => response.json())
-      .then(result => console.log("결과: ", result));
-  }
-
-  //결과가 200이면 축하페이지로 넘어가기 props로 이름 데이터 전달
-  //결과가 존재한 아이디면 > alert창 띄우기
-  getInfoFakeServer() {
-    axios({
-      method: "POST",
-      url: "http://192.168.0.13:8000/kkakka/signup",
-      data: {
-        name: this.state.name,
-        email: this.state.email,
-        phone: this.state.phone,
-        password: this.state.password,
-      },
-    })
-      .then(res => {
-        console.log("결과 >>", res.data);
-      })
-      .catch(error => {
-        console.log("에러", error);
+      .then(result => {
+        if (result.message === "success_signup") {
+          this.props.history.push({
+            pathname: "/signup-congratulation",
+            state: { userName: this.state.name },
+          });
+        } else if (result.message === "error_signup_already") {
+          alert("이미 존재하는 이메일 또는 휴대폰 번호입니다.");
+        }
       });
-  }
+  };
 
-  //onClick시 실행할 모든 검사 함수
-  // validCheck() {
-  //   this.emailValidCheck();
-  //   this.pwdInputCheck();
-  //   this.pwdLengthCheck();
-  //   this.inputCheck();
-  //   this.getInfo();
-  // }
+  // onClick시 실행할 모든 검사 함수
+  validCheck = () => {
+    const {
+      isEmailvalid,
+      isPwdInputValid,
+      isPwdLengthValid,
+      inputFillPass,
+    } = this.state;
+
+    this.emailValidCheck();
+    this.pwdInputCheck();
+    this.pwdLengthCheck();
+    this.inputCheck();
+    if (isEmailvalid && isPwdInputValid && isPwdLengthValid && inputFillPass) {
+      this.getInfo();
+    }
+  };
 
   render() {
     const {
-      name,
       isEmailvalid,
       isPwdInputValid,
       isPwdLengthValid,
@@ -192,14 +187,10 @@ class SignUp extends Component {
           </div>
         </div>
         <div className="signUpBtnBox">
-          <button
-            className="signUpBtn"
-            onClick={this.getInfoFakeServer.bind(this)}
-          >
+          <button className="signUpBtn" onClick={this.validCheck}>
             회원가입
           </button>
         </div>
-        <Congratulation userName={name} />
       </div>
     );
   }

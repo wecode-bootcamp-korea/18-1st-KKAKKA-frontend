@@ -1,24 +1,21 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import "./Congratulation.scss";
-import couponImage from "./images/coupon.png";
-
-/* register-finish라는 새 url로 이동
-withrouterHOC로 조건이 200오케이면 이 페이지로 이동하면서
-props로 
- */
 
 export class Congratulation extends Component {
   render() {
-    console.log("props >>", this.props);
     return (
       <div className="congratulation">
         {/* Nav 컴포넌트 추가 예정 */}
         <div className="upperBox">
           <header className="textBox">
-            <p className="nameTxt">{`${this.props.userName}님,`}</p>
+            <p className="nameTxt">{`${this.props.location.state.userName}님,`}</p>
             <p className="congratTxt">KKAKKA의 회원이 되신걸 축하드립니다 :)</p>
-            <img src={couponImage} alt="coupon" className="couponImage" />
+            <img
+              src="/images/coupon.png"
+              alt="coupon"
+              className="couponImage"
+            />
           </header>
         </div>
 
