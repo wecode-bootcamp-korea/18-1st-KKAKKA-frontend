@@ -113,6 +113,7 @@ class SignUp extends Component {
 
   render() {
     const {
+      name,
       isEmailvalid,
       isPwdInputValid,
       isPwdLengthValid,
@@ -198,7 +199,7 @@ class SignUp extends Component {
             회원가입
           </button>
         </div>
-        <Congratulation userName={this.state.name} />
+        <Congratulation userName={name} />
       </div>
     );
   }

@@ -13,6 +13,7 @@ export class Congratulation extends Component {
     console.log("props >>", this.props);
     return (
       <div className="congratulation">
+        {/* Nav 컴포넌트 추가 예정 */}
         <div className="upperBox">
           <header className="textBox">
             <p className="nameTxt">{`${this.props.userName}님,`}</p>
@@ -29,6 +30,7 @@ export class Congratulation extends Component {
             <button className="shoppingBtn">쇼핑 계속하기</button>
           </Link>
         </div>
+        {/* Footer 컴포넌트 추가 예정 */}
       </div>
     );
   }
