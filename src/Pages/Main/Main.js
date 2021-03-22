@@ -7,7 +7,6 @@ class Main extends Component {
     return (
       <div className="container">
         <Nav className="nav" sticky="top" />
-        <section className="test" />
       </div>
     );
   }
