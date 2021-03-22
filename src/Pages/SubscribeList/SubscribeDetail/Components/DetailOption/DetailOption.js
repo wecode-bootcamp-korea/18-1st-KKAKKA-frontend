@@ -10,6 +10,7 @@ class DetailOption extends Component {
       isLogin: true,
       orderCount: 1,
       hasLetter: true,
+      price: 30000,
       productPrice: "",
       totalPrice: "",
       subscribeList: [],
@@ -53,7 +54,7 @@ class DetailOption extends Component {
   };
 
   changePrice = () => {
-    let updatePrice = this.props.price * this.state.orderCount;
+    let updatePrice = this.state.price * this.state.orderCount;
     this.setState({
       productPrice: updatePrice(),
     });
@@ -61,7 +62,7 @@ class DetailOption extends Component {
 
   render() {
     console.log("DetailOption price:", this.props.price);
-    const { price } = this.props;
+    const { price } = this.state;
     return (
       <>
         <div className="detailOption">
@@ -128,6 +129,7 @@ class DetailOption extends Component {
                           value="letter"
                           checked={this.state.hasLetter ? true : false}
                           onClick={this.chkHasLetter}
+                          readOnly
                         />
                         <label for="letter">추가할게요(FREE)</label>
                       </div>
@@ -150,7 +152,6 @@ class DetailOption extends Component {
             </table>
           </div>
         </div>
-
         <div className="detailPrice">
           <div>
             <span className="contents">상품 가격</span>
@@ -160,12 +161,32 @@ class DetailOption extends Component {
             {(Number(price) * this.state.orderCount).toLocaleString()}
           </span>
         </div>
+        {this.state.hasLetter && (
+          <div className="letterPrice">
+            <div>
+              <span className="contents">편지 추가</span>
+            </div>
+            <div className="letterBox">
+              <span className="price">{Number(2500).toLocaleString()}</span>
+              <button
+                type="button"
+                className="deleteBtn"
+                onClick={this.chkHasLetter}
+              >
+                X
+              </button>
+            </div>
+          </div>
+        )}
         <div className="totalPrice">
           <p className="shippingFree">무료배송</p>
           <div>
             <p className="subContents">총 주문금액</p>
             <h2 className="title price">
-              {(Number(price) * this.state.orderCount).toLocaleString()}
+              {(
+                Number(price) * this.state.orderCount +
+                (this.state.hasLetter && Number(2500))
+              ).toLocaleString()}
             </h2>
           </div>
         </div>

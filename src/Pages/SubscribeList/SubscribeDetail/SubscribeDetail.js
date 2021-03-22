@@ -8,9 +8,11 @@ class SubscribeDetail extends Component {
   };
 
   getData = () => {
-    fetch(`/data/subscribeData.json/${this.props.match.params.id}`)
+    fetch(`/data/subscribeData.json`)
       .then(res => res.json())
-      .then(res => this.setState({ subscribeList: res }));
+      .then(res =>
+        this.setState({ subscribeList: res[this.props.match.params.id - 1] })
+      );
   };
 
   componentDidMount() {
@@ -40,22 +42,14 @@ class SubscribeDetail extends Component {
   };
 
   render() {
-    console.log("SubDetailDetail:", this.props);
+    console.log("SubDetailDetail:", this.state);
     const { subscribeList } = this.state;
     return (
       <div>
-        <div
-          className="urlParameters"
-          onClick={() => this.props.history.push("/subscribe-list")}
-        >
-          <button type="button" className="urlButton">
-            리스트페이지
-          </button>
-        </div>
         <SubDetailCard
           id={subscribeList.id}
           itemComment={subscribeList.detail}
-          prouductTitle={subscribeList.name}
+          productTitle={subscribeList.name}
           price={subscribeList.origin_price}
           contents={subscribeList.contents}
           productImg={subscribeList.image}

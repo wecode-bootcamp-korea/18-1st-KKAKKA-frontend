@@ -30,7 +30,7 @@ class SubDetailCard extends Component {
             <Link to="/subscribe-list">꽃 정기구독</Link>
           </li>
           <li>
-            <Link to="subscribe-detail">가벼운 S 꽃구독</Link>
+            <Link to={`./${this.props.match.params.id}`}>가벼운 S 꽃구독</Link>
           </li>
         </ul>
         <div className="detailContents">
@@ -74,7 +74,7 @@ class SubDetailCard extends Component {
             <DetailInfo
               key={id}
               itemComment={itemComment}
-              prouductTitle={productTitle}
+              productTitle={productTitle}
               price={price}
               contents={contents}
               productImg={productImg}
