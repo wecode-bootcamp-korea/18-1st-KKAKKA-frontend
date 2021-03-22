@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { withRouter } from "react-router-dom";
 import DateInput from "../DateInput/DateInput";
+import Modal from "../Modal/Modal";
 import "./ProductOption.scss";
 
 class ProductOption extends Component {
@@ -13,8 +14,10 @@ class ProductOption extends Component {
       delivery_date: "",
       hasLetter: true,
       price: 0,
+      modal: false,
       productPrice: "",
       totalPrice: "",
+      basketItem: [],
       subscribeList: [],
     };
   }
@@ -23,11 +26,17 @@ class ProductOption extends Component {
     this.setState({ delivery_date: e.target.value });
   };
 
-  goToCart = () => {
+  handleModal = e => {
     if (this.state.isLogin) {
-      this.props.history.push("/cart");
+      this.setState({ modal: !this.state.modal, basketItem: e });
     } else {
       this.props.history.push("/login");
+    }
+  };
+
+  deleteModal = e => {
+    if (this.state.modal) {
+      this.setState({ modal: !this.state.modal });
     }
   };
 
@@ -72,7 +81,10 @@ class ProductOption extends Component {
     const { discounted_price } = this.props;
     const { quantity, delivery_date } = this.state;
     return (
-      <>
+      <div>
+        {this.state.modal && (
+          <Modal modal={this.state.modal} deleteModal={this.deleteModal} />
+        )}
         <div className="detailOption">
           <div className="subscribeOption">
             <table>
@@ -130,6 +142,7 @@ class ProductOption extends Component {
                           onClick={this.chkHasLetter}
                           readOnly
                         />
+
                         <label for="letter">추가할게요(+2,500)</label>
                       </div>
                       <div className="letterCheckbox">
@@ -187,12 +200,11 @@ class ProductOption extends Component {
             </h2>
           </div>
         </div>
-
         <div className="detailButtons">
           <button
             type="button"
             className="detailBtn cart"
-            onClick={this.goToCart}
+            onClick={() => this.handleModal()}
           >
             장바구니
           </button>
@@ -204,7 +216,7 @@ class ProductOption extends Component {
             바로 구독 신청
           </button>
         </div>
-      </>
+      </div>
     );
   }
 }
