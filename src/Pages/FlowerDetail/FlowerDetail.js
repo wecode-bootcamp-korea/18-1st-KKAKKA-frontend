@@ -39,16 +39,16 @@ class FlowerDetail extends Component {
     };
   }
 
-  // componentDidMount() {
-  //   fetch("http://10.58.7.81:8000/subscription/")
-  //     .then(res => res.json())
-  //     .then(data => {
-  //       console.log("haha: ", data);
-  //       this.setState({
-  //         subscribeList: data.result,
-  //       });
-  //     });
-  // }
+  componentDidMount() {
+    fetch("http://10.58.7.81:8000/subscription/")
+      .then(res => res.json())
+      .then(data => {
+        console.log("haha: ", data);
+        this.setState({
+          subscribeList: data.result,
+        });
+      });
+  }
 
   render() {
     const { subscribeList } = this.state;

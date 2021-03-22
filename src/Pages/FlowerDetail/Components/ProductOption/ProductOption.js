@@ -40,7 +40,7 @@ class ProductOption extends Component {
   };
 
   addCount = () => {
-    if (this.state.delivery_date && this.state.quantity < 10) {
+    if (this.state.quantity < 10) {
       this.setState({
         quantity: this.state.quantity + 1,
       });
@@ -48,7 +48,7 @@ class ProductOption extends Component {
   };
 
   minusCount = () => {
-    if (this.state.delivery_date && this.state.quantity > 1) {
+    if (this.state.quantity > 1) {
       this.setState({
         quantity: this.state.quantity - 1,
       });

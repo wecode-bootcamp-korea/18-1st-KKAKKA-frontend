@@ -14,7 +14,7 @@ class ProductInfo extends Component {
       <div className="detail-title">
         <span className="sub-title">{detail}</span>
         <h2 className="title strong">{name}</h2>
-        {discount_rate !== 0.0 ? (
+        {discount_rate === 0.0 ? (
           <h2 className="title price">{origin_price.toLocaleString()}</h2>
         ) : (
           <div className="detail-discount">
