@@ -9,13 +9,30 @@ class DetailOption extends Component {
       // api 연결 이후 fetch 로그인 상태 인증으로 로직 변경
       isLogin: true,
       orderCount: 1,
+      subscribeOption: "",
       hasLetter: true,
-      price: 30000,
+      price: 0,
       productPrice: "",
       totalPrice: "",
       subscribeList: [],
     };
   }
+
+  changeSubPrice = () => {
+    if (this.state.subscribeOption === "") {
+      return this.setState({ price: 0 });
+    } else if (this.state.subscribeOption === "정기구독") {
+      return this.setState({ price: 30000 });
+    } else if (this.state.subscribeOption === "1회 무료체험") {
+      return this.setState({ price: 3000 });
+    }
+  };
+
+  changeSubOption = e => {
+    this.setState({ subscribeOption: e.target.value }, () => {
+      this.changeSubPrice();
+    });
+  };
 
   goToCart = () => {
     if (this.state.isLogin) {
@@ -62,7 +79,7 @@ class DetailOption extends Component {
 
   render() {
     console.log("DetailOption price:", this.props.price);
-    const { price } = this.state;
+    const { price, subscribeOption } = this.state;
     return (
       <>
         <div className="detailOption">
@@ -78,15 +95,20 @@ class DetailOption extends Component {
                     <span className="contents">구독옵션</span>
                   </th>
                   <td>
-                    <select>
+                    <select
+                      value={subscribeOption}
+                      onChange={this.changeSubOption}
+                    >
                       <label htmlFor="option">구독 옵션</label>
-                      <option className="selected">
+                      <option className="selected" value="">
                         구독기간을 선택해주세요
                       </option>
-                      <option className="option">
+                      <option className="option" value="정기구독">
                         정기구독(2주마다 자동결제)
                       </option>
-                      <option className="option">1회 무료 체험</option>
+                      <option className="option" value="1회 무료체험">
+                        1회 무료 체험(+ 배송비 3,000원)
+                      </option>
                     </select>
                   </td>
                 </tr>
@@ -131,7 +153,7 @@ class DetailOption extends Component {
                           onClick={this.chkHasLetter}
                           readOnly
                         />
-                        <label for="letter">추가할게요(FREE)</label>
+                        <label for="letter">추가할게요(+2,500)</label>
                       </div>
                       <div className="letterCheckbox">
                         <input
@@ -153,13 +175,45 @@ class DetailOption extends Component {
           </div>
         </div>
         <div className="detailPrice">
-          <div>
-            <span className="contents">상품 가격</span>
-            <p className="subContents">구독 기간을 선택해주세요</p>
-          </div>
-          <span className="price">
-            {(Number(price) * this.state.orderCount).toLocaleString()}
-          </span>
+          {(() => {
+            if (subscribeOption === "") {
+              return (
+                <>
+                  <div>
+                    <span className="contents">상품 가격</span>
+                    <p className="subContents">구독 기간을 선택해주세요</p>
+                  </div>
+                  <span className="price">0</span>
+                </>
+              );
+            } else if (subscribeOption === "정기구독") {
+              return (
+                <>
+                  <div>
+                    <span className="contents">상품 가격</span>
+                    <p className="subContents">정기구독(2주마다 자동결제)</p>
+                  </div>
+                  <span className="price">
+                    {(Number(price) * this.state.orderCount).toLocaleString()}
+                  </span>
+                </>
+              );
+            } else if (subscribeOption === "1회 무료체험") {
+              return (
+                <>
+                  <div>
+                    <span className="contents">상품 가격</span>
+                    <p className="subContents">
+                      1회 무료 체험(+ 배송비 3,000원)
+                    </p>
+                  </div>
+                  <span className="price">
+                    {(Number(price) * this.state.orderCount).toLocaleString()}
+                  </span>
+                </>
+              );
+            }
+          })()}
         </div>
         {this.state.hasLetter && (
           <div className="letterPrice">
