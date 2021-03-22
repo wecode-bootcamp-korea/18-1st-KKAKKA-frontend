@@ -18,11 +18,12 @@ class SubscribeList extends Component {
   };
 
   componentDidMount() {
-    fetch("/data/subscribeData.json")
+    fetch("http://10.58.7.81:8000/subscription/")
       .then(res => res.json())
-      .then(res => {
+      .then(data => {
+        console.log("haha: ", data);
         this.setState({
-          subscribeList: res,
+          subscribeList: data.result,
         });
       });
   }
@@ -60,10 +61,10 @@ class SubscribeList extends Component {
                 <SubCard
                   key={sub.id}
                   id={sub.id}
-                  itemComment={sub.detail}
-                  productTitle={sub.name}
-                  price={sub.origin_price}
-                  contents={sub.contents}
+                  introduction={sub.introduction}
+                  name={sub.name}
+                  price={sub.price}
+                  description={sub.description}
                   productImg={sub.image}
                 />
               );

@@ -10,38 +10,33 @@ class SubCard extends Component {
   render() {
     console.log("Subcard");
     console.log("Subcard props", this.props);
-    const {
-      itemComment,
-      productTitle,
-      price,
-      contents,
-      productImg,
-    } = this.props;
+    const { description, name, price, introduction, image } = this.props;
     return (
       <article className="sublistBox">
         <div className="subImageBox">
           <img
             alt="정기구독 상품1"
-            src={productImg.img1}
+            src={image[0]}
             className="subImage"
             onClick={this.goToDetail}
           />
         </div>
         <div className="detailTitle">
-          <span className="subTitle">{itemComment}</span>
+          <span className="subTitle">{introduction}</span>
           <h2 className="title strong" onClick={this.goToDetail}>
-            {productTitle}
+            {name}
           </h2>
           <h2 className="title price">{price}</h2>
           <div className="contentBox">
-            {contents.split("\n").map(line => {
-              return (
-                <span className="detailContent">
-                  {line}
-                  <br />
-                </span>
-              );
-            })}
+            {description.include("\n") &&
+              description.split("\n").map(line => {
+                return (
+                  <span className="detailContent">
+                    {line}
+                    <br />
+                  </span>
+                );
+              })}
           </div>
 
           <span className="shippingFree">무료배송</span>
