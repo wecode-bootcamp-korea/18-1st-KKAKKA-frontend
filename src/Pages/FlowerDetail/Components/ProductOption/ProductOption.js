@@ -9,11 +9,18 @@ class ProductOption extends Component {
       // api 연결 이후 fetch 로그인 상태 인증으로 로직 변경
       isLogin: true,
       orderCount: 1,
+      date: "",
       hasLetter: true,
+      price: 0,
       productPrice: "",
       totalPrice: "",
+      subscribeList: [],
     };
   }
+
+  changeDate = e => {
+    this.setState({ date: e.target.value });
+  };
 
   goToCart = () => {
     if (this.state.isLogin) {
@@ -32,13 +39,15 @@ class ProductOption extends Component {
   };
 
   addCount = () => {
-    this.setState({
-      orderCount: this.state.orderCount + 1,
-    });
+    if (this.state.date && this.state.orderCount < 10) {
+      this.setState({
+        orderCount: this.state.orderCount + 1,
+      });
+    }
   };
 
   minusCount = () => {
-    if (this.state.orderCount > 1) {
+    if (this.state.date && this.state.orderCount > 1) {
       this.setState({
         orderCount: this.state.orderCount - 1,
       });
@@ -52,21 +61,10 @@ class ProductOption extends Component {
   };
 
   changePrice = () => {
-    let updatePrice = this.props.resultPrice * this.state.orderCount;
+    let updatePrice = this.state.price * this.state.orderCount;
     this.setState({
       productPrice: updatePrice(),
     });
-  };
-
-  addTotalPrice = () => {
-    this.setState(
-      {
-        totalPrice: this.addProcuct(),
-      },
-      () => {
-        this.changePrice();
-      }
-    );
   };
 
   render() {
@@ -86,15 +84,17 @@ class ProductOption extends Component {
                     <span className="contents">구독옵션</span>
                   </th>
                   <td>
-                    <select>
+                    <select value={date} onChange={this.changeDate}>
                       <label htmlFor="option">구독 옵션</label>
-                      <option className="selected">
+                      <option className="selected" value="">
                         구독기간을 선택해주세요
                       </option>
-                      <option className="option">
-                        정기구독(2주마다 자동결제)
+                      <option className="option" value="정기구독">
+                        정기결제 (2주마다 자동결제)
                       </option>
-                      <option className="option">1회 무료 체험</option>
+                      <option className="option" value="1회 무료체험">
+                        1회 무료 체험(+ 배송비 3,000원)
+                      </option>
                     </select>
                   </td>
                 </tr>
@@ -135,9 +135,11 @@ class ProductOption extends Component {
                           type="radio"
                           name="letter"
                           value="letter"
-                          checked={true}
+                          checked={this.state.hasLetter ? true : false}
+                          onClick={this.chkHasLetter}
+                          readOnly
                         />
-                        <label for="letter">추가할게요(FREE)</label>
+                        <label for="letter">추가할게요(+2,500)</label>
                       </div>
                       <div className="letterCheckbox">
                         <input
@@ -146,7 +148,8 @@ class ProductOption extends Component {
                           type="radio"
                           name="letter"
                           value="noLetter"
-                          checked={false}
+                          checked={this.state.hasLetter ? false : true}
+                          onClick={this.chkHasLetter}
                         />
                         <label for="letterNo">추가하지 않을게요</label>
                       </div>
@@ -164,7 +167,9 @@ class ProductOption extends Component {
             <p className="subContents">구독 기간을 선택해주세요</p>
           </div>
           <span className="price">
-            {(discounted_price * this.state.orderCount).toLocaleString()}
+            {(
+              Number(discounted_price) * this.state.orderCount
+            ).toLocaleString()}
           </span>
         </div>
         <div className="totalPrice">
@@ -172,10 +177,30 @@ class ProductOption extends Component {
           <div>
             <p className="subContents">총 주문금액</p>
             <h2 className="title price">
-              {(discounted_price * this.state.orderCount).toLocaleString()}
+              {(
+                Number(discounted_price) * this.state.orderCount
+              ).toLocaleString()}
             </h2>
           </div>
         </div>
+
+        {this.state.hasLetter && (
+          <div className="letterPrice">
+            <div>
+              <span className="contents">편지 추가</span>
+            </div>
+            <div className="letterBox">
+              <span className="price">{Number(2500).toLocaleString()}</span>
+              <button
+                type="button"
+                className="deleteBtn"
+                onClick={this.chkHasLetter}
+              >
+                X
+              </button>
+            </div>
+          </div>
+        )}
 
         <div className="detailButtons">
           <button
