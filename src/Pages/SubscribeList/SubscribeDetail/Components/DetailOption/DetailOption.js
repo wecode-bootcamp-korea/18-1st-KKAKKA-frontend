@@ -22,7 +22,7 @@ class DetailOption extends Component {
     if (this.state.subscribeOption === "") {
       return this.setState({ price: 0 });
     } else if (this.state.subscribeOption === "정기구독") {
-      return this.setState({ price: 30000 });
+      return this.setState({ price: this.props.price });
     } else if (this.state.subscribeOption === "1회 무료체험") {
       return this.setState({ price: 3000 });
     }
@@ -51,7 +51,10 @@ class DetailOption extends Component {
   };
 
   addCount = () => {
-    if (this.state.orderCount < 10) {
+    if (
+      this.state.subscribeOption === "정기구독" &&
+      this.state.orderCount < 10
+    ) {
       this.setState({
         orderCount: this.state.orderCount + 1,
       });
@@ -59,7 +62,10 @@ class DetailOption extends Component {
   };
 
   minusCount = () => {
-    if (this.state.orderCount > 1) {
+    if (
+      this.state.subscribeOption === "정기구독" &&
+      this.state.orderCount > 1
+    ) {
       this.setState({
         orderCount: this.state.orderCount - 1,
       });
@@ -106,7 +112,7 @@ class DetailOption extends Component {
                         구독기간을 선택해주세요
                       </option>
                       <option className="option" value="정기구독">
-                        정기구독(2주마다 자동결제)
+                        정기결제 (2주마다 자동결제)
                       </option>
                       <option className="option" value="1회 무료체험">
                         1회 무료 체험(+ 배송비 3,000원)
