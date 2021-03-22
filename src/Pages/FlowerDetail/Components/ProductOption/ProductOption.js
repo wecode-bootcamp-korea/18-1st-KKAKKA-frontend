@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { withRouter } from "react-router-dom";
+import DateInput from "../DateInput/DateInput";
 import "./ProductOption.scss";
 
 class ProductOption extends Component {
@@ -8,8 +9,8 @@ class ProductOption extends Component {
     this.state = {
       // api 연결 이후 fetch 로그인 상태 인증으로 로직 변경
       isLogin: true,
-      orderCount: 1,
-      date: "",
+      quantity: 1,
+      delivery_date: "",
       hasLetter: true,
       price: 0,
       productPrice: "",
@@ -19,7 +20,7 @@ class ProductOption extends Component {
   }
 
   changeDate = e => {
-    this.setState({ date: e.target.value });
+    this.setState({ delivery_date: e.target.value });
   };
 
   goToCart = () => {
@@ -39,17 +40,17 @@ class ProductOption extends Component {
   };
 
   addCount = () => {
-    if (this.state.date && this.state.orderCount < 10) {
+    if (this.state.delivery_date && this.state.quantity < 10) {
       this.setState({
-        orderCount: this.state.orderCount + 1,
+        quantity: this.state.quantity + 1,
       });
     }
   };
 
   minusCount = () => {
-    if (this.state.date && this.state.orderCount > 1) {
+    if (this.state.delivery_date && this.state.quantity > 1) {
       this.setState({
-        orderCount: this.state.orderCount - 1,
+        quantity: this.state.quantity - 1,
       });
     }
   };
@@ -61,7 +62,7 @@ class ProductOption extends Component {
   };
 
   changePrice = () => {
-    let updatePrice = this.state.price * this.state.orderCount;
+    let updatePrice = this.state.price * this.state.quantity;
     this.setState({
       productPrice: updatePrice(),
     });
@@ -69,6 +70,7 @@ class ProductOption extends Component {
 
   render() {
     const { discounted_price } = this.props;
+    const { quantity, delivery_date } = this.state;
     return (
       <>
         <div className="detailOption">
@@ -84,18 +86,7 @@ class ProductOption extends Component {
                     <span className="contents">구독옵션</span>
                   </th>
                   <td>
-                    <select value={date} onChange={this.changeDate}>
-                      <label htmlFor="option">구독 옵션</label>
-                      <option className="selected" value="">
-                        구독기간을 선택해주세요
-                      </option>
-                      <option className="option" value="정기구독">
-                        정기결제 (2주마다 자동결제)
-                      </option>
-                      <option className="option" value="1회 무료체험">
-                        1회 무료 체험(+ 배송비 3,000원)
-                      </option>
-                    </select>
+                    <DateInput startDate={delivery_date} />
                   </td>
                 </tr>
                 <tr className="optionRow2">
@@ -111,7 +102,7 @@ class ProductOption extends Component {
                       >
                         -
                       </button>
-                      <span>{this.state.orderCount}</span>
+                      <span>{quantity}</span>
                       <button
                         type="button"
                         className="btnAmount"
@@ -167,9 +158,7 @@ class ProductOption extends Component {
             <p className="subContents">구독 기간을 선택해주세요</p>
           </div>
           <span className="price">
-            {(
-              Number(discounted_price) * this.state.orderCount
-            ).toLocaleString()}
+            {(Number(discounted_price) * quantity).toLocaleString()}
           </span>
         </div>
         <div className="totalPrice">
@@ -177,9 +166,7 @@ class ProductOption extends Component {
           <div>
             <p className="subContents">총 주문금액</p>
             <h2 className="title price">
-              {(
-                Number(discounted_price) * this.state.orderCount
-              ).toLocaleString()}
+              {(Number(discounted_price) * quantity).toLocaleString()}
             </h2>
           </div>
         </div>
