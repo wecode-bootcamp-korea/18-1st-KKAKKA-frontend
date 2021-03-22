@@ -51,9 +51,11 @@ class DetailOption extends Component {
   };
 
   addCount = () => {
-    this.setState({
-      orderCount: this.state.orderCount + 1,
-    });
+    if (this.state.orderCount < 10) {
+      this.setState({
+        orderCount: this.state.orderCount + 1,
+      });
+    }
   };
 
   minusCount = () => {
@@ -79,7 +81,7 @@ class DetailOption extends Component {
 
   render() {
     console.log("DetailOption price:", this.props.price);
-    const { price, subscribeOption } = this.state;
+    const { price, subscribeOption, orderCount } = this.state;
     return (
       <>
         <div className="detailOption">
@@ -125,7 +127,7 @@ class DetailOption extends Component {
                       >
                         -
                       </button>
-                      <span>{this.state.orderCount}</span>
+                      <span>{orderCount}</span>
                       <button
                         type="button"
                         className="btnAmount"
@@ -194,7 +196,7 @@ class DetailOption extends Component {
                     <p className="subContents">정기구독(2주마다 자동결제)</p>
                   </div>
                   <span className="price">
-                    {(Number(price) * this.state.orderCount).toLocaleString()}
+                    {(Number(price) * orderCount).toLocaleString()}
                   </span>
                 </>
               );
@@ -208,7 +210,7 @@ class DetailOption extends Component {
                     </p>
                   </div>
                   <span className="price">
-                    {(Number(price) * this.state.orderCount).toLocaleString()}
+                    {(Number(price) * orderCount).toLocaleString()}
                   </span>
                 </>
               );
@@ -238,7 +240,7 @@ class DetailOption extends Component {
             <p className="subContents">총 주문금액</p>
             <h2 className="title price">
               {(
-                Number(price) * this.state.orderCount +
+                Number(price) * orderCount +
                 (this.state.hasLetter && Number(2500))
               ).toLocaleString()}
             </h2>
