@@ -20,15 +20,15 @@ class SubscribeList extends Component {
   componentDidMount() {
     fetch("/data/subscribeData.json")
       .then(res => res.json())
-      .then(data => {
+      .then(res => {
         this.setState({
-          subscribeList: data,
+          subscribeList: res,
         });
       });
   }
 
   render() {
-    console.log("SubscribeList");
+    console.log("SubscribeList :", this.state.subscribeList);
     const { subscribeList } = this.state;
     return (
       <section className="sublistContainer">
@@ -60,11 +60,11 @@ class SubscribeList extends Component {
                 <SubCard
                   key={sub.id}
                   id={sub.id}
-                  itemComment={sub.itemComment}
-                  productTitle={sub.prouductTitle}
-                  price={sub.price}
+                  itemComment={sub.detail}
+                  productTitle={sub.name}
+                  price={sub.origin_price}
                   contents={sub.contents}
-                  productImg={sub.productImg}
+                  productImg={sub.image}
                 />
               );
             })}

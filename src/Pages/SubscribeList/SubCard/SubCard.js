@@ -3,31 +3,13 @@ import { withRouter } from "react-router-dom";
 import "./SubCard.scss";
 
 class SubCard extends Component {
-  fetchData() {
-    fetch(`/data/subscribeData.json/${this.props.match.params.id}`)
-      .then(res => res.json())
-      .then(data => {
-        this.setState({
-          subscribeList: data,
-        });
-      });
-  }
-
-  componentDidMount() {
-    this.fetchData();
-  }
-
-  componentDidUpdate(preProps, preState) {
-    if (preProps.match.params.id !== this.props.match.params.id) {
-      this.fetchData();
-    }
-  }
-
   goToDetail = () => {
     this.props.history.push(`./subscribe-detail/${this.props.id}`);
   };
 
   render() {
+    console.log("Subcard");
+    console.log("Subcard props", this.props);
     const {
       itemComment,
       productTitle,

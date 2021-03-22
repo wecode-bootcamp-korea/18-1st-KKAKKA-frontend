@@ -1,14 +1,14 @@
 [
   {
     "id": 1,
-    "itemComment": "꽃이 일상이 되는 가벼운 시작",
-    "prouductTitle": "가벼운 S 꽃구독",
-    "price": 17900,
+    "detail": "꽃이 일상이 되는 가벼운 시작",
+    "name": "가벼운 S 꽃구독",
+    "origin_price": 17900,
     "contents": "2주에 한 번, 꽃이 일상이 되는 가벼운 시작\n작지만 그 계절 가장 예쁜 꽃으로 만들었어요.\n나에게, 사랑하는 사람에게 작은 꽃다발이 주는 행복을 전해보세요.",
     "productLimit": 10,
     "size": "S",
-    "updateDate": "2021-03-15",
-    "productImg": {
+    "created_at": "2021-03-15",
+    "image": {
       "id": 1,
       "img1": "https://user-images.githubusercontent.com/46774456/111404908-eff67680-8712-11eb-8f25-8ae36c32578e.png",
       "img2": "https://user-images.githubusercontent.com/46774456/111411543-18d03900-871e-11eb-81a1-0d4cca7d83e3.jpg",
@@ -21,13 +21,13 @@
   },
   {
     "id": 2,
-    "itemComment": "내 공간이 꽃이 되는 좋은 시작",
-    "prouductTitle": "딱좋은 M 꽃구독",
-    "price": 26900,
+    "detail": "내 공간이 꽃이 되는 좋은 시작",
+    "name": "딱좋은 M 꽃구독",
+    "origin_price": 26900,
     "contents": "2주에 한 번, 꽃이 일상이 되는 가벼운 시작\n작지만 그 계절 가장 예쁜 꽃으로 만들었어요.\n나에게, 사랑하는 사람에게 작은 꽃다발이 주는 행복을 전해보세요.",
     "size": "M",
-    "updateDate": "2021-03-15",
-    "productImg": {
+    "created_at": "2021-03-15",
+    "image": {
       "id": 1,
       "img1": "https://user-images.githubusercontent.com/46774456/111411545-1a016600-871e-11eb-91c2-2007015873fe.jpg",
       "img2": "https://user-images.githubusercontent.com/46774456/111411544-1a016600-871e-11eb-91a4-4ef2f03121f0.png",
@@ -40,13 +40,13 @@
   },
   {
     "id": 3,
-    "itemComment": "매일이 풍성해지는 일상의 행복",
-    "prouductTitle": "풍성한 L 꽃구독",
-    "price": 34900,
+    "detail": "매일이 풍성해지는 일상의 행복",
+    "name": "풍성한 L 꽃구독",
+    "origin_price": 34900,
     "contents": "2주에 한 번, 매일이 풍성해지는 일상의 행복\n두 손에 꽉 차는 꽃다발로 그 계절 가장 예쁜 꽃을 담았어요.\n하루가 더욱 풍성해지는 행복을 느껴보세요.",
     "size": "L",
-    "updateDate": "2021-03-15",
-    "productImg": {
+    "created_at": "2021-03-15",
+    "image": {
       "id": 1,
       "img1": "https://user-images.githubusercontent.com/46774456/111404908-eff67680-8712-11eb-8f25-8ae36c32578e.png",
       "img2": "https://user-images.githubusercontent.com/46774456/111411543-18d03900-871e-11eb-81a1-0d4cca7d83e3.jpg",

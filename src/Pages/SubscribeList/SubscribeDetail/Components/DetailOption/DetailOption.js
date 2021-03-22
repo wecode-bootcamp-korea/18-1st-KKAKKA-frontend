@@ -8,7 +8,10 @@ class DetailOption extends Component {
     this.state = {
       // api 연결 이후 fetch 로그인 상태 인증으로 로직 변경
       isLogin: true,
-      count: 1,
+      orderCount: 1,
+      hasLetter: true,
+      productPrice: "",
+      totalPrice: "",
       subscribeList: [],
     };
   }
@@ -31,20 +34,34 @@ class DetailOption extends Component {
 
   addCount = () => {
     this.setState({
-      count: this.state.count + 1,
+      orderCount: this.state.orderCount + 1,
     });
   };
 
   minusCount = () => {
-    if (this.state.count > 1) {
+    if (this.state.orderCount > 1) {
       this.setState({
-        count: this.state.count - 1,
+        orderCount: this.state.orderCount - 1,
       });
     }
   };
 
+  chkHasLetter = () => {
+    this.setState({
+      hasLetter: !this.state.hasLetter,
+    });
+  };
+
+  changePrice = () => {
+    let updatePrice = this.props.price * this.state.orderCount;
+    this.setState({
+      productPrice: updatePrice(),
+    });
+  };
+
   render() {
-    // const { } = this.props;
+    console.log("DetailOption price:", this.props.price);
+    const { price } = this.props;
     return (
       <>
         <div className="detailOption">
@@ -85,7 +102,7 @@ class DetailOption extends Component {
                       >
                         -
                       </button>
-                      <span>{this.state.count}</span>
+                      <span>{this.state.orderCount}</span>
                       <button
                         type="button"
                         className="btnAmount"
@@ -101,24 +118,32 @@ class DetailOption extends Component {
                     <span className="contents">편지 추가</span>
                   </th>
                   <td>
-                    <div className="letterCheckboxes">
+                    <form className="letterCheckboxes">
                       <div className="letterCheckbox">
                         <input
+                          className="contents"
+                          id="letter"
                           type="radio"
-                          className="checked"
-                          data-value="True"
+                          name="letter"
+                          value="letter"
+                          checked={this.state.hasLetter ? true : false}
+                          onClick={this.chkHasLetter}
                         />
-                        <span className="contents">추가할게요 (+2,500원)</span>
+                        <label for="letter">추가할게요(FREE)</label>
                       </div>
                       <div className="letterCheckbox">
                         <input
+                          className="contents"
+                          id="letterNo"
                           type="radio"
-                          className="checked"
-                          data-value="False"
+                          name="letter"
+                          value="noLetter"
+                          checked={this.state.hasLetter ? false : true}
+                          onClick={this.chkHasLetter}
                         />
-                        <span className="contents">추가하지 않을게요</span>
+                        <label for="letterNo">추가하지 않을게요</label>
                       </div>
-                    </div>
+                    </form>
                   </td>
                 </tr>
               </tbody>
@@ -131,13 +156,17 @@ class DetailOption extends Component {
             <span className="contents">상품 가격</span>
             <p className="subContents">구독 기간을 선택해주세요</p>
           </div>
-          <span className="price">35,000</span>
+          <span className="price">
+            {(Number(price) * this.state.orderCount).toLocaleString()}
+          </span>
         </div>
         <div className="totalPrice">
           <p className="shippingFree">무료배송</p>
           <div>
             <p className="subContents">총 주문금액</p>
-            <h2 className="title price">35,000</h2>
+            <h2 className="title price">
+              {(Number(price) * this.state.orderCount).toLocaleString()}
+            </h2>
           </div>
         </div>
 

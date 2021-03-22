@@ -1,27 +1,27 @@
 import React, { Component } from "react";
 import SubDetailCard from "./SubDetailCard";
 import "./SubscribeDetail.scss";
+
 class SubscribeDetail extends Component {
-  constructor() {
-    super();
-    this.state = {
-      subscribeList: [],
-    };
+  state = {
+    subscribeList: [],
+  };
+
+  getData = () => {
+    fetch(`/data/subscribeData.json/${this.props.match.params.id}`)
+      .then(res => res.json())
+      .then(res => this.setState({ subscribeList: res }));
+  };
+
+  componentDidMount() {
+    this.getData();
   }
 
-  // fetchData() {
-  //   fetch(`API주소/${this.props.match.params.id}`)
-  //     .then(res => res.json())
-  //     .then(data => {
-  //       this.setState({
-  //         subscribeList: data,
-  //       });
-  //     });
-  // }
-
-  // componentDidMount() {
-  //   this.fetchData();
-  // }
+  componentDidUpdate(prevProps, prevState) {
+    if (prevProps.match.params.id !== this.props.match.params.id) {
+      this.getData();
+    }
+  }
 
   goToPrevious = () => {
     if (this.props.match.params.id > 1) {
@@ -40,6 +40,7 @@ class SubscribeDetail extends Component {
   };
 
   render() {
+    console.log("SubDetailDetail:", this.props);
     const { subscribeList } = this.state;
     return (
       <div>
@@ -51,27 +52,24 @@ class SubscribeDetail extends Component {
             리스트페이지
           </button>
         </div>
-        {subscribeList.map((sub, index) => (
-          <SubDetailCard
-            key={index}
-            id={sub.id}
-            itemComment={sub.itemComment}
-            prouductTitle={sub.prouductTitle}
-            price={sub.price}
-            contents={sub.contents}
-            productImg={sub.productImg}
-          />
-        ))}
+        <SubDetailCard
+          id={subscribeList.id}
+          itemComment={subscribeList.detail}
+          prouductTitle={subscribeList.name}
+          price={subscribeList.origin_price}
+          contents={subscribeList.contents}
+          productImg={subscribeList.image}
+        />
         <div className="urlButtons">
           <button
             type="button"
             className="urlButton"
             onClick={this.goToPrevious}
           >
-            이전 페이지
+            이전 상품
           </button>
           <button type="button" className="urlButton" onClick={this.goToNext}>
-            다음 페이지
+            다음 상품
           </button>
         </div>
       </div>

@@ -5,8 +5,12 @@ import DetailOption from "./Components/DetailOption/DetailOption";
 import "./SubDetailCard.scss";
 
 class SubDetailCard extends Component {
+  state = {
+    subscribeList: [],
+  };
+
   render() {
-    console.log("SubDetailCar", this.props);
+    console.log("SubDetailCard :", this.state);
     const {
       id,
       itemComment,
@@ -78,7 +82,7 @@ class SubDetailCard extends Component {
             <div className="detailInfo">
               <span className="contents">정기구독 전상품</span>
               <p className="contentsHighlight">무료배송!</p>
-              <DetailOption key={id} price={price} />;
+              <DetailOption key={id} price={price} />
             </div>
           </div>
         </div>
