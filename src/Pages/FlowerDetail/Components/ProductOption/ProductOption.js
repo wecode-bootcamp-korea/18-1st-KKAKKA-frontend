@@ -70,7 +70,7 @@ class ProductOption extends Component {
   };
 
   render() {
-    const { resultPrice } = this.props;
+    const { discounted_price } = this.props;
     return (
       <>
         <div className="detailOption">
@@ -164,7 +164,7 @@ class ProductOption extends Component {
             <p className="subContents">구독 기간을 선택해주세요</p>
           </div>
           <span className="price">
-            {(resultPrice * this.state.orderCount).toLocaleString()}
+            {(discounted_price * this.state.orderCount).toLocaleString()}
           </span>
         </div>
         <div className="totalPrice">
@@ -172,7 +172,7 @@ class ProductOption extends Component {
           <div>
             <p className="subContents">총 주문금액</p>
             <h2 className="title price">
-              {(resultPrice * this.state.orderCount).toLocaleString()}
+              {(discounted_price * this.state.orderCount).toLocaleString()}
             </h2>
           </div>
         </div>

@@ -11,16 +11,14 @@ class FlowerDetail extends Component {
       subscribeList: [
         {
           id: 1,
-          itemComment: "핑크빛 분위기의 완성",
-          productTitle: "폴인로즈 에디션",
-          price: 59900,
-          isDiscount: true,
-          discountPer: 0.1,
-          resultPrice: 53900,
-          productLimit: 10,
+          detail: "핑크빛 분위기의 완성",
+          name: "폴인로즈 에디션",
+          origin_price: 59900,
+          discount_rate: 0.1,
+          discounted_price: 53900,
           size: "L",
-          updateDate: "2021-03-15",
-          productImg: {
+          created_at: "2021-03-15",
+          images: {
             id: 1,
             img1:
               "https://user-images.githubusercontent.com/46774456/111411543-18d03900-871e-11eb-81a1-0d4cca7d83e3.jpg",
@@ -96,14 +94,12 @@ class FlowerDetail extends Component {
           <div className="productDetailRight">
             <ProductInfo
               key={subscribeList[0].id}
-              itemComment={subscribeList[0].itemComment}
-              productTitle={subscribeList[0].productTitle}
-              price={subscribeList[0].price}
-              isDiscount={subscribeList[0].isDiscount}
-              discountPer={subscribeList[0].discountPer}
-              resultPrice={subscribeList[0].resultPrice}
-              contents={subscribeList[0].contents}
-              productImg={subscribeList[0].productImg}
+              detail={subscribeList[0].detail}
+              name={subscribeList[0].name}
+              origin_price={subscribeList[0].origin_price}
+              discount_rate={subscribeList[0].discount_rate}
+              discounted_price={subscribeList[0].discounted_price}
+              images={subscribeList[0].images[0]}
             />
 
             <div className="detailInfo">
@@ -111,7 +107,7 @@ class FlowerDetail extends Component {
               <p className="contentsHighlight">무료배송!</p>
               <ProductOption
                 key={subscribeList[0].id}
-                resultPrice={subscribeList[0].resultPrice}
+                discounted_price={subscribeList[0].discounted_price}
               />
             </div>
           </div>
