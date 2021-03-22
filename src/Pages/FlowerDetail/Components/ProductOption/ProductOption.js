@@ -161,16 +161,6 @@ class ProductOption extends Component {
             {(Number(discounted_price) * quantity).toLocaleString()}
           </span>
         </div>
-        <div className="totalPrice">
-          <p className="shippingFree">무료배송</p>
-          <div>
-            <p className="subContents">총 주문금액</p>
-            <h2 className="title price">
-              {(Number(discounted_price) * quantity).toLocaleString()}
-            </h2>
-          </div>
-        </div>
-
         {this.state.hasLetter && (
           <div className="letterPrice">
             <div>
@@ -188,6 +178,15 @@ class ProductOption extends Component {
             </div>
           </div>
         )}
+        <div className="totalPrice">
+          <p className="shippingFree">무료배송</p>
+          <div>
+            <p className="subContents">총 주문금액</p>
+            <h2 className="title price">
+              {(Number(discounted_price) * quantity).toLocaleString()}
+            </h2>
+          </div>
+        </div>
 
         <div className="detailButtons">
           <button

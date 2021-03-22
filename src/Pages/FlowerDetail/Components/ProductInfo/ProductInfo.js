@@ -6,20 +6,26 @@ class ProductInfo extends Component {
     const {
       detail,
       name,
+      size,
       origin_price,
       discount_rate,
       discounted_price,
     } = this.props;
     return (
-      <div className="detail-title">
-        <span className="sub-title">{detail}</span>
-        <h2 className="title strong">{name}</h2>
+      <div className="detailTitle">
+        <span className="subTitle">{detail}</span>
+        <div className="titleBox">
+          <h2 className="title strong">{name}</h2>
+          <div className="sizeBox">
+            <span className="detailSize">{size}</span>
+          </div>
+        </div>
         {discount_rate === 0.0 ? (
           <h2 className="title price">{origin_price.toLocaleString()}</h2>
         ) : (
-          <div className="detail-discount">
+          <div className="detailDiscount">
             <span className="discountPer">{discount_rate * 100}</span>
-            <span className="oldPrice sub-title">
+            <span className="oldPrice subTitle">
               {origin_price.toLocaleString()}
             </span>
             <h2 className="title price">{discounted_price.toLocaleString()}</h2>

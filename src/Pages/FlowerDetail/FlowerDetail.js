@@ -16,7 +16,7 @@ class FlowerDetail extends Component {
           origin_price: 59900,
           discount_rate: 0.1,
           discounted_price: 53900,
-          size: "L",
+          size: "M",
           created_at: "2021-03-15",
           images: {
             id: 1,
@@ -107,6 +107,7 @@ class FlowerDetail extends Component {
               key={subscribeList[0].id}
               detail={subscribeList[0].detail}
               name={subscribeList[0].name}
+              size={subscribeList[0].size}
               origin_price={subscribeList[0].origin_price}
               discount_rate={subscribeList[0].discount_rate}
               discounted_price={subscribeList[0].discounted_price}
