@@ -59,11 +59,13 @@ body {
     background-color: #fff;
     margin: 0 auto;
     padding: 0 60px;
-    transition: top 0.4s ease-in-out;
+    z-index: 2;
 
-    .sticky {
-      position: sticky;
+    &.sticky {
+      position: fixed;
       top: 0;
+      transition: top 0.4s ease-in-out;
+      z-index: 2;
     }
 
     .navLogo {
@@ -71,7 +73,7 @@ body {
       margin-right: 24px;
 
       a {
-        color: rgb(136, 110, 110);
+        color: #222;
         text-decoration: none;
       }
     }

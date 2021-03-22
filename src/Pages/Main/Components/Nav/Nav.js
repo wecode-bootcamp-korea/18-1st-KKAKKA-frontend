@@ -10,6 +10,7 @@ class Nav extends React.Component {
       // api 연결 이후 fetch 로그인 상태 인증으로 로직 변경
       isLogin: true,
       ticking: false,
+      navTop: false,
     };
   }
 
@@ -30,13 +31,13 @@ class Nav extends React.Component {
   }
 
   handleScroll = () => {
-    if (window.pageYOffset > 80) {
-      if (!this.state.nav) {
-        this.setState({ nav: false });
+    if (window.pageYOffset >= 80) {
+      if (!this.state.navTop) {
+        this.setState({ navTop: true });
       }
     } else {
-      if (this.state.nav) {
-        this.setState({ nav: true });
+      if (this.state.navTop) {
+        this.setState({ navTop: false });
       }
     }
   };
@@ -58,7 +59,7 @@ class Nav extends React.Component {
             <p>(10000 포인트 지급!)</p>
           </li>
         </div>
-        <nav className="navbar">
+        <nav className={`navbar ${this.state.navTop && "sticky"}`}>
           <div className="navLogo">
             <Link to="./main">KKAKKA</Link>
           </div>
