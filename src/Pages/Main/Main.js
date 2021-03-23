@@ -2,8 +2,9 @@ import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import Nav from "../../Components/Nav/Nav";
 import SubNav from "../../Components/SubNav/SubNav";
-import { mainAPI } from "../../config";
 import Footer from "../../Components/Footer/Footer";
+import { mainAPI } from "../../config";
+import CardList from "./CardList";
 import "./Main.scss";
 
 class Main extends Component {
@@ -13,18 +14,20 @@ class Main extends Component {
       cookiedata: [],
     };
   }
+
+  //현재는 mock data라서 통신 할 때 config 파일 수정 요망
   componentDidMount = () => {
     fetch(mainAPI)
       .then(response => response.json())
-      .then(result => console.log(result))
       .then(result => {
         this.setState({
-          cookiedata: result,
+          cookiedata: result.result,
         });
       });
   };
 
   render() {
+    console.log("state >>", this.state.cookiedata);
     return (
       <div className="main">
         <div className="container">
@@ -40,6 +43,7 @@ class Main extends Component {
                 <button className="moreBtn">더보기</button>
               </Link>
             </div>
+            <CardList cookieItems={this.state.cookiedata} />
           </div>
           <div className="cookie"></div>
         </div>

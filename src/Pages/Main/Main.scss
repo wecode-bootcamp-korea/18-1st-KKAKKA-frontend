@@ -10,17 +10,26 @@
     align-items: center;
   }
 
-  .cookieListTxt {
+  .cookieList {
+    padding: 0 10% 0 10%;
     background-color: #f7f7f7;
 
-    .cookieTxt {
-      display: inline-block;
-    }
+    .cookieListTxt {
+      display: flex;
+      justify-content: space-between;
+      padding: 20px 0 20px 0;
 
-    .moreBtn {
-      border: none;
-      background-color: transparent;
-      outline: none;
+      .cookieTxt {
+        display: inline-flex;
+        font-size: 30px;
+      }
+
+      .moreBtn {
+        margin-right: 20px;
+        border: none;
+        background-color: transparent;
+        outline: none;
+      }
     }
   }
 }
