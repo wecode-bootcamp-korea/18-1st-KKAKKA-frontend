@@ -22,55 +22,47 @@ class Login extends Component {
     });
   };
 
-  isEmailValid = e => {
-    e.preventDefault();
+  goToMain = e => {
     const regExpression = /^([0-9a-zA-Z_\.-]+)@([0-9a-zA-Z_-]+)(\.[0-9a-zA-Z_-]+){1,12}$/i;
 
-    if (!regExpression.test(this.state.email)) {
+    if (
+      regExpression.test(this.state.email) &&
+      this.state.password.length > 8
+    ) {
+      fetch(loginAPI, {
+        method: "POST",
+        body: JSON.stringify({
+          id: this.state.email,
+          password: this.state.password,
+        }),
+      })
+        .then(response => response.json())
+        .then(result => {
+          console.log(result);
+          if (result.message === "success_signin") {
+            this.props.history.push("/main");
+          } else if (result.message === "error_password_matching") {
+            alert("비밀번호를 다시 입력해주세요");
+          } else if (result.message === "error_mutiple_id" || "error_no_id") {
+            alert("아이디(이메일)를 다시 입력해주세요");
+          }
+        });
+    } else {
       this.setState({
         isValid: false,
       });
-    } else {
-      this.setState({ isNotValid: true });
     }
-  };
-
-  goToMain = e => {
-    // this.props.history.push("/main");
-    // 추후 백엔드 데이터를 받으면 아래 함수 사용 예정
-    /* if(response.message === "valid user") {
-      this.props.history.push('/main') 
-    } else {
-      alert ("존재하지 않는 계정입니다. 가입 후 이용해주세요!")
-      this.props.history.push('/signup')
-    }*/
-
-    fetch(loginAPI, {
-      method: "POST",
-      body: JSON.stringify({
-        id: this.state.email,
-        password: this.state.password,
-      }),
-    })
-      .then(response => response.json())
-      .then(result => {
-        console.log(result);
-        if (result.message === "success_signin") {
-          this.props.history.push("/main");
-        } else if (result.message === "error_password_matching") {
-          alert("아이디 또는 비밀번호를 확인해주세요.");
-        }
-      });
     e.preventDefault();
   };
 
-  checkInfoLogin = () => {
-    this.isEmailValid();
-    this.goToMain();
+  checkInfoLogin = e => {
+    this.isEmailValid(() => {
+      this.goToMain();
+      e.preventDefault();
+    });
   };
 
   render() {
-    console.log(this.state);
     const { isValid } = this.state;
     return (
       <div className="login">
