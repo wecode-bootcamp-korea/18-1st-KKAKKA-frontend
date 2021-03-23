@@ -34,10 +34,14 @@ class Routes extends React.Component {
           <Route exact path="/order" component={Order} />
           <Route exact path="/order-list" component={OrderList} />
           <Route exact path="/signup" component={SignUp} />
-          <Route exact path="/subscribe-detail" component={SubscribeDetail} />
           <Route
             exact
-            path="/subscribe-detail/:id"
+            path="/subscription/contents"
+            component={SubscribeDetail}
+          />
+          <Route
+            exact
+            path="/subscription/contents/:id"
             component={SubscribeDetail}
           />
           <Route exact path="/subscribe-list" component={SubscribeList} />

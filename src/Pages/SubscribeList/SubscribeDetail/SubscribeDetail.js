@@ -3,12 +3,17 @@ import SubDetailCard from "./SubDetailCard";
 import "./SubscribeDetail.scss";
 
 class SubscribeDetail extends Component {
-  state = {
-    subscribeList: [],
-  };
+  constructor() {
+    super();
+    this.state = {
+      subscribeList: [],
+    };
+  }
 
   getData = () => {
-    fetch(`http://10.58.7.212:8000/subscription/`)
+    fetch(
+      `http://10.58.7.212:8000/subscription/contents/${this.props.match.params.id}`
+    )
       .then(res => res.json())
       .then(data =>
         this.setState({
@@ -44,18 +49,20 @@ class SubscribeDetail extends Component {
   };
 
   render() {
-    console.log("SubDetailDetail:", this.state);
     const { subscribeList } = this.state;
     return (
       <div>
-        <SubDetailCard
-          id={subscribeList.id}
-          introduction={subscribeList.introduction}
-          name={subscribeList.name}
-          price={subscribeList.price}
-          description={subscribeList.description}
-          image={subscribeList.image}
-        />
+        {subscribeList.id > 0 && (
+          <SubDetailCard
+            key={subscribeList.id}
+            id={subscribeList.id}
+            introduction={subscribeList.introduction}
+            name={subscribeList.name}
+            price={subscribeList.price}
+            description={subscribeList.description}
+            image={subscribeList.images}
+          />
+        )}
         <div className="urlButtons">
           <button
             type="button"

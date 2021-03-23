@@ -5,12 +5,7 @@ import DetailOption from "./Components/DetailOption/DetailOption";
 import "./SubDetailCard.scss";
 
 class SubDetailCard extends Component {
-  state = {
-    subscribeList: [],
-  };
-
   render() {
-    console.log("SubDetailCard :", this.state);
     const { id, introduction, name, price, description, image } = this.props;
 
     return (
@@ -28,7 +23,11 @@ class SubDetailCard extends Component {
         </ul>
         <div className="detailContents">
           <div className="productThumnail">
-            <img alt="꽃 이미지" src={image} className="thumnail" />
+            <img
+              alt="꽃 이미지"
+              src={image && image.length > 0 && image[0]}
+              className="thumnail"
+            />
             <div className="detailSlider">
               <img
                 alt="꽃 미니 썸네일1"

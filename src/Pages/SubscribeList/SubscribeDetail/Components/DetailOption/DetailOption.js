@@ -8,7 +8,7 @@ class DetailOption extends Component {
     this.state = {
       // api 연결 이후 fetch 로그인 상태 인증으로 로직 변경
       isLogin: true,
-      orderCount: 1,
+      quantity: 1,
       subscribeOption: "",
       hasLetter: true,
       price: 0,
@@ -52,23 +52,17 @@ class DetailOption extends Component {
   };
 
   addCount = () => {
-    if (
-      this.state.subscribeOption === "정기구독" &&
-      this.state.orderCount < 10
-    ) {
+    if (this.state.subscribeOption === "정기구독" && this.state.quantity < 10) {
       this.setState({
-        orderCount: this.state.orderCount + 1,
+        quantity: this.state.quantity + 1,
       });
     }
   };
 
   minusCount = () => {
-    if (
-      this.state.subscribeOption === "정기구독" &&
-      this.state.orderCount > 1
-    ) {
+    if (this.state.subscribeOption === "정기구독" && this.state.quantity > 1) {
       this.setState({
-        orderCount: this.state.orderCount - 1,
+        quantity: this.state.quantity - 1,
       });
     }
   };
@@ -80,7 +74,7 @@ class DetailOption extends Component {
   };
 
   changePrice = () => {
-    let updatePrice = this.state.price * this.state.orderCount;
+    let updatePrice = this.state.price * this.state.quantity;
     this.setState({
       productPrice: updatePrice(),
     });
@@ -91,9 +85,13 @@ class DetailOption extends Component {
   };
 
   render() {
-    console.log("DetailOption price:", this.props.price);
-    console.log("date:", this.state.delivery_date);
-    const { price, subscribeOption, orderCount } = this.state;
+    const {
+      price,
+      subscribeOption,
+      quantity,
+      hasLetter,
+      delivery_date,
+    } = this.state;
     return (
       <>
         <div className="detailOption">
@@ -130,7 +128,7 @@ class DetailOption extends Component {
                         type="date"
                         name="deliveryDate"
                         onChange={this.changeDate}
-                        value={this.state.delivery_date}
+                        value={delivery_date}
                         className="date"
                       />
                     )}
@@ -149,7 +147,7 @@ class DetailOption extends Component {
                       >
                         -
                       </button>
-                      <span>{orderCount}</span>
+                      <span>{quantity}</span>
                       <button
                         type="button"
                         className="btnAmount"
@@ -173,7 +171,7 @@ class DetailOption extends Component {
                           type="radio"
                           name="letter"
                           value="letter"
-                          checked={this.state.hasLetter ? true : false}
+                          checked={hasLetter ? true : false}
                           onClick={this.chkHasLetter}
                           readOnly
                         />
@@ -186,7 +184,7 @@ class DetailOption extends Component {
                           type="radio"
                           name="letter"
                           value="noLetter"
-                          checked={this.state.hasLetter ? false : true}
+                          checked={!hasLetter}
                           onClick={this.chkHasLetter}
                         />
                         <label for="letterNo">추가하지 않을게요</label>
@@ -218,7 +216,7 @@ class DetailOption extends Component {
                     <p className="subContents">정기구독(2주마다 자동결제)</p>
                   </div>
                   <span className="price">
-                    {(Number(price) * orderCount).toLocaleString()}
+                    {(Number(price) * quantity).toLocaleString()}
                   </span>
                 </>
               );
@@ -232,7 +230,7 @@ class DetailOption extends Component {
                     </p>
                   </div>
                   <span className="price">
-                    {(Number(price) * orderCount).toLocaleString()}
+                    {(Number(price) * quantity).toLocaleString()}
                   </span>
                 </>
               );
@@ -262,8 +260,8 @@ class DetailOption extends Component {
             <p className="subContents">총 주문금액</p>
             <h2 className="title price">
               {(
-                Number(price) * orderCount +
-                (this.state.hasLetter && Number(2500))
+                Number(price) * quantity +
+                (hasLetter && Number(2500))
               ).toLocaleString()}
             </h2>
           </div>

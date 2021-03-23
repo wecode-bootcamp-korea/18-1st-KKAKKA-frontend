@@ -4,6 +4,12 @@ import "./SubStart.scss";
 
 class SubStart extends Component {
   render() {
+    const STEP_INFO_LIST = [
+      "에어비엔비 이용 방법",
+      "뉴스룸",
+      "에어비엔비 플러스",
+    ];
+
     return (
       <section className="subStart">
         <h2 className="title">꽃 정기구독, 이렇게 시작해보세요!</h2>

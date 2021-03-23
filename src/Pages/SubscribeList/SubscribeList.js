@@ -14,14 +14,12 @@ class SubscribeList extends Component {
 
   clickHandler = id => {
     this.setState({ currentId: id });
-    console.log(this.state.currentId);
   };
 
   componentDidMount() {
     fetch("http://10.58.7.212:8000/subscription/")
       .then(res => res.json())
       .then(data => {
-        console.log("haha: ", data);
         this.setState({
           subscribeList: data.result,
         });
@@ -29,24 +27,19 @@ class SubscribeList extends Component {
   }
 
   render() {
-    console.log("SubscribeList :", this.state.subscribeList);
-    const { subscribeList } = this.state;
+    const { subscribeList, currentId } = this.state;
     return (
       <section className="sublistContainer">
         <nav className="subToggle">
           <ul className="toggleBtns">
             <li
-              className={
-                this.state.currentId === 1 ? "toggleBtn selected" : "toggleBtn"
-              }
+              className={`toggleBtn ${currentId === 1 && "selected"}`}
               onClick={() => this.clickHandler(1)}
             >
               정기구독 상품
             </li>
             <li
-              className={
-                this.state.currentId === 2 ? "toggleBtn selected" : "toggleBtn"
-              }
+              className={`toggleBtn ${currentId === 2 && "selected"}`}
               onClick={() => this.clickHandler(2)}
             >
               이용 방법
@@ -54,8 +47,8 @@ class SubscribeList extends Component {
           </ul>
         </nav>
         <div className="contentsBox">
-          {this.state.currentId === 2 && <SubStart />}
-          {this.state.currentId === 1 &&
+          {currentId === 2 && <SubStart />}
+          {currentId === 1 &&
             subscribeList.map(sub => {
               return (
                 <SubCard

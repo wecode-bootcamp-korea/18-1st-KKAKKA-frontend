@@ -4,12 +4,10 @@ import "./SubCard.scss";
 
 class SubCard extends Component {
   goToDetail = () => {
-    this.props.history.push(`./subscribe-detail/${this.props.id}`);
+    this.props.history.push(`/subscription/contents/${this.props.id}`);
   };
 
   render() {
-    console.log("Subcard");
-    console.log("Subcard props", this.props);
     const { description, name, price, introduction, image } = this.props;
     return (
       <article className="sublistBox">
