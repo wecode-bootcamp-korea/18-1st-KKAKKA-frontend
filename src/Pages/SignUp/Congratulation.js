@@ -7,7 +7,7 @@ export class Congratulation extends Component {
     return (
       <div className="congratulation">
         {/* Nav 컴포넌트 추가 예정 */}
-        <div className="upperBox">
+        <div className="congratsupperBox">
           <header className="textBox">
             <p className="nameTxt">{`${this.props.location.state.userName}님,`}</p>
             <p className="congratTxt">KKAKKA의 회원이 되신걸 축하드립니다 :)</p>
@@ -19,7 +19,7 @@ export class Congratulation extends Component {
           </header>
         </div>
 
-        <div className="lowerBox">
+        <div className="congratslowerBox">
           <p className="promoteTxt">다양한 소식과 할인 정보를 받아보세요!</p>
           <p className="emailTxt">[마이페이지]-[회원정보 관리]에서</p>
           <p className="emailTxt">이메일 수신 여부를 변경할 수 있습니다.</p>
