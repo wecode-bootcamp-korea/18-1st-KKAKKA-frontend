@@ -50,12 +50,6 @@ class OrderLetter extends Component {
             </div>
           </div>
         </div>
-        <div className="letterFooter">
-          <div className="letterBtns">
-            <button className="letterBtn previous">이전 화면으로</button>
-            <button className="letterBtn next">다음 단계로</button>
-          </div>
-        </div>
       </div>
     );
   }

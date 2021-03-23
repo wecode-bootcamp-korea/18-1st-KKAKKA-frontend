@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import OrderLetter from "./Components/OrderLetter/OrderLetter";
 import OrderAddress from "./Components/OrderAddress/OrderAddress";
 import OrderPay from "./Components/OrderPay/OrderPay";
+import FooterBtn from "./Components/FooterBtn/FooterBtn";
 import "./Order.scss";
 
 class Order extends Component {
@@ -15,7 +16,6 @@ class Order extends Component {
 
   clickHandler = id => {
     this.setState({ currentId: id });
-    console.log(this.state.currentId);
   };
 
   // componentDidMount() {
@@ -73,6 +73,7 @@ class Order extends Component {
           {this.state.currentId === 2 && <OrderAddress />}
           {this.state.currentId === 3 && <OrderPay />}
         </div>
+        <FooterBtn />
       </section>
     );
   }
