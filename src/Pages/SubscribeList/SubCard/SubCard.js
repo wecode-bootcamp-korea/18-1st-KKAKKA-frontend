@@ -24,7 +24,7 @@ class SubCard extends Component {
           <h2 className="title strong" onClick={this.goToDetail}>
             {name}
           </h2>
-          <h2 className="title price">{price}</h2>
+          <h2 className="title price">{Number(price).toLocaleString()}</h2>
           <div className="contentBox">
             {description &&
               description.split("\n").map(line => {
