@@ -55,13 +55,6 @@ class Login extends Component {
     e.preventDefault();
   };
 
-  checkInfoLogin = e => {
-    this.isEmailValid(() => {
-      this.goToMain();
-      e.preventDefault();
-    });
-  };
-
   render() {
     const { isValid } = this.state;
     return (
