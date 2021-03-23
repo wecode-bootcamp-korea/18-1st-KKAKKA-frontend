@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import Nav from "../../Components/Nav/Nav";
 import SubNav from "../../Components/SubNav/SubNav";
+import Footer from "../../Components/Footer/Footer";
 import "./Main.scss";
 
 class Main extends Component {
@@ -9,6 +10,7 @@ class Main extends Component {
       <div className="container">
         <Nav />
         <SubNav />
+        <Footer />
       </div>
     );
   }
