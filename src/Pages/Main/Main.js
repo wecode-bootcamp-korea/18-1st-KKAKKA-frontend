@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
-import mainAPI from "../../config";
+import Nav from "../../Components/Nav/Nav";
+import SubNav from "../../Components/SubNav/SubNav";
+import { mainAPI } from "../../config";
 import "./Main.scss";
 
 class Main extends Component {
@@ -17,6 +19,10 @@ class Main extends Component {
   render() {
     return (
       <div className="main">
+        <div className="container">
+          <Nav />
+          <SubNav />
+        </div>
         {/* Navi 컴포넌트 추가 예정 */}
         <div className="subscribeList">
           <div className="cookieSubscribeList"></div>
