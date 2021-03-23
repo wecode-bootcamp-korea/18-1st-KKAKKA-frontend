@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { withRouter } from "react-router";
 import { Link } from "react-router-dom";
+import Footer from "../../Components/Footer/Footer";
 import { loginAPI } from "../../config";
 import "./Login.scss";
 
@@ -94,6 +95,7 @@ class Login extends Component {
             </div>
           </form>
         </div>
+        <Footer />
       </div>
     );
   }
