@@ -61,7 +61,7 @@ class SubscribeDetail extends Component {
             name={subscribeList.name}
             price={subscribeList.price}
             description={subscribeList.description}
-            image={subscribeList.images}
+            image={subscribeList.image}
           />
         )}
         <div className="urlButtons">

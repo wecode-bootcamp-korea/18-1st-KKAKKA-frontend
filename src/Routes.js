@@ -44,7 +44,7 @@ class Routes extends React.Component {
             path="/subscription/contents/:id"
             component={SubscribeDetail}
           />
-          <Route exact path="/subscribe-list" component={SubscribeList} />
+          <Route exact path="/subscription" component={SubscribeList} />
         </Switch>
       </Router>
     );
