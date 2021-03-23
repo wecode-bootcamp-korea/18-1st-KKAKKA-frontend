@@ -2,6 +2,19 @@ import React, { Component } from "react";
 import "./OrderLetter.scss";
 
 class OrderLetter extends Component {
+  constructor() {
+    super();
+    this.state = {
+      orderList: [],
+      letterText: "",
+    };
+  }
+
+  changeInput = e => {
+    this.setState({ letterText: e.target.value });
+    console.log(this.state.letterText);
+  };
+
   render() {
     return (
       <div className="letterContainer">
@@ -16,7 +29,12 @@ class OrderLetter extends Component {
           </div>
           <div className="letterBody">
             <div className="inputLetter">
-              <textarea className="text" placeholder="여기에 입력하세요 :-)" />
+              <textarea
+                className="text"
+                placeholder="여기에 입력하세요 :-)"
+                onChange={this.changeInput}
+                value={this.state.letterText}
+              />
               <div className="textInfo">
                 <span className="textLimit">0/120</span>
                 <p>*이모티콘은 편지 내용에 포함되지 않습니다.</p>
@@ -25,7 +43,7 @@ class OrderLetter extends Component {
               </div>
             </div>
             <div className="previewLetter">
-              <textarea className="textview" />
+              <textarea className="textview" value={this.state.letterText} />
               <div className="textviewInfo">
                 <p>*실제 편지지 모습입니다. 최대 8줄까지만 인쇄됩니다.</p>
               </div>
