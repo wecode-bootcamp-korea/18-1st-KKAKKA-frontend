@@ -3,11 +3,11 @@ import "./DetailInfo.scss";
 
 class DetailInfo extends Component {
   render() {
-    const { itemComment, productTitle, price } = this.props;
+    const { introduction, name, price } = this.props;
     return (
       <div className="detail-title">
-        <span className="sub-title">{itemComment}</span>
-        <h2 className="title strong">{productTitle}</h2>
+        <span className="sub-title">{introduction}</span>
+        <h2 className="title strong">{name}</h2>
         <h2 className="title price">{Number(price).toLocaleString()}</h2>
       </div>
     );

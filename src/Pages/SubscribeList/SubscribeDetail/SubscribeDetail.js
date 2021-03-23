@@ -8,10 +8,12 @@ class SubscribeDetail extends Component {
   };
 
   getData = () => {
-    fetch(`/data/subscribeData.json`)
+    fetch(`http://10.58.7.212:8000/subscription/`)
       .then(res => res.json())
-      .then(res =>
-        this.setState({ subscribeList: res[this.props.match.params.id - 1] })
+      .then(data =>
+        this.setState({
+          subscribeList: data.result[this.props.match.params.id - 1],
+        })
       );
   };
 
@@ -48,11 +50,11 @@ class SubscribeDetail extends Component {
       <div>
         <SubDetailCard
           id={subscribeList.id}
-          itemComment={subscribeList.detail}
-          productTitle={subscribeList.name}
-          price={subscribeList.origin_price}
-          contents={subscribeList.contents}
-          productImg={subscribeList.image}
+          introduction={subscribeList.introduction}
+          name={subscribeList.name}
+          price={subscribeList.price}
+          description={subscribeList.description}
+          image={subscribeList.image}
         />
         <div className="urlButtons">
           <button

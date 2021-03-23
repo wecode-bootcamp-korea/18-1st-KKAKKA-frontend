@@ -14,6 +14,7 @@ class DetailOption extends Component {
       price: 0,
       productPrice: "",
       totalPrice: "",
+      delivery_date: "",
       subscribeList: [],
     };
   }
@@ -85,8 +86,13 @@ class DetailOption extends Component {
     });
   };
 
+  changeDate = e => {
+    this.setState({ delivery_date: e.target.value });
+  };
+
   render() {
     console.log("DetailOption price:", this.props.price);
+    console.log("date:", this.state.delivery_date);
     const { price, subscribeOption, orderCount } = this.state;
     return (
       <>
@@ -118,6 +124,16 @@ class DetailOption extends Component {
                         1회 무료 체험(+ 배송비 3,000원)
                       </option>
                     </select>
+
+                    {subscribeOption !== "" && (
+                      <input
+                        type="date"
+                        name="deliveryDate"
+                        onChange={this.changeDate}
+                        value={this.state.delivery_date}
+                        className="date"
+                      />
+                    )}
                   </td>
                 </tr>
                 <tr className="optionRow2">

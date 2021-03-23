@@ -16,7 +16,7 @@ class SubCard extends Component {
         <div className="subImageBox">
           <img
             alt="정기구독 상품1"
-            src={image[0]}
+            src={image}
             className="subImage"
             onClick={this.goToDetail}
           />
@@ -28,7 +28,7 @@ class SubCard extends Component {
           </h2>
           <h2 className="title price">{price}</h2>
           <div className="contentBox">
-            {description.include("\n") &&
+            {description &&
               description.split("\n").map(line => {
                 return (
                   <span className="detailContent">

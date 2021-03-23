@@ -11,14 +11,7 @@ class SubDetailCard extends Component {
 
   render() {
     console.log("SubDetailCard :", this.state);
-    const {
-      id,
-      itemComment,
-      productTitle,
-      price,
-      contents,
-      productImg,
-    } = this.props;
+    const { id, introduction, name, price, description, image } = this.props;
 
     return (
       <section className="detailContainer">
@@ -30,16 +23,12 @@ class SubDetailCard extends Component {
             <Link to="/subscribe-list">꽃 정기구독</Link>
           </li>
           <li>
-            <Link to={`./${this.props.match.params.id}`}>가벼운 S 꽃구독</Link>
+            <Link to={`./${this.props.match.params.id}`}>{name}</Link>
           </li>
         </ul>
         <div className="detailContents">
           <div className="productThumnail">
-            <img
-              alt="꽃 이미지"
-              src="https://user-images.githubusercontent.com/46774456/111404908-eff67680-8712-11eb-8f25-8ae36c32578e.png"
-              className="thumnail"
-            />
+            <img alt="꽃 이미지" src={image} className="thumnail" />
             <div className="detailSlider">
               <img
                 alt="꽃 미니 썸네일1"
@@ -73,11 +62,11 @@ class SubDetailCard extends Component {
           <div className="productDetailRight">
             <DetailInfo
               key={id}
-              itemComment={itemComment}
-              productTitle={productTitle}
+              introduction={introduction}
+              name={name}
               price={price}
-              contents={contents}
-              productImg={productImg}
+              description={description}
+              image={image}
             />
             <div className="detailInfo">
               <span className="contents">정기구독 전상품</span>

@@ -18,7 +18,7 @@ class SubscribeList extends Component {
   };
 
   componentDidMount() {
-    fetch("http://10.58.7.81:8000/subscription/")
+    fetch("http://10.58.7.212:8000/subscription/")
       .then(res => res.json())
       .then(data => {
         console.log("haha: ", data);
@@ -65,7 +65,7 @@ class SubscribeList extends Component {
                   name={sub.name}
                   price={sub.price}
                   description={sub.description}
-                  productImg={sub.image}
+                  image={sub.image}
                 />
               );
             })}
