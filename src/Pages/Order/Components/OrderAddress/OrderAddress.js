@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import AddressInput from "./AddressInput/AddressInput";
 import "./OrderAddress.scss";
 
 class OrderAddress extends Component {
@@ -48,7 +49,7 @@ class OrderAddress extends Component {
             </ul>
           </nav>
           <div className="contentsBox">
-            {this.state.deliveryId === 1}
+            {this.state.deliveryId === 1 && <AddressInput />}
             {this.state.deliveryId === 2}
             {this.state.deliveryId === 3}
           </div>
