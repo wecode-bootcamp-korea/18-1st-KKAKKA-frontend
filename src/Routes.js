@@ -9,7 +9,7 @@ import FlowerDetail from "./Pages/FlowerDetail/FlowerDetail.js";
 import FlowerList from "./Pages/FlowerList/FlowerList.js";
 import Mypage from "./Pages/Mypage/Mypage.js";
 import Order from "./Pages/Order/Order.js";
-import OrderList from "./Pages/OrderListf/OrderList.js";
+import OrderList from "./Pages/OrderList/OrderList.js";
 import SignUp from "./Pages/SignUp/SignUp.js";
 import SubscribeDetail from "./Pages/SubscribeDetail/SubscribeDetail.js";
 import SubscribeList from "./Pages/SubscribeList/SubscribeList.js";
