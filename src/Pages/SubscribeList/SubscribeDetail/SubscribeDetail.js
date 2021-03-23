@@ -15,11 +15,12 @@ class SubscribeDetail extends Component {
       `http://10.58.7.212:8000/subscription/contents/${this.props.match.params.id}`
     )
       .then(res => res.json())
-      .then(data =>
+      .then(data => {
+        console.log("확인 :", data);
         this.setState({
-          subscribeList: data.result[this.props.match.params.id - 1],
-        })
-      );
+          subscribeList: data.result[0],
+        });
+      });
   };
 
   componentDidMount() {
@@ -35,7 +36,7 @@ class SubscribeDetail extends Component {
   goToPrevious = () => {
     if (this.props.match.params.id > 1) {
       this.props.history.push(
-        `/subscribe-detail/${--this.props.match.params.id}`
+        `/subscription/contents/${--this.props.match.params.id}`
       );
     }
   };
@@ -43,7 +44,7 @@ class SubscribeDetail extends Component {
   goToNext = () => {
     if (this.props.match.params.id < 3) {
       this.props.history.push(
-        `/subscribe-detail/${++this.props.match.params.id}`
+        `/subscription/contents/${++this.props.match.params.id}`
       );
     }
   };
@@ -52,7 +53,7 @@ class SubscribeDetail extends Component {
     const { subscribeList } = this.state;
     return (
       <div>
-        {subscribeList.id > 0 && (
+        {subscribeList.id >= 0 && (
           <SubDetailCard
             key={subscribeList.id}
             id={subscribeList.id}
