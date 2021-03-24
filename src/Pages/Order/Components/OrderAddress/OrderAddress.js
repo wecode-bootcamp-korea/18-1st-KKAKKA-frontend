@@ -6,7 +6,6 @@ class OrderAddress extends Component {
   constructor() {
     super();
     this.state = {
-      orderList: [],
       deliveryId: 1,
     };
   }
@@ -49,7 +48,9 @@ class OrderAddress extends Component {
             </ul>
           </nav>
           <div className="contentsBox">
-            {this.state.deliveryId === 1 && <AddressInput />}
+            {this.state.deliveryId === 1 && (
+              <AddressInput deliveryData={this.props.deliveryData} />
+            )}
             {this.state.deliveryId === 2}
             {this.state.deliveryId === 3}
           </div>

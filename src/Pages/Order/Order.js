@@ -1,9 +1,8 @@
 import React, { Component } from "react";
-import commonAPI from "src/config.js";
 import OrderLetter from "./Components/OrderLetter/OrderLetter";
 import OrderAddress from "./Components/OrderAddress/OrderAddress";
 import OrderPay from "./Components/OrderPay/OrderPay";
-import FooterBtn from "./Components/FooterBtn/FooterBtn";
+
 import "./Order.scss";
 
 class Order extends Component {
@@ -12,23 +11,37 @@ class Order extends Component {
     this.state = {
       orderList: [],
       currentId: 1,
+      deliveryData: {
+        recipient_phone: "",
+        recipient: "",
+        postal_code: "",
+        address: "",
+        address_detail: "",
+        save_address: true,
+        sender: "",
+      },
     };
   }
+
+  inputChange = e => {
+    // let {
+    //   recipient_phone,
+    //   recipient,
+    //   postal_code,
+    //   address,
+    //   address_detail,
+    //   save_address,
+    //   sender,
+    // } = e.target;
+
+    this.setState({
+      deliveryData: { [e.target.name]: e.target.value },
+    });
+  };
 
   clickHandler = id => {
     this.setState({ currentId: id });
   };
-
-  componentDidMount() {
-    fetch(`${commonAPI.api}/order`)
-      .then(res => res.json())
-      .then(data => {
-        console.log("haha: ", data);
-        this.setState({
-          orderList: data.result,
-        });
-      });
-  }
 
   render() {
     return (
@@ -72,10 +85,14 @@ class Order extends Component {
         </nav>
         <div className="contentsBox">
           {this.state.currentId === 1 && <OrderLetter />}
-          {this.state.currentId === 2 && <OrderAddress />}
+          {this.state.currentId === 2 && (
+            <OrderAddress
+              deliveryData={this.state.deliveryData}
+              inputChange={this.inputChange}
+            />
+          )}
           {this.state.currentId === 3 && <OrderPay />}
         </div>
-        <FooterBtn />
       </section>
     );
   }
