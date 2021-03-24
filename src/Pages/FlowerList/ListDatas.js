@@ -31,10 +31,15 @@ class ListDatas extends React.Component {
           {discountRate > 0.0 && (
             <span className="discountRate">{discountRate * 100}%</span>
           )}
-          {discountedPrice === 0 && (
-            <span className="discountedPrice">{discountedPrice}원</span>
+          {discountedPrice > 0 && (
+            <span className="originPrice1">{originPrice}원</span>
           )}
-          <span className="originPrice">{originPrice}원</span>
+          {discountRate === 0.0 && (
+            <span className="originPrice">{originPrice}원</span>
+          )}
+          {discountRate > 0.0 && (
+            <span className="originPrice">{discountedPrice}원</span>
+          )}
         </div>
 
         {/* {{ discountRate } ? (
