@@ -31,29 +31,29 @@ class SubDetailCard extends Component {
             <div className="detailSlider">
               <img
                 alt="꽃 미니 썸네일1"
-                src="https://user-images.githubusercontent.com/46774456/111404851-d48b6b80-8712-11eb-963a-959179b2bb76.png"
+                src={image && image.length > 0 && image[0]}
                 className="thumnailMini"
               />
               <img
                 alt="꽃 미니 썸네일2"
-                src="https://user-images.githubusercontent.com/46774456/111404953-fedd2900-8712-11eb-918f-d35b9ca935c0.jpg"
+                src={image && image.length > 0 && image[0]}
                 className="thumnailMini"
               />
               <img
                 alt="꽃 미니 썸네일3"
-                src="https://user-images.githubusercontent.com/46774456/111404908-eff67680-8712-11eb-8f25-8ae36c32578e.png"
+                src={image && image.length > 0 && image[0]}
                 className="thumnailMini"
               />
 
               <img
                 alt="꽃 미니 썸네일4"
-                src="https://user-images.githubusercontent.com/46774456/111404908-eff67680-8712-11eb-8f25-8ae36c32578e.png"
+                src={image && image.length > 0 && image[0]}
                 className="thumnailMini"
               />
 
               <img
                 alt="꽃 미니 썸네일5"
-                src="https://user-images.githubusercontent.com/46774456/111404853-d48b6b80-8712-11eb-8375-e20afa6b9c38.png"
+                src={image && image.length > 0 && image[0]}
                 className="thumnailMini"
               />
             </div>

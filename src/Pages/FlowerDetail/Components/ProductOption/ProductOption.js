@@ -1,17 +1,16 @@
 import React, { Component } from "react";
 import { withRouter } from "react-router-dom";
-import DateInput from "../../../../../Components/DateInput/DateInput";
-import Modal from "../../../../../Components/Modal/Modal";
-import "./DetailOption.scss";
+import DateInput from "../../../../Components/DateInput/DateInput";
+import Modal from "../../../../Components/Modal/Modal";
+import "./ProductOption.scss";
 
-class DetailOption extends Component {
+class ProductOption extends Component {
   constructor() {
     super();
     this.state = {
       // api 연결 이후 fetch 로그인 상태 인증으로 로직 변경
       isLogin: true,
       quantity: 1,
-      subscribeOption: "",
       delivery_date: "",
       hasLetter: true,
       price: 0,
@@ -23,28 +22,12 @@ class DetailOption extends Component {
     };
   }
 
-  changeSubPrice = () => {
-    if (this.state.subscribeOption === "") {
-      return this.setState({ price: 0 });
-    } else if (this.state.subscribeOption === "정기구독") {
-      return this.setState({ price: this.props.price });
-    } else if (this.state.subscribeOption === "1회 무료체험") {
-      return this.setState({ price: 3000 });
-    }
-  };
-
-  changeSubOption = e => {
-    this.setState({ subscribeOption: e.target.value }, () => {
-      this.changeSubPrice();
-    });
-  };
-
   changeDate = e => {
     this.setState({ delivery_date: e.target.value });
   };
 
   addCount = () => {
-    if (this.state.subscribeOption === "정기구독" && this.state.quantity < 10) {
+    if (this.state.quantity < 10) {
       this.setState({
         quantity: this.state.quantity + 1,
       });
@@ -52,7 +35,7 @@ class DetailOption extends Component {
   };
 
   minusCount = () => {
-    if (this.state.subscribeOption === "정기구독" && this.state.quantity > 1) {
+    if (this.state.quantity > 1) {
       this.setState({
         quantity: this.state.quantity - 1,
       });
@@ -86,14 +69,6 @@ class DetailOption extends Component {
     }
   };
 
-  goToCart = () => {
-    if (this.state.isLogin) {
-      this.props.history.push("/cart");
-    } else {
-      this.props.history.push("/login");
-    }
-  };
-
   goToOrder = () => {
     if (this.state.isLogin) {
       this.props.history.push("/order");
@@ -101,15 +76,9 @@ class DetailOption extends Component {
       this.props.history.push("/login");
     }
   };
-
   render() {
-    const {
-      price,
-      subscribeOption,
-      quantity,
-      hasLetter,
-      delivery_date,
-    } = this.state;
+    const { discounted_price } = this.props;
+    const { quantity, delivery_date } = this.state;
     return (
       <div>
         {this.state.modal && (
@@ -127,26 +96,8 @@ class DetailOption extends Component {
                   <th>
                     <span className="contents">구독옵션</span>
                   </th>
-                  <td className="optionBox">
-                    <select
-                      value={subscribeOption}
-                      onChange={this.changeSubOption}
-                    >
-                      <label htmlFor="option">구독 옵션</label>
-                      <option className="selected" value="">
-                        구독기간을 선택해주세요
-                      </option>
-                      <option className="option" value="정기구독">
-                        정기결제 (2주마다 자동결제)
-                      </option>
-                      <option className="option" value="1회 무료체험">
-                        1회 무료 체험(+ 배송비 3,000원)
-                      </option>
-                    </select>
-
-                    {subscribeOption !== "" && (
-                      <DateInput startDate={delivery_date} />
-                    )}
+                  <td>
+                    <DateInput startDate={delivery_date} />
                   </td>
                 </tr>
                 <tr className="optionRow2">
@@ -186,10 +137,11 @@ class DetailOption extends Component {
                           type="radio"
                           name="letter"
                           value="letter"
-                          checked={hasLetter ? true : false}
+                          checked={this.state.hasLetter ? true : false}
                           onClick={this.chkHasLetter}
                           readOnly
                         />
+
                         <label for="letter">추가할게요(+2,500)</label>
                       </div>
                       <div className="letterCheckbox">
@@ -199,7 +151,7 @@ class DetailOption extends Component {
                           type="radio"
                           name="letter"
                           value="noLetter"
-                          checked={!hasLetter}
+                          checked={this.state.hasLetter ? false : true}
                           onClick={this.chkHasLetter}
                         />
                         <label for="letterNo">추가하지 않을게요</label>
@@ -211,46 +163,15 @@ class DetailOption extends Component {
             </table>
           </div>
         </div>
+
         <div className="detailPrice">
-          {(() => {
-            if (subscribeOption === "") {
-              return (
-                <>
-                  <div>
-                    <span className="contents">상품 가격</span>
-                    <p className="subContents">구독 기간을 선택해주세요</p>
-                  </div>
-                  <span className="price">0</span>
-                </>
-              );
-            } else if (subscribeOption === "정기구독") {
-              return (
-                <>
-                  <div>
-                    <span className="contents">상품 가격</span>
-                    <p className="subContents">정기구독(2주마다 자동결제)</p>
-                  </div>
-                  <span className="price">
-                    {(Number(price) * quantity).toLocaleString()}
-                  </span>
-                </>
-              );
-            } else if (subscribeOption === "1회 무료체험") {
-              return (
-                <>
-                  <div>
-                    <span className="contents">상품 가격</span>
-                    <p className="subContents">
-                      1회 무료 체험(+ 배송비 3,000원)
-                    </p>
-                  </div>
-                  <span className="price">
-                    {(Number(price) * quantity).toLocaleString()}
-                  </span>
-                </>
-              );
-            }
-          })()}
+          <div>
+            <span className="contents">상품 가격</span>
+            <p className="subContents">구독 기간을 선택해주세요</p>
+          </div>
+          <span className="price">
+            {(Number(discounted_price) * quantity).toLocaleString()}
+          </span>
         </div>
         {this.state.hasLetter && (
           <div className="letterPrice">
@@ -274,14 +195,10 @@ class DetailOption extends Component {
           <div>
             <p className="subContents">총 주문금액</p>
             <h2 className="title price">
-              {(
-                Number(price) * quantity +
-                (hasLetter && Number(2500))
-              ).toLocaleString()}
+              {(Number(discounted_price) * quantity).toLocaleString()}
             </h2>
           </div>
         </div>
-
         <div className="detailButtons">
           <button
             type="button"
@@ -303,4 +220,4 @@ class DetailOption extends Component {
   }
 }
 
-export default withRouter(DetailOption);
+export default withRouter(ProductOption);
