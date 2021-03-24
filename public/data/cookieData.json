@@ -27,35 +27,5 @@
       "discount_rate": 0.1,
       "discounted_price": "29900"
     }
-  ],
-  "subscription_list": [
-    {
-      "name": "가벼운 S 쿠키 구독",
-      "introduction": "쿠키가 일상이 되는 가벼운 시작",
-      "image": "https://kukka-2-media-123.s3.amazonaws.com/media/class-name/Contents/2346/category.png",
-      "price": "33900",
-      "id": "1"
-    },
-    {
-      "name": "가득찬 XL 쿠키 구독",
-      "introduction": "꽃이 일상이 되는 가벼운 시작",
-      "image": "https://kukka-2-media-123.s3.amazonaws.com/media/class-name/Contents/2346/category.png",
-      "price": "33900",
-      "id": "2"
-    },
-    {
-      "name": "딱 좋은 M 쿠키 구독",
-      "introduction": "꽃이 일상이 되는 가벼운 시작",
-      "image": "https://kukka-2-media-123.s3.amazonaws.com/media/class-name/Contents/2346/category.png",
-      "price": "33900",
-      "id": "3"
-    },
-    {
-      "name": "풍성한 M 쿠키 구독",
-      "introduction": "꽃이 일상이 되는 가벼운 시작",
-      "image": "https://kukka-2-media-123.s3.amazonaws.com/media/class-name/Contents/2346/category.png",
-      "price": "33900",
-      "id": "4"
-    }
   ]
 }

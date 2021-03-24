@@ -3,8 +3,14 @@ import { Link } from "react-router-dom";
 import Nav from "../../Components/Nav/Nav";
 import SubNav from "../../Components/SubNav/SubNav";
 import Footer from "../../Components/Footer/Footer";
-import { mainAPI } from "../../config";
-import CardList from "./Components/CardList/CardList";
+import Cards from "./Components/Cards/Cards";
+import DataList from "./Components/DataList/DataList";
+import {
+  mainAPI,
+  mockCookieDataAPI,
+  mockCookieSubscribeAPI,
+} from "../../config";
+import "../../styles/common.scss";
 import "./Main.scss";
 
 class Main extends Component {
@@ -19,18 +25,19 @@ class Main extends Component {
   //mainAPI는 수정 되어서 구현할 떄는 mockdata 변수로 다시 할당
   // 백엔드와 통신은 완료
   componentDidMount = () => {
-    fetch(mainAPI)
+    fetch(mockCookieDataAPI)
       .then(response => response.json())
       .then(result => {
-        this.setState(
-          {
-            cookieSubscribe: result.subscription_list,
-            cookieData: result.product_list,
-          },
-          () => {
-            console.log("componentdidmount state >>", this.state);
-          }
-        );
+        this.setState({
+          cookieData: result.product_list,
+        });
+      });
+    fetch(mockCookieSubscribeAPI)
+      .then(response => response.json())
+      .then(result => {
+        this.setState({
+          cookieSubscribe: result.subscription_list,
+        });
       });
   };
 
@@ -49,10 +56,17 @@ class Main extends Component {
               2주에 한번, 나를 위한 행복 까까{" "}
               <span className="subscribeBold">쿠키 정기구독</span>
             </h2>
-            <CardList
-              key={cookieSubscribe.id}
-              subscribeItems={cookieSubscribe}
-            />
+            {cookieSubscribe.map(subscribeList => {
+              return (
+                <Cards
+                  key={subscribeList.id}
+                  subscribeName={subscribeList.name}
+                  subscribeIntro={subscribeList.introduction}
+                  subscribeImg={subscribeList.image}
+                  subscribePrice={subscribeList.price}
+                />
+              );
+            })}
           </div>
           <div className="cookieList">
             <div className="cookieListTxt">
@@ -63,7 +77,19 @@ class Main extends Component {
                 <button className="moreBtn">더보기</button>
               </Link>
             </div>
-            <CardList key={cookieData.id} cookieItems={cookieData} />
+            {cookieData.map(cookieDataList => {
+              return (
+                <DataList
+                  key={cookieDataList.id}
+                  cookieName={cookieDataList.name}
+                  cookieIntro={cookieDataList.introduction}
+                  cookieImg={cookieDataList.image}
+                  cookiePrice={cookieDataList.orign_price}
+                  cookieDiscountRate={cookieDataList.discount_rate}
+                  cookieDiscountPrice={cookieDataList.discounted_price}
+                />
+              );
+            })}
           </div>
           <div className="cookie"></div>
         </div>
