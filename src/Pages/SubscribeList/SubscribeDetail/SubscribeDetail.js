@@ -96,30 +96,28 @@ class SubscribeDetail extends Component {
     }
   }
 
-  changeSubPrice = () => {
-    const { subscribeOption } = this.state.subscribeData;
-    const subscribePrice = {
-      정기구독: this.state.subscribeList.price,
-      "1회 무료체험": 3000,
-    };
-    let updatePrice = {
-      ...this.state.subscribeData,
-      productPrice: subscribeOption ? subscribePrice[subscribeOption] : "0",
-    };
-    this.setState({ subscribeData: updatePrice });
-  };
-
   changeSubOption = e => {
     let updateOption = {
       ...this.state.subscribeData,
       subscribeOption: e.target.value,
     };
+    let resetCount = {
+      ...this.state.subscribeData,
+      quantity: 1,
+      subscribeOption: e.target.value,
+    };
     this.setState({ subscribeData: updateOption });
+    if (e.target.value !== "정기결제") {
+      this.setState({ subscribeData: resetCount });
+    }
   };
 
   addCount = () => {
     const { subscribeOption } = this.state.subscribeData;
-    if (subscribeOption === "정기구독" && this.state.quantity < 10) {
+    if (
+      subscribeOption === "정기구독" &&
+      this.state.subscribeData.quantity < 10
+    ) {
       let countUp = {
         ...this.state.subscribeData,
         quantity: this.state.subscribeData.quantity + 1,
@@ -132,7 +130,10 @@ class SubscribeDetail extends Component {
 
   minusCount = () => {
     const { subscribeOption } = this.state.subscribeData;
-    if (subscribeOption === "정기구독" && this.state.quantity > 1) {
+    if (
+      subscribeOption === "정기구독" &&
+      this.state.subscribeData.quantity > 1
+    ) {
       let countDown = {
         ...this.state.subscribeData,
         quantity: this.state.subscribeData.quantity - 1,
@@ -210,7 +211,6 @@ class SubscribeDetail extends Component {
             addCount={this.addCount}
             minusCount={this.minusCount}
             chkHasLetter={this.chkHasLetter}
-            changePrice={this.changePrice}
             changeSubOption={this.changeSubOption}
           />
         )}

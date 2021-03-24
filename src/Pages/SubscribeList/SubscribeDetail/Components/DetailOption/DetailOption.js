@@ -79,8 +79,8 @@ class DetailOption extends Component {
                       <option className="option" value="정기구독">
                         정기결제 (2주마다 자동결제)
                       </option>
-                      <option className="option" value="1회 무료체험">
-                        1회 무료 체험(+ 배송비 3,000원)
+                      <option className="option" value="무료체험">
+                        1회 무료 체험
                       </option>
                     </select>
 
@@ -177,18 +177,14 @@ class DetailOption extends Component {
                   </span>
                 </>
               );
-            } else if (subscribeOption === "1회 무료체험") {
+            } else if (subscribeOption === "무료체험") {
               return (
                 <>
                   <div>
                     <span className="contents">상품 가격</span>
-                    <p className="subContents">
-                      1회 무료 체험(+ 배송비 3,000원)
-                    </p>
+                    <p className="subContents">1회 무료 체험</p>
                   </div>
-                  <span className="price">
-                    {(Number(price) * quantity).toLocaleString()}
-                  </span>
+                  <span className="price">0</span>
                 </>
               );
             }

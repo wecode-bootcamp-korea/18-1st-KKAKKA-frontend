@@ -86,7 +86,6 @@ class SubDetailCard extends Component {
                 addCount={this.props.addCount}
                 minusCount={this.props.minusCount}
                 chkHasLetter={this.props.chkHasLetter}
-                changeSubPrice={this.props.changeSubPrice}
                 changeSubOption={this.props.changeSubOption}
               />
             </div>
