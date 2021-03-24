@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import commonAPI from "src/config.js";
 import OrderLetter from "./Components/OrderLetter/OrderLetter";
 import OrderAddress from "./Components/OrderAddress/OrderAddress";
 import OrderPay from "./Components/OrderPay/OrderPay";
@@ -18,16 +19,17 @@ class Order extends Component {
     this.setState({ currentId: id });
   };
 
-  // componentDidMount() {
-  //   fetch("http://10.58.7.81:8000/")
-  //     .then(res => res.json())
-  //     .then(data => {
-  //       console.log("haha: ", data);
-  //       this.setState({
-  //         orderList: data.result,
-  //       });
-  //     });
-  // }
+  componentDidMount() {
+    fetch(`${commonAPI.api}/order`)
+      .then(res => res.json())
+      .then(data => {
+        console.log("haha: ", data);
+        this.setState({
+          orderList: data.result,
+        });
+      });
+  }
+
   render() {
     return (
       <section className="orderContainer">
