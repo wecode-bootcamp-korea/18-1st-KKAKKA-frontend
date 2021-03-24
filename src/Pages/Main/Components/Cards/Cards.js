@@ -13,7 +13,8 @@ export class Cards extends Component {
         />
         <p className="subscribeIntro">{this.props.subscribeIntro}</p>
         <p className="subscribeName">{this.props.subscribeName}</p>
-        <p className="subscribePrice">{this.props.subscribePrice}</p>
+        <p className="subscribePrice">{`${this.props.subscribePrice}원`}</p>
+        <span className="freeShipping">무료배송</span>
       </div>
     );
   }

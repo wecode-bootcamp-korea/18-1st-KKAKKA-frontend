@@ -26,6 +26,15 @@
       "orign_price": "33900",
       "discount_rate": 0.1,
       "discounted_price": "29900"
+    },
+    {
+      "id": 4,
+      "name": "솜사탕 로즈 에디션",
+      "introduction": "알록달록한 매력",
+      "image": "https://kukka-2-media-123.s3.amazonaws.com/media/class-name/Contents/2346/category.png",
+      "orign_price": "33900",
+      "discount_rate": 0.1,
+      "discounted_price": "29900"
     }
   ]
 }

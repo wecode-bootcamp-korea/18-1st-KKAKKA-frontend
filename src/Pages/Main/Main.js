@@ -56,17 +56,19 @@ class Main extends Component {
               2주에 한번, 나를 위한 행복 까까{" "}
               <span className="subscribeBold">쿠키 정기구독</span>
             </h2>
-            {cookieSubscribe.map(subscribeList => {
-              return (
-                <Cards
-                  key={subscribeList.id}
-                  subscribeName={subscribeList.name}
-                  subscribeIntro={subscribeList.introduction}
-                  subscribeImg={subscribeList.image}
-                  subscribePrice={subscribeList.price}
-                />
-              );
-            })}
+            <div class="subscribeItemBox">
+              {cookieSubscribe.map(subscribeList => {
+                return (
+                  <Cards
+                    key={subscribeList.id}
+                    subscribeName={subscribeList.name}
+                    subscribeIntro={subscribeList.introduction}
+                    subscribeImg={subscribeList.image}
+                    subscribePrice={subscribeList.price}
+                  />
+                );
+              })}
+            </div>
           </div>
           <div className="cookieList">
             <div className="cookieListTxt">
@@ -77,19 +79,21 @@ class Main extends Component {
                 <button className="moreBtn">더보기</button>
               </Link>
             </div>
-            {cookieData.map(cookieDataList => {
-              return (
-                <DataList
-                  key={cookieDataList.id}
-                  cookieName={cookieDataList.name}
-                  cookieIntro={cookieDataList.introduction}
-                  cookieImg={cookieDataList.image}
-                  cookiePrice={cookieDataList.orign_price}
-                  cookieDiscountRate={cookieDataList.discount_rate}
-                  cookieDiscountPrice={cookieDataList.discounted_price}
-                />
-              );
-            })}
+            <div className="cookieDataItems">
+              {cookieData.map(cookieDataList => {
+                return (
+                  <DataList
+                    key={cookieDataList.id}
+                    cookieName={cookieDataList.name}
+                    cookieIntro={cookieDataList.introduction}
+                    cookieImg={cookieDataList.image}
+                    cookiePrice={cookieDataList.orign_price}
+                    cookieDiscountRate={cookieDataList.discount_rate}
+                    cookieDiscountPrice={cookieDataList.discounted_price}
+                  />
+                );
+              })}
+            </div>
           </div>
           <div className="cookie"></div>
         </div>
