@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { mockAPI } from "../../config";
 import ListDatas from "./ListDatas";
 import "./FlowerList.scss";
 
@@ -10,44 +11,61 @@ class FlowerList extends Component {
     };
   }
 
-  componentDidMount() {
-    fetch("/data/FlowerList.json")
+  componentDidMount = () => {
+    fetch(mockAPI)
       .then(res => res.json())
       .then(data => {
-        this.setState({
-          listDatas: data,
-        });
+        this.setState(
+          {
+            listDatas: data.result,
+          },
+          () => {
+            // console.log(this.state);
+          }
+        );
       });
-  }
+  };
 
   startBrandnew = () => {
     const { listDatas } = this.state;
     this.setState({
-      listDatas: listDatas.sort((a, b) => a.id - b.id),
-    });
-  };
-
-  startLowPrice = () => {
-    const { listDatas } = this.state;
-    this.setState({
-      listDatas: listDatas.sort((a, b) => a.resultPrice - b.resultPrice),
+      listDatas: listDatas.sort((a, b) => a.createdAt - b.createdAt),
     });
   };
 
   startHighPrice = () => {
     const { listDatas } = this.state;
     this.setState({
-      listDatas: listDatas.sort((a, b) => b.resultPrice - a.resultPrice),
+      listDatas: listDatas.sort((a, b) => a.originPrice - b.originPrice),
     });
   };
-  // startLowPrice = e => {
-  //   this.state.listDatas.sort((a, b) => a - b);
+
+  startLowPrice = () => {
+    const { listDatas } = this.state;
+    this.setState({
+      listDatas: listDatas.sort((a, b) => b.originPrice - a.originPrice),
+    });
+  };
+
+  // startHighPrice = () => {
+  //   const { listDatas } = this.state;
+  //   this.setState({
+  //     listDatas: listDatas.sort((a, b) => {
+  //       let nameA = (1 - listDatas.discountRate) * a.originPrice;
+  //       let nameB = (1 - listDatas.discountRate) * b.originPrice;
+  //       if (nameA > nameB) {
+  //         return nameA;
+  //       } else {
+  //         return nameB;
+  //       }
+  //     }),
+  //   });
   // };
 
   render() {
     console.log(this.state.listDatas);
     const { listDatas } = this.state;
-
+    //console.log(this.state.listDatas);
     return (
       <div className="flowerListMain">
         <div className="sortButton">
@@ -61,23 +79,22 @@ class FlowerList extends Component {
             가격높은순
           </button>
         </div>
+
         <div className="list">
           {listDatas.map(list => {
             return (
               <ListDatas
                 key={list.id}
+                //isFreeShipping={{list.isFreeShipping}
+                createdAt={list.created_at}
+                detail={list.detail}
+                discountRate={list.discount_rate}
+                discountedPrice={list.discounted_price}
                 id={list.id}
-                itemComment={list.itemComment}
-                prouductTitle={list.prouductTitle}
-                price={list.price}
-                isDiscount={list.isDiscount}
-                discountPer={list.discountPer}
-                resultPrice={list.resultPrice}
-                productLimit={list.productLimit}
+                image={list.image}
+                name={list.name}
+                originPrice={list.orign_price}
                 size={list.size}
-                updateDate={list.updateDate}
-                productImg={list.productImg}
-                isFreeShipping={list.isFreeShipping}
               />
             );
           })}

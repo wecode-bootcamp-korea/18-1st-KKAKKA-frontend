@@ -1,0 +1,42 @@
+[
+  {
+    "id": 1,
+    "name": "iphone",
+    "count": 3,
+    "option": 2500,
+    "price": 1200,
+    "until": 20210303,
+    "productImg":  
+      "https://cdn.bonif.co.kr/cmdt/20210216_54T_1613447244240_74Kb.jpg"
+    },
+  {
+    "id": 2,
+    "name": "ipod",
+    "count": 2,
+    "option": null,
+    "price": 800,
+    "until": 19920617,
+    "productImg": 
+    "https://cdn.bonif.co.kr/cmdt/20210216_54T_1613447244240_74Kb.jpg"
+  },
+  {
+    "id": 3,
+    "name": "ipad",
+    "count": "4",
+    "option": 2500,
+    "price": 1800,
+    "until": 20210323,
+    "productImg":  
+    "https://cdn.bonif.co.kr/cmdt/20210216_54T_1613447244240_74Kb.jpg"
+  },
+  {
+    "id": 4,
+    "name": "Macbook",
+    "count": 5,
+    "option": null,
+    "price": 5000,
+    "until": 19930922,
+    "productImg": 
+    "https://cdn.bonif.co.kr/cmdt/20210216_54T_1613447244240_74Kb.jpg"
+  }
+]

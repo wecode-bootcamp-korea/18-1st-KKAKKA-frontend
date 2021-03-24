@@ -1,0 +1,18 @@
+.cart {
+  text-align: center;
+}
+.table {
+  margin: 0 auto;
+  text-align: center;
+}
+
+.cart-header {
+  background-color: black;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: larger;
+  color: white;
+}

@@ -1,117 +1,103 @@
-[
-  {
-    "id": 1,
-    "itemComment": "핑크빛 분위기의 완성",
-    "prouductTitle": "폴인로즈 에디션",
-    "price": 59900,
-    "isDiscount": true,
-    "discountPer": 10,
-    "resultPrice": 53900,
-    "productLimit": 10,
-    "size": "L",
-    "updateDate": "2021-03-15",
-    "productImg":  "https://user-images.githubusercontent.com/46774456/111411543-18d03900-871e-11eb-81a1-0d4cca7d83e3.jpg",
-    "isFreeShipping": true
-  },
-
-  {
-    "id": 2,
-    "itemComment": "상큼한 에너지",
-    "prouductTitle": "금귤에디션",
-    "price": 42900,
-    "isDiscount": true,
-    "discountPer": 10,
-    "resultPrice": 37900,
-    "productLimit": 10,
-    "size": "M",
-    "updateDate": "2021-03-15",
-    "productImg": "https://user-images.githubusercontent.com/46774456/111411544-1a016600-871e-11eb-91a4-4ef2f03121f0.png",
-  "isFreeShipping": false
-  },
 {
-    "id": 3,
-    "itemComment": "순수한 마음을 전하는",
-    "prouductTitle": "그리너리 릴리 에디션",
-    "price": 53900,
-    "isDiscount": false,
-    "discountPer": null,
-    "resultPrice": 53900,
-    "productLimit": 10,
-    "size": "L",
-    "updateDate": "2021-03-15",
-    "productImg": "https://user-images.githubusercontent.com/46774456/111411543-18d03900-871e-11eb-81a1-0d4cca7d83e3.jpg",
-    "isFreeShipping": true
-  },
-  {
-    "id": 4,
-    "itemComment": "상큼한 에너지",
-    "prouductTitle": "금귤에디션",
-    "price": 42900,
-    "isDiscount": true,
-    "discountPer": 10,
-    "resultPrice": 37900,
-    "productLimit": 10,
-    "size": "M",
-    "updateDate": "2021-03-15",
-    "productImg": "https://user-images.githubusercontent.com/46774456/111411544-1a016600-871e-11eb-91a4-4ef2f03121f0.png",
-    "isFreeShipping": false
-  },
-  {
-    "id": 5,
-    "itemComment": "핑크빛 분위기의 완성",
-    "prouductTitle": "폴인로즈 에디션",
-    "price": 59900,
-    "isDiscount": true,
-    "discountPer": 10,
-    "resultPrice": 53900,
-    "productLimit": 10,
-    "size": "L",
-    "updateDate": "2021-03-15",
-    "productImg": "https://user-images.githubusercontent.com/46774456/111411543-18d03900-871e-11eb-81a1-0d4cca7d83e3.jpg",
-    "isFreeShipping": true
-  },
-  {
-    "id": 6,
-    "itemComment": "상큼한 에너지",
-    "prouductTitle": "금귤에디션",
-    "price": 42900,
-    "isDiscount": true,
-    "discountPer": 10,
-    "resultPrice": 37900,
-    "productLimit": 10,
-    "size": "M",
-    "updateDate": "2021-03-15",
-    "productImg": "https://user-images.githubusercontent.com/46774456/111411544-1a016600-871e-11eb-91a4-4ef2f03121f0.png",
-    "isFreeShipping": false
-  },
-  {
-    "id": 7,
-    "itemComment": "핑크빛 분위기의 완성",
-    "prouductTitle": "폴인로즈 에디션",
-    "price": 59900,
-    "isDiscount": true,
-    "discountPer": 10,
-    "resultPrice": 53900,
-    "productLimit": 10,
-    "size": "L",
-    "updateDate": "2021-03-15",
-    "productImg": 
-      "https://user-images.githubusercontent.com/46774456/111411543-18d03900-871e-11eb-81a1-0d4cca7d83e3.jpg",
-    "isFreeShipping": true
-  },
-  {
-    "id": 8,
-    "itemComment": "상큼한 에너지",
-    "prouductTitle": "금귤에디션",
-    "price": 42900,
-    "isDiscount": true,
-    "discountPer": 10,
-    "resultPrice": 37900,
-    "productLimit": 10,
-    "size": "M",
-    "updateDate": "2021-03-15",
-    "productImg": 
-      "https://user-images.githubusercontent.com/46774456/111411544-1a016600-871e-11eb-91a4-4ef2f03121f0.png",
-    "isFreeShipping": false
-  }
-]
+  "result": [
+      {
+          "created_at": "2021-03-21T23:07:03.304",
+          "detail": "핑크빛 분위기의 완성",
+          "discount_rate": 0.1,
+          "discounted_price": "53900",
+          "id": 1,
+          "image": "https://kukka-2-media-123.s3.amazonaws.com/media/class-name/Contents/2345/0_1.png",
+          "name": "폴인로즈 에디션",
+          "orign_price": "59900",
+          "size": "x-large"
+      },
+      {
+          "created_at": "2021-03-21T23:09:07.480",
+          "detail": "마음을 간질이는 설렘",
+          "discount_rate": 0.0,
+          "discounted_price": "0",
+          "id": 2,
+          "image": "https://kukka-2-media-123.s3.amazonaws.com/media/class-name/Contents/2347/category.png",
+          "name": "로맨틱 아네모네 에디션",
+          "orign_price": "42900",
+          "size": "large"
+      },
+      {
+          "created_at": "2021-03-21T23:11:24.363",
+          "detail": "알록달록한 매력",
+          "discount_rate": 0.1,
+          "discounted_price": "29900",
+          "id": 3,
+          "image": "https://kukka-2-media-123.s3.amazonaws.com/media/class-name/Contents/2346/category.png",
+          "name": "솜사탕 로즈 에디션",
+          "orign_price": "33900",
+          "size": "medium"
+      },
+      {
+        "created_at": "2021-03-21T23:07:03.304",
+        "detail": "핑크빛 분위기의 완성",
+        "discount_rate": 0.1,
+        "discounted_price": "53900",
+        "id": 1,
+        "image": "https://kukka-2-media-123.s3.amazonaws.com/media/class-name/Contents/2345/0_1.png",
+        "name": "폴인로즈 에디션",
+        "orign_price": "59900",
+        "size": "x-large"
+    },
+    {
+        "created_at": "2021-03-21T23:09:07.480",
+        "detail": "마음을 간질이는 설렘",
+        "discount_rate": 0.0,
+        "discounted_price": "0",
+        "id": 2,
+        "image": "https://kukka-2-media-123.s3.amazonaws.com/media/class-name/Contents/2347/category.png",
+        "name": "로맨틱 아네모네 에디션",
+        "orign_price": "42900",
+        "size": "large"
+    },
+    {
+        "created_at": "2021-03-21T23:11:24.363",
+        "detail": "알록달록한 매력",
+        "discount_rate": 0.1,
+        "discounted_price": "29900",
+        "id": 3,
+        "image": "https://kukka-2-media-123.s3.amazonaws.com/media/class-name/Contents/2346/category.png",
+        "name": "솜사탕 로즈 에디션",
+        "orign_price": "33900",
+        "size": "medium"
+    },
+    {
+        "created_at": "2021-03-21T23:07:03.304",
+        "detail": "핑크빛 분위기의 완성",
+        "discount_rate": 0.1,
+        "discounted_price": "53900",
+        "id": 1,
+        "image": "https://kukka-2-media-123.s3.amazonaws.com/media/class-name/Contents/2345/0_1.png",
+        "name": "폴인로즈 에디션",
+        "orign_price": "59900",
+        "size": "x-large"
+    },
+    {
+        "created_at": "2021-03-21T23:09:07.480",
+        "detail": "마음을 간질이는 설렘",
+        "discount_rate": 0.0,
+        "discounted_price": "0",
+        "id": 2,
+        "image": "https://kukka-2-media-123.s3.amazonaws.com/media/class-name/Contents/2347/category.png",
+        "name": "로맨틱 아네모네 에디션",
+        "orign_price": "42900",
+        "size": "large"
+    },
+    {
+        "created_at": "2021-03-21T23:11:24.363",
+        "detail": "알록달록한 매력",
+        "discount_rate": 0.1,
+        "discounted_price": "29900",
+        "id": 3,
+        "image": "https://kukka-2-media-123.s3.amazonaws.com/media/class-name/Contents/2346/category.png",
+        "name": "솜사탕 로즈 에디션",
+        "orign_price": "33900",
+        "size": "medium"
+    }
+  ]
+}

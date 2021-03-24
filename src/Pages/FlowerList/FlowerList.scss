@@ -1,5 +1,5 @@
 .flowerListMain {
-  padding: 15%;
+  padding: 0 20% 0 20%;
 }
 
 .sortButton {
@@ -7,10 +7,8 @@
 }
 
 .list {
-  display: flex;
-
   text-align: center;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
-  grid-gap: 20px;
+  grid-gap: 15px;
 }

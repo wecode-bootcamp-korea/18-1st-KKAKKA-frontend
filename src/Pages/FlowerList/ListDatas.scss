@@ -7,7 +7,56 @@ img {
   height: auto;
 }
 
-.isFreeShipping {
+.detail {
+  margin: 6px 0px 6px 0px;
+  font-size: 14px;
+  font-weight: 200;
+  color: #aeaeae;
+  text-align: left;
+}
+
+.name {
+  margin: 6px 0px 6px 0px;
+  font-size: 16px;
+  font-weight: 800;
+  color: black;
+  text-align: left;
+}
+
+.discountRate {
+  color: red;
+  font-weight: 800;
+  margin-right: 2px;
+}
+
+.detailThird {
+  margin: 6px 0px 6px 0px;
+  font-size: 14px;
+  text-align: left;
+}
+
+.discountedPrice {
+  text-decoration: line-through;
+  color: #9e9e9e;
+  margin-right: 2px;
+}
+
+.originPrice {
+  font-weight: 800;
+}
+
+.detailFourth {
+  text-align: left;
+}
+.size {
+  margin-right: 5px;
+  background-color: #fcd734;
+  font-size: 13px;
+  font-weight: bolder;
+  border-radius: 20%;
+}
+
+.freeshipping {
   display: inline;
   height: 20px;
   margin-bottom: 10px;
