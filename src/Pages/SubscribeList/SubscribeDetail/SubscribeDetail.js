@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { config } from "../../../config.js";
 import SubDetailCard from "./SubDetailCard";
 import "./SubscribeDetail.scss";
 
@@ -11,9 +12,7 @@ class SubscribeDetail extends Component {
   }
 
   getData = () => {
-    fetch(
-      `http://10.58.7.212:8000/subscription/contents/${this.props.match.params.id}`
-    )
+    fetch(`${config.api}/subscription/${this.props.match.params.id}`)
       .then(res => res.json())
       .then(data => {
         console.log("확인 :", data);
@@ -35,17 +34,13 @@ class SubscribeDetail extends Component {
 
   goToPrevious = () => {
     if (this.props.match.params.id > 1) {
-      this.props.history.push(
-        `/subscription/contents/${--this.props.match.params.id}`
-      );
+      this.props.history.push(`/subscription/${--this.props.match.params.id}`);
     }
   };
 
   goToNext = () => {
     if (this.props.match.params.id < 3) {
-      this.props.history.push(
-        `/subscription/contents/${++this.props.match.params.id}`
-      );
+      this.props.history.push(`/subscription/${++this.props.match.params.id}`);
     }
   };
 

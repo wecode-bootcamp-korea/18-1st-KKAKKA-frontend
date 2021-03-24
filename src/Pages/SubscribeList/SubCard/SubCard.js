@@ -4,7 +4,7 @@ import "./SubCard.scss";
 
 class SubCard extends Component {
   goToDetail = () => {
-    this.props.history.push(`/subscription/contents/${this.props.id}`);
+    this.props.history.push(`/subscription/${this.props.id}`);
   };
 
   render() {

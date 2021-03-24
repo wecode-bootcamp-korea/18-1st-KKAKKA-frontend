@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { config } from "../../config.js";
 import SubCard from "./SubCard/SubCard";
 import SubStart from "./SubStart/SubStart";
 import "./SubscribeList.scss";
@@ -17,7 +18,7 @@ class SubscribeList extends Component {
   };
 
   componentDidMount() {
-    fetch("http://10.58.7.212:8000/subscription/")
+    fetch(`${config.api}/subscription/`)
       .then(res => res.json())
       .then(data => {
         this.setState({
