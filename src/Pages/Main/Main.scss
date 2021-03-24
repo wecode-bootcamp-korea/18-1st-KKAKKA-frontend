@@ -10,6 +10,19 @@
     align-items: center;
   }
 
+  .cookieSubscribeList {
+    padding: 0 10% 0 10%;
+    border: 1px solid black;
+
+    .subscribeTxt {
+      padding: 20px 0 20px 0;
+      font-size: 30px;
+
+      .subscribeBold {
+        font-weight: bold;
+      }
+    }
+  }
   .cookieList {
     padding: 0 10% 0 10%;
     background-color: #f7f7f7;
@@ -22,6 +35,10 @@
       .cookieTxt {
         display: inline-flex;
         font-size: 30px;
+
+        .cookieBold {
+          font-weight: bold;
+        }
       }
 
       .moreBtn {
