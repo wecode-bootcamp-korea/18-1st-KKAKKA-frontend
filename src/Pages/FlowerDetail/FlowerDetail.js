@@ -133,29 +133,29 @@ class FlowerDetail extends Component {
             <div className="detailSlider">
               <img
                 alt="꽃 미니 썸네일1"
-                src={productList.id >= 0 ? productList.image[1] : ""}
+                src={productList.id >= 0 ? productList.image[3] : ""}
                 className="thumnailMini"
               />
               <img
                 alt="꽃 미니 썸네일2"
-                src={productList.id >= 0 ? productList.image[1] : ""}
+                src={productList.id >= 0 ? productList.image[2] : ""}
                 className="thumnailMini"
               />
               <img
                 alt="꽃 미니 썸네일3"
-                src={productList.id >= 0 ? productList.image[2] : ""}
+                src={productList.id >= 0 ? productList.image[4] : ""}
                 className="thumnailMini"
               />
 
               <img
                 alt="꽃 미니 썸네일4"
-                src={productList.id >= 0 ? productList.image[3] : ""}
+                src={productList.id >= 0 ? productList.image[2] : ""}
                 className="thumnailMini"
               />
 
               <img
                 alt="꽃 미니 썸네일5"
-                src={productList.id >= 0 ? productList.image[4] : ""}
+                src={productList.id >= 0 ? productList.image[1] : ""}
                 className="thumnailMini"
               />
             </div>
