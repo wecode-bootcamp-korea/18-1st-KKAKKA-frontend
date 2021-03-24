@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import DatePicker from "react-datepicker";
-import { ko } from "date-fns/locale/ko";
+import ko from "date-fns/locale/ko";
 import "react-datepicker/dist/react-datepicker.css";
 import "./DateInput.scss";
 
@@ -16,8 +16,9 @@ class DateInput extends Component {
           closeOnScroll={true}
           minDate={new Date()}
           popperModifiers={{ preventOverflow: { enabled: true } }}
-          popperPlacement="auto"
-          onChange={this.props.changeDate}
+          onChange={(date, event) => {
+            this.props.changeDate(date, event);
+          }}
           placeholderText="수령일을 선택해주세요."
           dateFormat="eeee, yyyy-MM-dd"
         />

@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
-import { config } from "../../config.js";
+// import { config } from "../../config.js";
 import ProductInfo from "./Components/ProductInfo/ProductInfo";
 import ProductOption from "./Components/ProductOption/ProductOption";
 import "./FlowerDetail.scss";
@@ -25,10 +25,10 @@ class FlowerDetail extends Component {
   //  baskerItem 변경 시
 
   getData = () => {
-    fetch(`${config.api}/product/${this.props.match.params.id}`)
+    fetch("http://localhost:3000/data/productData.json")
+      // fetch(`${config.api}/product/${this.props.match.params.id}`)
       .then(res => res.json())
       .then(data => {
-        console.log("확인 :", data);
         this.setState({
           productList: data.result[0],
         });
@@ -49,9 +49,7 @@ class FlowerDetail extends Component {
   // 여기부터 수정 필요
 
   addCount = () => {
-    console.log("Hello1");
     if (this.state.productData.quantity < 10) {
-      console.log("Hello");
       let countUp = {
         ...this.state.productData,
         quantity: this.state.productData.quantity + 1,
@@ -64,7 +62,6 @@ class FlowerDetail extends Component {
 
   minusCount = () => {
     if (this.state.productData.quantity > 1) {
-      console.log("Hello");
       let countDown = {
         ...this.state.productData,
         quantity: this.state.productData.quantity - 1,
@@ -95,15 +92,18 @@ class FlowerDetail extends Component {
       productData: updatePrice,
     });
   };
-
-  changeDate = e => {
+  // const newArr = {...this.state.productData, delivery_date: e.target.value};
+  // this.setState({ productData: newArr});
+  changeDate = (date, event) => {
     let updateDate = {
       ...this.state.productData,
-      delivery_date: e.target.value,
+      delivery_date: date,
     };
     this.setState({ productData: updateDate });
+    console.log("value:", date);
+    console.log("e:", event);
+    console.log("e:", this.state.productData.delivery_date);
   };
-
   ////여기까지 수정 완료
 
   render() {
@@ -127,39 +127,40 @@ class FlowerDetail extends Component {
           <div className="productThumnail">
             <img
               alt="꽃 이미지"
-              src={productList.id >= 0 && productList.images[0]}
+              src={productList.id > 0 ? productList.image[0] : ""}
               className="thumnail"
             />
             <div className="detailSlider">
               <img
                 alt="꽃 미니 썸네일1"
-                src={productList.id >= 0 && productList.images[0]}
+                src={productList.id >= 0 ? productList.image[1] : ""}
                 className="thumnailMini"
               />
               <img
                 alt="꽃 미니 썸네일2"
-                src={productList.id >= 0 && productList.images[1]}
+                src={productList.id >= 0 ? productList.image[1] : ""}
                 className="thumnailMini"
               />
               <img
                 alt="꽃 미니 썸네일3"
-                src={productList.id >= 0 && productList.images[2]}
+                src={productList.id >= 0 ? productList.image[2] : ""}
                 className="thumnailMini"
               />
 
               <img
                 alt="꽃 미니 썸네일4"
-                src={productList.id >= 0 && productList.images[3]}
+                src={productList.id >= 0 ? productList.image[3] : ""}
                 className="thumnailMini"
               />
 
               <img
                 alt="꽃 미니 썸네일5"
-                src={productList.id >= 0 && productList.images[4]}
+                src={productList.id >= 0 ? productList.image[4] : ""}
                 className="thumnailMini"
               />
             </div>
           </div>
+
           <div className="productDetailRight">
             <ProductInfo
               key={productList.id}
@@ -173,7 +174,7 @@ class FlowerDetail extends Component {
             />
 
             <div className="detailInfo">
-              <span className="contents">정기구독 전상품</span>
+              <span className="contents"> 3만원 이상 구매 시</span>
               <p className="contentsHighlight">무료배송!</p>
               <ProductOption
                 key={productList.id}

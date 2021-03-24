@@ -1,178 +1,72 @@
-[
-  {
-    "id": 1,
-    "itemComment": "핑크빛 분위기의 완성",
-    "productTitle": "폴인로즈 에디션",
-    "price": 59900,
-    "isDiscount": true,
-    "discountPer": 10,
-    "resultPrice": 53900,
-    "productLimit": 10,
-    "size": "L",
-    "updateDate": "2021-03-15",
-    "productImg": {
+{
+  "result": [
+    {
       "id": 1,
-      "img1": "https://user-images.githubusercontent.com/46774456/111411543-18d03900-871e-11eb-81a1-0d4cca7d83e3.jpg",
-      "img2": "https://user-images.githubusercontent.com/46774456/111411543-18d03900-871e-11eb-81a1-0d4cca7d83e3.jpg",
-      "img3": "https://user-images.githubusercontent.com/46774456/111411543-18d03900-871e-11eb-81a1-0d4cca7d83e3.jpg",
-      "img4": "https://user-images.githubusercontent.com/46774456/111411543-18d03900-871e-11eb-81a1-0d4cca7d83e3.jpg",
-      "img5": "https://user-images.githubusercontent.com/46774456/111411543-18d03900-871e-11eb-81a1-0d4cca7d83e3.jpg",
-      "img6": "https://user-images.githubusercontent.com/46774456/111411543-18d03900-871e-11eb-81a1-0d4cca7d83e3.jpg"
+      "name": "폴인로즈 에디션",
+      "detail": "핑크빛 분위기의 완성",
+      "orign_price": "59900",
+      "discount_rate": 0.1,
+      "discounted_price": "53900",
+      "created_at": "2021-03-25T00:16:15.095",
+      "image": [
+        "https://user-images.githubusercontent.com/46774456/112266922-0b83f300-8cb8-11eb-9e4c-2fa60755b834.png",
+        "https://user-images.githubusercontent.com/46774456/112266898-032bb800-8cb8-11eb-8faa-115276adc745.png",
+        "https://user-images.githubusercontent.com/46774456/112266905-058e1200-8cb8-11eb-80aa-ae807a1b3bed.png",
+        "https://user-images.githubusercontent.com/46774456/112266909-0757d580-8cb8-11eb-8306-8da6ac54d897.png",
+        "https://user-images.githubusercontent.com/46774456/112266913-08890280-8cb8-11eb-8b4c-c5c8583229ee.png"
+      ],
+      "size": "XL"
     },
-    "isFreeShipping": true
-  },
-  {
-    "id": 2,
-    "itemComment": "상큼한 에너지",
-    "productTitle": "금귤에디션",
-    "price": 42900,
-    "isDiscount": true,
-    "discountPer": 10,
-    "resultPrice": 37900,
-    "productLimit": 10,
-    "size": "M",
-    "updateDate": "2021-03-15",
-    "productImg": {
-      "id": 1,
-      "img1": "https://user-images.githubusercontent.com/46774456/111411544-1a016600-871e-11eb-91a4-4ef2f03121f0.png",
-      "img2": "https://user-images.githubusercontent.com/46774456/111411544-1a016600-871e-11eb-91a4-4ef2f03121f0.png",
-      "img3": "https://user-images.githubusercontent.com/46774456/111411544-1a016600-871e-11eb-91a4-4ef2f03121f0.png",
-      "img4": "https://user-images.githubusercontent.com/46774456/111411544-1a016600-871e-11eb-91a4-4ef2f03121f0.png",
-      "img5": "https://user-images.githubusercontent.com/46774456/111411544-1a016600-871e-11eb-91a4-4ef2f03121f0.png",
-      "img6": "https://user-images.githubusercontent.com/46774456/111411544-1a016600-871e-11eb-91a4-4ef2f03121f0.png"
+    {
+      "id": 2,
+      "name": "헬보러스 에디션",
+      "detail": "마음을 간질이는 설렘",
+      "orign_price": "42900",
+      "discount_rate": 0.1,
+      "discounted_price": "37900",
+      "created_at": "2021-03-25T00:18:38.186",
+      "image": [
+        "https://user-images.githubusercontent.com/46774456/112266905-058e1200-8cb8-11eb-80aa-ae807a1b3bed.png",
+        "https://user-images.githubusercontent.com/46774456/112266898-032bb800-8cb8-11eb-8faa-115276adc745.png",
+        "https://user-images.githubusercontent.com/46774456/112266905-058e1200-8cb8-11eb-80aa-ae807a1b3bed.png",
+        "https://user-images.githubusercontent.com/46774456/112266909-0757d580-8cb8-11eb-8306-8da6ac54d897.png",
+        "https://user-images.githubusercontent.com/46774456/112266913-08890280-8cb8-11eb-8b4c-c5c8583229ee.png"
+      ],
+      "size": "L"
     },
-    "isFreeShipping": false
-  },
-  {
-    "id": 3,
-    "itemComment": "순수한 마음을 전하는",
-    "productTitle": "그리너리 릴리 에디션",
-    "price": 53900,
-    "isDiscount": false,
-    "discountPer": null,
-    "resultPrice": null,
-    "productLimit": 10,
-    "size": "L",
-    "updateDate": "2021-03-15",
-    "productImg": {
-      "id": 1,
-      "img1": "https://user-images.githubusercontent.com/46774456/111411543-18d03900-871e-11eb-81a1-0d4cca7d83e3.jpg",
-      "img2": "https://user-images.githubusercontent.com/46774456/111411543-18d03900-871e-11eb-81a1-0d4cca7d83e3.jpg",
-      "img3": "https://user-images.githubusercontent.com/46774456/111411543-18d03900-871e-11eb-81a1-0d4cca7d83e3.jpg",
-      "img4": "https://user-images.githubusercontent.com/46774456/111411543-18d03900-871e-11eb-81a1-0d4cca7d83e3.jpg",
-      "img5": "https://user-images.githubusercontent.com/46774456/111411543-18d03900-871e-11eb-81a1-0d4cca7d83e3.jpg",
-      "img6": "https://user-images.githubusercontent.com/46774456/111411543-18d03900-871e-11eb-81a1-0d4cca7d83e3.jpg"
+    {
+      "id": 3,
+      "name": "솜사탕 로즈 에디션",
+      "detail": "알록달록한 매력",
+      "orign_price": "33900",
+      "discount_rate": 0.1,
+      "discounted_price": "29900",
+      "created_at": "2021-03-25T00:20:05.368",
+      "image": [
+        "https://user-images.githubusercontent.com/46774456/112266905-058e1200-8cb8-11eb-80aa-ae807a1b3bed.png",
+        "https://user-images.githubusercontent.com/46774456/112266898-032bb800-8cb8-11eb-8faa-115276adc745.png",
+        "https://user-images.githubusercontent.com/46774456/112266905-058e1200-8cb8-11eb-80aa-ae807a1b3bed.png",
+        "https://user-images.githubusercontent.com/46774456/112266909-0757d580-8cb8-11eb-8306-8da6ac54d897.png",
+        "https://user-images.githubusercontent.com/46774456/112266913-08890280-8cb8-11eb-8b4c-c5c8583229ee.png"
+      ],
+      "size": "M"
     },
-    "isFreeShipping": true
-  },
-  {
-    "id": 4,
-    "itemComment": "상큼한 에너지",
-    "productTitle": "금귤에디션",
-    "price": 42900,
-    "isDiscount": true,
-    "discountPer": 10,
-    "resultPrice": 37900,
-    "productLimit": 10,
-    "size": "M",
-    "updateDate": "2021-03-15",
-    "productImg": {
-      "id": 1,
-      "img1": "https://user-images.githubusercontent.com/46774456/111411544-1a016600-871e-11eb-91a4-4ef2f03121f0.png",
-      "img2": "https://user-images.githubusercontent.com/46774456/111411544-1a016600-871e-11eb-91a4-4ef2f03121f0.png",
-      "img3": "https://user-images.githubusercontent.com/46774456/111411544-1a016600-871e-11eb-91a4-4ef2f03121f0.png",
-      "img4": "https://user-images.githubusercontent.com/46774456/111411544-1a016600-871e-11eb-91a4-4ef2f03121f0.png",
-      "img5": "https://user-images.githubusercontent.com/46774456/111411544-1a016600-871e-11eb-91a4-4ef2f03121f0.png",
-      "img6": "https://user-images.githubusercontent.com/46774456/111411544-1a016600-871e-11eb-91a4-4ef2f03121f0.png"
-    },
-    "isFreeShipping": false
-  },
-  {
-    "id": 5,
-    "itemComment": "핑크빛 분위기의 완성",
-    "productTitle": "폴인로즈 에디션",
-    "price": 59900,
-    "isDiscount": true,
-    "discountPer": 10,
-    "resultPrice": 53900,
-    "productLimit": 10,
-    "size": "L",
-    "updateDate": "2021-03-15",
-    "productImg": {
-      "id": 1,
-      "img1": "https://user-images.githubusercontent.com/46774456/111411543-18d03900-871e-11eb-81a1-0d4cca7d83e3.jpg",
-      "img2": "https://user-images.githubusercontent.com/46774456/111411543-18d03900-871e-11eb-81a1-0d4cca7d83e3.jpg",
-      "img3": "https://user-images.githubusercontent.com/46774456/111411543-18d03900-871e-11eb-81a1-0d4cca7d83e3.jpg",
-      "img4": "https://user-images.githubusercontent.com/46774456/111411543-18d03900-871e-11eb-81a1-0d4cca7d83e3.jpg",
-      "img5": "https://user-images.githubusercontent.com/46774456/111411543-18d03900-871e-11eb-81a1-0d4cca7d83e3.jpg",
-      "img6": "https://user-images.githubusercontent.com/46774456/111411543-18d03900-871e-11eb-81a1-0d4cca7d83e3.jpg"
-    },
-    "isFreeShipping": true
-  },
-  {
-    "id": 6,
-    "itemComment": "상큼한 에너지",
-    "productTitle": "금귤에디션",
-    "price": 42900,
-    "isDiscount": true,
-    "discountPer": 10,
-    "resultPrice": 37900,
-    "productLimit": 10,
-    "size": "M",
-    "updateDate": "2021-03-15",
-    "productImg": {
-      "id": 1,
-      "img1": "https://user-images.githubusercontent.com/46774456/111411544-1a016600-871e-11eb-91a4-4ef2f03121f0.png",
-      "img2": "https://user-images.githubusercontent.com/46774456/111411544-1a016600-871e-11eb-91a4-4ef2f03121f0.png",
-      "img3": "https://user-images.githubusercontent.com/46774456/111411544-1a016600-871e-11eb-91a4-4ef2f03121f0.png",
-      "img4": "https://user-images.githubusercontent.com/46774456/111411544-1a016600-871e-11eb-91a4-4ef2f03121f0.png",
-      "img5": "https://user-images.githubusercontent.com/46774456/111411544-1a016600-871e-11eb-91a4-4ef2f03121f0.png",
-      "img6": "https://user-images.githubusercontent.com/46774456/111411544-1a016600-871e-11eb-91a4-4ef2f03121f0.png"
-    },
-    "isFreeShipping": false
-  },
-  {
-    "id": 7,
-    "itemComment": "핑크빛 분위기의 완성",
-    "productTitle": "폴인로즈 에디션",
-    "price": 59900,
-    "isDiscount": true,
-    "discountPer": 10,
-    "resultPrice": 53900,
-    "productLimit": 10,
-    "size": "L",
-    "updateDate": "2021-03-15",
-    "productImg": {
-      "id": 1,
-      "img1": "https://user-images.githubusercontent.com/46774456/111411543-18d03900-871e-11eb-81a1-0d4cca7d83e3.jpg",
-      "img2": "https://user-images.githubusercontent.com/46774456/111411543-18d03900-871e-11eb-81a1-0d4cca7d83e3.jpg",
-      "img3": "https://user-images.githubusercontent.com/46774456/111411543-18d03900-871e-11eb-81a1-0d4cca7d83e3.jpg",
-      "img4": "https://user-images.githubusercontent.com/46774456/111411543-18d03900-871e-11eb-81a1-0d4cca7d83e3.jpg",
-      "img5": "https://user-images.githubusercontent.com/46774456/111411543-18d03900-871e-11eb-81a1-0d4cca7d83e3.jpg",
-      "img6": "https://user-images.githubusercontent.com/46774456/111411543-18d03900-871e-11eb-81a1-0d4cca7d83e3.jpg"
-    },
-    "isFreeShipping": true
-  },
-  {
-    "id": 8,
-    "itemComment": "상큼한 에너지",
-    "productTitle": "금귤에디션",
-    "price": 42900,
-    "isDiscount": true,
-    "discountPer": 10,
-    "resultPrice": 37900,
-    "productLimit": 10,
-    "size": "M",
-    "updateDate": "2021-03-15",
-    "productImg": {
-      "id": 1,
-      "img1": "https://user-images.githubusercontent.com/46774456/111411544-1a016600-871e-11eb-91a4-4ef2f03121f0.png",
-      "img2": "https://user-images.githubusercontent.com/46774456/111411544-1a016600-871e-11eb-91a4-4ef2f03121f0.png",
-      "img3": "https://user-images.githubusercontent.com/46774456/111411544-1a016600-871e-11eb-91a4-4ef2f03121f0.png",
-      "img4": "https://user-images.githubusercontent.com/46774456/111411544-1a016600-871e-11eb-91a4-4ef2f03121f0.png",
-      "img5": "https://user-images.githubusercontent.com/46774456/111411544-1a016600-871e-11eb-91a4-4ef2f03121f0.png",
-      "img6": "https://user-images.githubusercontent.com/46774456/111411544-1a016600-871e-11eb-91a4-4ef2f03121f0.png"
-    },
-    "isFreeShipping": false
-  }
-]
+    {
+      "id": 4,
+      "name": "오렌지 카네이션 에디션",
+      "detail": "생기 가득한 봄의 색감",
+      "orign_price": "22900",
+      "discount_rate": 0.1,
+      "discounted_price": "19900",
+      "created_at": "2021-03-25T00:22:07.465",
+      "image": [
+        "https://user-images.githubusercontent.com/46774456/112266934-0f177a00-8cb8-11eb-96b3-6af0e0966709.png",
+        "https://user-images.githubusercontent.com/46774456/112266898-032bb800-8cb8-11eb-8faa-115276adc745.png",
+        "https://user-images.githubusercontent.com/46774456/112266905-058e1200-8cb8-11eb-80aa-ae807a1b3bed.png",
+        "https://user-images.githubusercontent.com/46774456/112266909-0757d580-8cb8-11eb-8306-8da6ac54d897.png",
+        "https://user-images.githubusercontent.com/46774456/112266913-08890280-8cb8-11eb-8b4c-c5c8583229ee.png"
+      ],
+      "size": "S"
+    }
+  ]
+}

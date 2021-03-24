@@ -105,7 +105,7 @@ class ProductOption extends Component {
                           readOnly
                         />
 
-                        <label htmlFor="letter">추가할게요(+2,500)</label>
+                        <label htmlFor="letter">추가할게요(FREE)</label>
                       </div>
                       <div className="letterCheckbox">
                         <input
