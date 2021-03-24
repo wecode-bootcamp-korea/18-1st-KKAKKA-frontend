@@ -8,13 +8,12 @@ class SubscribeDetail extends Component {
     super();
     this.state = {
       subscribeList: [],
-      subscribe_data: {
+      subscribeData: {
         isLogin: true,
         quantity: 1,
         subscribeOption: "", //monthly_plan
         delivery_date: "",
         hasLetter: true,
-        price: 0,
         productPrice: "",
         totalPrice: "",
         modal: false,
@@ -51,9 +50,9 @@ class SubscribeDetail extends Component {
       body: JSON.stringify({
         account: 1234,
         subscription_id: this.props.match.params.id,
-        monthly_plan: this.state.monthly_plan,
-        delivery_date: this.state.password,
-        quantity: this.quantity,
+        monthly_plan: this.state.subscribeData.subscribeOption,
+        delivery_date: this.state.subscribeData.delivery_date,
+        quantity: this.state.subscribeData.quantity,
       }),
     }).then(res => {
       if (res.status === 200) {
@@ -70,12 +69,13 @@ class SubscribeDetail extends Component {
   }
 
   getData = () => {
-    const token = localStorage.getItem("token");
-    fetch(`${config.api}/subscription/${this.props.match.params.id}`, {
-      headers: {
-        Authorization: token,
-      },
-    })
+    fetch("http://localhost:3000/data/subscribeData.json")
+      // const token = localStorage.getItem("token");
+      // fetch(`${config.api}/subscription/${this.props.match.params.id}`, {
+      //   headers: {
+      //     Authorization: token,
+      //   },
+      // })
       // .then((res) => console.log(res))
       .then(res => res.json())
       .then(data => {
@@ -96,31 +96,122 @@ class SubscribeDetail extends Component {
     }
   }
 
-  goToPrevious = () => {
-    if (this.props.match.params.id > 1) {
-      this.props.history.push(`/subscription/${--this.props.match.params.id}`);
+  changeSubPrice = () => {
+    const { subscribeOption } = this.state.subscribeData;
+    const subscribePrice = {
+      정기구독: this.state.subscribeList.price,
+      "1회 무료체험": 3000,
+    };
+    let updatePrice = {
+      ...this.state.subscribeData,
+      productPrice: subscribeOption ? subscribePrice[subscribeOption] : "0",
+    };
+    this.setState({ subscribeData: updatePrice });
+  };
+
+  changeSubOption = e => {
+    let updateOption = {
+      ...this.state.subscribeData,
+      subscribeOption: e.target.value,
+    };
+    this.setState({ subscribeData: updateOption });
+  };
+
+  addCount = () => {
+    const { subscribeOption } = this.state.subscribeData;
+    if (subscribeOption === "정기구독" && this.state.quantity < 10) {
+      let countUp = {
+        ...this.state.subscribeData,
+        quantity: this.state.subscribeData.quantity + 1,
+      };
+      this.setState({
+        subscribeData: countUp,
+      });
     }
   };
 
-  goToNext = () => {
-    if (this.props.match.params.id < 3) {
-      this.props.history.push(`/subscription/${++this.props.match.params.id}`);
+  minusCount = () => {
+    const { subscribeOption } = this.state.subscribeData;
+    if (subscribeOption === "정기구독" && this.state.quantity > 1) {
+      let countDown = {
+        ...this.state.subscribeData,
+        quantity: this.state.subscribeData.quantity - 1,
+      };
+      this.setState({
+        subscribeData: countDown,
+      });
     }
   };
+
+  chkHasLetter = () => {
+    let updateLetter = {
+      ...this.state.subscribeData,
+      hasLetter: !this.state.subscribeData.hasLetter,
+    };
+    this.setState({
+      subscribeData: updateLetter,
+    });
+  };
+
+  changePrice = () => {
+    let updatePrice = {
+      ...this.state.subscribeData,
+      productPrice:
+        this.state.subscribeData.price * this.state.subscribeData.quantity,
+    };
+    this.setState({
+      subscribeData: updatePrice,
+    });
+  };
+
+  changeDate = (date, event) => {
+    let updateDate = {
+      ...this.state.subscribeData,
+      delivery_date: date,
+    };
+    this.setState({ subscribeData: updateDate });
+  };
+
+  // 추가구현 : 이전 이후 상품 보기
+  // goToPrevious = () => {
+  //   if (this.props.match.params.id > 1) {
+  //     this.props.history.push(`/subscription/${--this.props.match.params.id}`);
+  //   }
+  // };
+
+  // goToNext = () => {
+  //   if (this.props.match.params.id < 3) {
+  //     this.props.history.push(`/subscription/${++this.props.match.params.id}`);
+  //   }
+  // };
 
   render() {
-    const { subscribeList } = this.state;
+    const {
+      id,
+      introduction,
+      name,
+      price,
+      description,
+      image,
+    } = this.state.subscribeList;
     return (
       <div>
-        {subscribeList.id >= 0 && (
+        {id >= 0 && (
           <SubDetailCard
-            key={subscribeList.id}
-            id={subscribeList.id}
-            introduction={subscribeList.introduction}
-            name={subscribeList.name}
-            price={subscribeList.price}
-            description={subscribeList.description}
-            image={subscribeList.image}
+            key={id}
+            id={id}
+            introduction={introduction}
+            name={name}
+            price={price}
+            description={description}
+            image={image}
+            subscribeData={this.state.subscribeData}
+            changeDate={this.changeDate}
+            addCount={this.addCount}
+            minusCount={this.minusCount}
+            chkHasLetter={this.chkHasLetter}
+            changePrice={this.changePrice}
+            changeSubOption={this.changeSubOption}
           />
         )}
         <div className="urlButtons">

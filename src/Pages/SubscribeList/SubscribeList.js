@@ -18,7 +18,8 @@ class SubscribeList extends Component {
   };
 
   componentDidMount() {
-    fetch(`${config.api}/subscription`)
+    fetch("http://localhost:3000/data/subscribeData.json")
+      // fetch(`${config.api}/subscription`)
       .then(res => res.json())
       .then(data => {
         this.setState({

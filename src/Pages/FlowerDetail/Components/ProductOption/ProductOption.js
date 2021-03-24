@@ -36,7 +36,13 @@ class ProductOption extends Component {
     }
   };
   render() {
-    const { discounted_price, chkHasLetter, changeDate } = this.props;
+    const {
+      discounted_price,
+      chkHasLetter,
+      changeDate,
+      minusCount,
+      addCount,
+    } = this.props;
     const { quantity, delivery_date, hasLetter } = this.props.productData;
 
     return (
@@ -72,7 +78,7 @@ class ProductOption extends Component {
                       <button
                         type="button"
                         className="btnAmount"
-                        onClick={() => this.props.minusCount()}
+                        onClick={() => minusCount()}
                       >
                         -
                       </button>
@@ -80,7 +86,7 @@ class ProductOption extends Component {
                       <button
                         type="button"
                         className="btnAmount"
-                        onClick={() => this.props.addCount()}
+                        onClick={() => addCount()}
                       >
                         +
                       </button>
@@ -114,7 +120,7 @@ class ProductOption extends Component {
                           type="radio"
                           name="letter"
                           value="noLetter"
-                          checked={hasLetter ? false : true}
+                          checked={!hasLetter}
                           onClick={chkHasLetter}
                         />
                         <label htmlFor="letterNo">추가하지 않을게요</label>

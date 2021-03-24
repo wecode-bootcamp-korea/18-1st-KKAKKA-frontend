@@ -10,67 +10,11 @@ class DetailOption extends Component {
     this.state = {
       // api 연결 이후 fetch 로그인 상태 인증으로 로직 변경
       isLogin: true,
-      quantity: 1,
-      subscribeOption: "",
-      delivery_date: "",
-      hasLetter: true,
-      price: 0,
-      productPrice: "",
       totalPrice: "",
       modal: false,
       basketItem: [],
-      subscribeList: [],
     };
   }
-
-  changeSubPrice = () => {
-    if (this.state.subscribeOption === "") {
-      return this.setState({ price: 0 });
-    } else if (this.state.subscribeOption === "정기구독") {
-      return this.setState({ price: this.props.price });
-    } else if (this.state.subscribeOption === "1회 무료체험") {
-      return this.setState({ price: 3000 });
-    }
-  };
-
-  changeSubOption = e => {
-    this.setState({ subscribeOption: e.target.value }, () => {
-      this.changeSubPrice();
-    });
-  };
-
-  changeDate = e => {
-    this.setState({ delivery_date: e.target.value });
-  };
-
-  addCount = () => {
-    if (this.state.subscribeOption === "정기구독" && this.state.quantity < 10) {
-      this.setState({
-        quantity: this.state.quantity + 1,
-      });
-    }
-  };
-
-  minusCount = () => {
-    if (this.state.subscribeOption === "정기구독" && this.state.quantity > 1) {
-      this.setState({
-        quantity: this.state.quantity - 1,
-      });
-    }
-  };
-
-  chkHasLetter = () => {
-    this.setState({
-      hasLetter: !this.state.hasLetter,
-    });
-  };
-
-  changePrice = () => {
-    let updatePrice = this.state.price * this.state.quantity;
-    this.setState({
-      productPrice: updatePrice(),
-    });
-  };
 
   handleModal = e => {
     if (this.state.isLogin) {
@@ -86,14 +30,6 @@ class DetailOption extends Component {
     }
   };
 
-  goToCart = () => {
-    if (this.state.isLogin) {
-      this.props.history.push("/cart");
-    } else {
-      this.props.history.push("/login");
-    }
-  };
-
   goToOrder = () => {
     if (this.state.isLogin) {
       this.props.history.push("/order");
@@ -104,12 +40,19 @@ class DetailOption extends Component {
 
   render() {
     const {
-      price,
       subscribeOption,
       quantity,
-      hasLetter,
       delivery_date,
-    } = this.state;
+      hasLetter,
+    } = this.props.subscribeData;
+    const {
+      minusCount,
+      addCount,
+      chkHasLetter,
+      changeDate,
+      price,
+      changeSubOption,
+    } = this.props;
     return (
       <div>
         {this.state.modal && (
@@ -128,10 +71,7 @@ class DetailOption extends Component {
                     <span className="contents">구독옵션</span>
                   </th>
                   <td className="optionBox">
-                    <select
-                      value={subscribeOption}
-                      onChange={this.changeSubOption}
-                    >
+                    <select value={subscribeOption} onChange={changeSubOption}>
                       <label htmlFor="option">구독 옵션</label>
                       <option className="selected" value="">
                         구독기간을 선택해주세요
@@ -145,7 +85,10 @@ class DetailOption extends Component {
                     </select>
 
                     {subscribeOption !== "" && (
-                      <DateInput startDate={delivery_date} />
+                      <DateInput
+                        changeDate={changeDate}
+                        startDate={delivery_date}
+                      />
                     )}
                   </td>
                 </tr>
@@ -158,7 +101,7 @@ class DetailOption extends Component {
                       <button
                         type="button"
                         className="btnAmount"
-                        onClick={this.minusCount}
+                        onClick={() => minusCount()}
                       >
                         -
                       </button>
@@ -166,7 +109,7 @@ class DetailOption extends Component {
                       <button
                         type="button"
                         className="btnAmount"
-                        onClick={this.addCount}
+                        onClick={() => addCount()}
                       >
                         +
                       </button>
@@ -187,10 +130,9 @@ class DetailOption extends Component {
                           name="letter"
                           value="letter"
                           checked={hasLetter ? true : false}
-                          onClick={this.chkHasLetter}
-                          readOnly
+                          onClick={chkHasLetter}
                         />
-                        <label for="letter">추가할게요(+2,500)</label>
+                        <label htmlFor="letter">추가할게요(+2,500)</label>
                       </div>
                       <div className="letterCheckbox">
                         <input
@@ -200,9 +142,9 @@ class DetailOption extends Component {
                           name="letter"
                           value="noLetter"
                           checked={!hasLetter}
-                          onClick={this.chkHasLetter}
+                          onClick={chkHasLetter}
                         />
-                        <label for="letterNo">추가하지 않을게요</label>
+                        <label htmlFor="letterNo">추가하지 않을게요</label>
                       </div>
                     </form>
                   </td>
@@ -252,7 +194,7 @@ class DetailOption extends Component {
             }
           })()}
         </div>
-        {this.state.hasLetter && (
+        {hasLetter && (
           <div className="letterPrice">
             <div>
               <span className="contents">편지 추가</span>
@@ -262,7 +204,7 @@ class DetailOption extends Component {
               <button
                 type="button"
                 className="deleteBtn"
-                onClick={this.chkHasLetter}
+                onClick={chkHasLetter}
               >
                 X
               </button>

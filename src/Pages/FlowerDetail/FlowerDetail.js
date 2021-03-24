@@ -44,9 +44,6 @@ class FlowerDetail extends Component {
       this.getData();
     }
   }
-  // const newArr = {...this.state.productData, delivery_date: e.target.value};
-  // this.setState({ productData: newArr});
-  // 여기부터 수정 필요
 
   addCount = () => {
     if (this.state.productData.quantity < 10) {
@@ -92,22 +89,27 @@ class FlowerDetail extends Component {
       productData: updatePrice,
     });
   };
-  // const newArr = {...this.state.productData, delivery_date: e.target.value};
-  // this.setState({ productData: newArr});
+
   changeDate = (date, event) => {
     let updateDate = {
       ...this.state.productData,
       delivery_date: date,
     };
     this.setState({ productData: updateDate });
-    console.log("value:", date);
-    console.log("e:", event);
-    console.log("e:", this.state.productData.delivery_date);
   };
-  ////여기까지 수정 완료
 
   render() {
-    const { productList, productData } = this.state;
+    const {
+      id,
+      detail,
+      name,
+      size,
+      orign_price,
+      discount_rate,
+      discounted_price,
+      image,
+    } = this.state.productList;
+    const { productData } = this.state;
     return (
       <section className="detailContainer">
         <ul className="categoryNav">
@@ -115,47 +117,44 @@ class FlowerDetail extends Component {
             <Link to="/">HOME</Link>
           </li>
           <li>
-            <Link to="/subscription">꽃다발</Link>
+            <Link to="/subscription">쿠키박스</Link>
           </li>
           <li>
-            <Link to={`./${this.props.match.params.id}`}>
-              {productList.name}
-            </Link>
+            <Link to={`./${this.props.match.params.id}`}>{name}</Link>
           </li>
         </ul>
         <div className="detailContents">
           <div className="productThumnail">
             <img
-              alt="꽃 이미지"
-              src={productList.id > 0 ? productList.image[0] : ""}
-              className="thumnail"
+              alt="쿠키 이미지"
+              src={image && image.length > 0 && image[0]}
             />
             <div className="detailSlider">
               <img
-                alt="꽃 미니 썸네일1"
-                src={productList.id >= 0 ? productList.image[3] : ""}
+                alt="쿠키 미니 썸네일1"
+                src={image && image.length > 0 && image[3]}
                 className="thumnailMini"
               />
               <img
-                alt="꽃 미니 썸네일2"
-                src={productList.id >= 0 ? productList.image[2] : ""}
+                alt="쿠키 미니 썸네일2"
+                src={image && image.length > 0 && image[2]}
                 className="thumnailMini"
               />
               <img
-                alt="꽃 미니 썸네일3"
-                src={productList.id >= 0 ? productList.image[4] : ""}
-                className="thumnailMini"
-              />
-
-              <img
-                alt="꽃 미니 썸네일4"
-                src={productList.id >= 0 ? productList.image[2] : ""}
+                alt="쿠키 미니 썸네일3"
+                src={image && image.length > 0 && image[1]}
                 className="thumnailMini"
               />
 
               <img
-                alt="꽃 미니 썸네일5"
-                src={productList.id >= 0 ? productList.image[1] : ""}
+                alt="쿠키 미니 썸네일4"
+                src={image && image.length > 0 && image[2]}
+                className="thumnailMini"
+              />
+
+              <img
+                alt="쿠키 미니 썸네일5"
+                src={image && image.length > 0 && image[4]}
                 className="thumnailMini"
               />
             </div>
@@ -163,22 +162,22 @@ class FlowerDetail extends Component {
 
           <div className="productDetailRight">
             <ProductInfo
-              key={productList.id}
-              detail={productList.detail}
-              name={productList.name}
-              size={productList.size}
-              origin_price={productList.orign_price}
-              discount_rate={productList.discount_rate}
-              discounted_price={productList.discounted_price}
-              image={productList.images}
+              key={id}
+              detail={detail}
+              name={name}
+              size={size}
+              origin_price={orign_price}
+              discount_rate={discount_rate}
+              discounted_price={discounted_price}
+              image={image}
             />
 
             <div className="detailInfo">
               <span className="contents"> 3만원 이상 구매 시</span>
               <p className="contentsHighlight">무료배송!</p>
               <ProductOption
-                key={productList.id}
-                discounted_price={productList.discounted_price}
+                key={id}
+                discounted_price={discounted_price}
                 productData={productData}
                 changeDate={this.changeDate}
                 addCount={this.addCount}
