@@ -12,10 +12,10 @@ class SubDetailCard extends Component {
       <section className="detailContainer">
         <ul className="categoryNav">
           <li>
-            <Link to="/main">HOME</Link>
+            <Link to="/">HOME</Link>
           </li>
           <li>
-            <Link to="/subscribe-list">꽃 정기구독</Link>
+            <Link to="/subscription">꽃 정기구독</Link>
           </li>
           <li>
             <Link to={`./${this.props.match.params.id}`}>{name}</Link>

@@ -21,14 +21,18 @@ class ProductInfo extends Component {
           </div>
         </div>
         {discount_rate === 0.0 ? (
-          <h2 className="title price">{origin_price.toLocaleString()}</h2>
+          <h2 className="title price">
+            {Number(origin_price).toLocaleString()}
+          </h2>
         ) : (
           <div className="detailDiscount">
             <span className="discountPer">{discount_rate * 100}</span>
             <span className="oldPrice subTitle">
-              {origin_price.toLocaleString()}
+              {Number(origin_price).toLocaleString()}
             </span>
-            <h2 className="title price">{discounted_price.toLocaleString()}</h2>
+            <h2 className="title price">
+              {Number(discounted_price).toLocaleString()}
+            </h2>
           </div>
         )}
       </div>

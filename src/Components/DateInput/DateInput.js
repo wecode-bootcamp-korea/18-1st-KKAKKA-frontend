@@ -5,14 +5,6 @@ import "react-datepicker/dist/react-datepicker.css";
 import "./DateInput.scss";
 
 class DateInput extends Component {
-  state = {
-    startDate: "",
-  };
-
-  handleDateChange = date => {
-    this.setState({ startDate: date });
-  };
-
   render() {
     return (
       <form className="inputDeliveryDate">
@@ -20,12 +12,12 @@ class DateInput extends Component {
           id="datePicker"
           locale={ko}
           name="day1"
-          selected={this.state.startDate}
+          selected={this.props.startDate}
           closeOnScroll={true}
           minDate={new Date()}
           popperModifiers={{ preventOverflow: { enabled: true } }}
           popperPlacement="auto"
-          onChange={this.handleDateChange}
+          onChange={this.props.changeDate}
           placeholderText="수령일을 선택해주세요."
           dateFormat="eeee, yyyy-MM-dd"
         />

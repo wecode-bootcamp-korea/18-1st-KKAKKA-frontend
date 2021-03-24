@@ -8,52 +8,11 @@ class ProductOption extends Component {
   constructor() {
     super();
     this.state = {
-      // api 연결 이후 fetch 로그인 상태 인증으로 로직 변경
       isLogin: true,
-      quantity: 1,
-      delivery_date: "",
-      hasLetter: true,
-      price: 0,
-      productPrice: "",
-      totalPrice: "",
       modal: false,
       basketItem: [],
-      subscribeList: [],
     };
   }
-
-  changeDate = e => {
-    this.setState({ delivery_date: e.target.value });
-  };
-
-  addCount = () => {
-    if (this.state.quantity < 10) {
-      this.setState({
-        quantity: this.state.quantity + 1,
-      });
-    }
-  };
-
-  minusCount = () => {
-    if (this.state.quantity > 1) {
-      this.setState({
-        quantity: this.state.quantity - 1,
-      });
-    }
-  };
-
-  chkHasLetter = () => {
-    this.setState({
-      hasLetter: !this.state.hasLetter,
-    });
-  };
-
-  changePrice = () => {
-    let updatePrice = this.state.price * this.state.quantity;
-    this.setState({
-      productPrice: updatePrice(),
-    });
-  };
 
   handleModal = e => {
     if (this.state.isLogin) {
@@ -77,8 +36,9 @@ class ProductOption extends Component {
     }
   };
   render() {
-    const { discounted_price } = this.props;
-    const { quantity, delivery_date } = this.state;
+    const { discounted_price, chkHasLetter, changeDate } = this.props;
+    const { quantity, delivery_date, hasLetter } = this.props.productData;
+
     return (
       <div>
         {this.state.modal && (
@@ -97,7 +57,10 @@ class ProductOption extends Component {
                     <span className="contents">구독옵션</span>
                   </th>
                   <td>
-                    <DateInput startDate={delivery_date} />
+                    <DateInput
+                      changeDate={changeDate}
+                      startDate={delivery_date}
+                    />
                   </td>
                 </tr>
                 <tr className="optionRow2">
@@ -109,7 +72,7 @@ class ProductOption extends Component {
                       <button
                         type="button"
                         className="btnAmount"
-                        onClick={this.minusCount}
+                        onClick={() => this.props.minusCount()}
                       >
                         -
                       </button>
@@ -117,7 +80,7 @@ class ProductOption extends Component {
                       <button
                         type="button"
                         className="btnAmount"
-                        onClick={this.addCount}
+                        onClick={() => this.props.addCount()}
                       >
                         +
                       </button>
@@ -137,12 +100,12 @@ class ProductOption extends Component {
                           type="radio"
                           name="letter"
                           value="letter"
-                          checked={this.state.hasLetter ? true : false}
-                          onClick={this.chkHasLetter}
+                          checked={hasLetter ? true : false}
+                          onClick={chkHasLetter}
                           readOnly
                         />
 
-                        <label for="letter">추가할게요(+2,500)</label>
+                        <label htmlFor="letter">추가할게요(+2,500)</label>
                       </div>
                       <div className="letterCheckbox">
                         <input
@@ -151,10 +114,10 @@ class ProductOption extends Component {
                           type="radio"
                           name="letter"
                           value="noLetter"
-                          checked={this.state.hasLetter ? false : true}
-                          onClick={this.chkHasLetter}
+                          checked={hasLetter ? false : true}
+                          onClick={chkHasLetter}
                         />
-                        <label for="letterNo">추가하지 않을게요</label>
+                        <label htmlFor="letterNo">추가하지 않을게요</label>
                       </div>
                     </form>
                   </td>
@@ -173,7 +136,7 @@ class ProductOption extends Component {
             {(Number(discounted_price) * quantity).toLocaleString()}
           </span>
         </div>
-        {this.state.hasLetter && (
+        {hasLetter && (
           <div className="letterPrice">
             <div>
               <span className="contents">편지 추가</span>
@@ -183,7 +146,7 @@ class ProductOption extends Component {
               <button
                 type="button"
                 className="deleteBtn"
-                onClick={this.chkHasLetter}
+                onClick={chkHasLetter}
               >
                 X
               </button>

@@ -28,8 +28,8 @@ class Routes extends React.Component {
             component={FlowerClassDetail}
           />
           <Route exact path="/flower-class-list" component={FlowerClassList} />
-          <Route exact path="/flower-detail" component={FlowerDetail} />
-          <Route exact path="/flower-list" component={FlowerList} />
+          <Route exact path="/product/:id" component={FlowerDetail} />
+          <Route exact path="/product" component={FlowerList} />
           <Route exact path="/mypage" component={Mypage} />
           <Route exact path="/order" component={Order} />
           <Route exact path="/order-list" component={OrderList} />
