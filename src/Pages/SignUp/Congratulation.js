@@ -1,8 +1,7 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
-import { Nav } from "../../Components/Nav";
-import { SubNav } from "../../Components/SubNav";
-import { Footer } from "../../Components/Footer";
+import Nav from "../../Components/Nav/Nav";
+import Footer from "../../Components/Footer/Footer";
 import "./Congratulation.scss";
 
 export class Congratulation extends Component {
@@ -10,7 +9,6 @@ export class Congratulation extends Component {
     return (
       <div className="congratulation">
         <Nav />
-        <SubNav />
         <div className="congratsupperBox">
           <header className="textBox">
             <p className="nameTxt">{`${this.props.location.state.userName}님,`}</p>
