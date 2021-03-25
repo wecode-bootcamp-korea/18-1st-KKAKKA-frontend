@@ -30,12 +30,10 @@ class ProductOption extends Component {
   };
 
   goToOrder = () => {
-    if (this.state.isLogin) {
-      this.props.history.push("/order");
-    } else {
-      this.props.history.push("/login");
-    }
+    const { isLogin } = this.state;
+    this.props.history.push(`/${isLogin ? "order" : "login"}`);
   };
+
   render() {
     const {
       discounted_price,
@@ -149,7 +147,7 @@ class ProductOption extends Component {
               <span className="contents">편지 추가</span>
             </div>
             <div className="letterBox">
-              <span className="price">{Number(2500).toLocaleString()}</span>
+              <span className="price">{Number(0).toLocaleString()}</span>
               <BsX
                 value={{ className: "navIcon" }}
                 size="2em"

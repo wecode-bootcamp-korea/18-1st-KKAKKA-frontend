@@ -21,65 +21,53 @@ class SubscribeDetail extends Component {
       },
     };
   }
-  // post = {
-  // account: 토큰 번호 또는 유저 아이디
-  // subscription_id: this.props.match.params.id
-  // monthly_plan:
-  // delivery_date:
-  // quantity :
-  //}
-
-  // fetch 후 alert 메세지용 //
-  welcomeAlert() {
-    alert("통신 성공!!!");
-  }
-  alreadyUserAlert() {
-    alert("이미 존재함ㅠㅠ");
-  }
-  serverErrorAlert() {
-    alert("알 수 없는 오류가 발생했습니다.");
-  }
 
   // detail에서 order으로 이동시킬 fetch 함수 //
-  goToOrder() {
-    fetch(`${config.api}/subscription/${this.props.match.params.id}`, {
+  goToOrder = () => {
+    fetch(`${config.api}/order/subscription/${this.props.match.params.id}`, {
       method: "POST",
       headers: {
+        Authorization:
+          "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6NH0.BmykDxMZydx7PPn-H89k04E3wCKCya3c4nwh8zxUqMU",
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
         account: 1234,
-        subscription_id: this.props.match.params.id,
         monthly_plan: this.state.subscribeData.subscribeOption,
         delivery_date: this.state.subscribeData.delivery_date,
         quantity: this.state.subscribeData.quantity,
       }),
-    }).then(res => {
-      if (res.status === 200) {
-        this.welcomeAlert();
-        this.props.history.push("/order");
-      }
-      if (res.status === 401) {
-        this.alreadyUserAlert();
-      }
-      if (res.status === 400) {
-        this.serverErrorAlert();
-      }
-    });
-  }
+    })
+      .then(response => response.json())
+      .then(result => console.log(result))
+      .then(alert("구매 페이지로 이동합니다"));
+  };
+  // .then(res => {
+  //   console.log("확인:", res);
+  //   if (res.status === 200) {
+  //     this.welcomeAlert();
+  //     this.props.history.push(
+  //       `${config.api}/order/susbscription/${this.props.match.params.id}`
+  //     );
+  //   }
+  //   if (res.status === 401) {
+  //     this.alreadyUserAlert();
+  //   }
+  //   if (res.status === 400) {
 
   getData = () => {
-    fetch("http://localhost:3000/data/subscribeData.json")
+    fetch(`${config.api}/subscription/${this.props.match.params.id}`, {
       // const token = localStorage.getItem("token");
       // fetch(`${config.api}/subscription/${this.props.match.params.id}`, {
-      //   headers: {
-      //     Authorization: token,
-      //   },
-      // })
+      headers: {
+        Authorization:
+          "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6NH0.BmykDxMZydx7PPn-H89k04E3wCKCya3c4nwh8zxUqMU",
+      },
+    })
       // .then((res) => console.log(res))
+      // fetch(`${config.api}/subscription`)
       .then(res => res.json())
       .then(data => {
-        console.log("확인 :", data);
         this.setState({
           subscribeList: data.result[0],
         });
@@ -212,6 +200,7 @@ class SubscribeDetail extends Component {
             minusCount={this.minusCount}
             chkHasLetter={this.chkHasLetter}
             changeSubOption={this.changeSubOption}
+            goToOrder={this.goToOrder}
           />
         )}
         <div className="urlButtons">

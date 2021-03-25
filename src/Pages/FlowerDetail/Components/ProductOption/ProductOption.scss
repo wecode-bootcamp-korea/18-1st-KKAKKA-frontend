@@ -172,6 +172,50 @@
   }
 }
 
+.detailPrice,
+.letterPrice {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  width: 490px;
+  height: 82px;
+  margin: 10px 0 20px;
+  padding: 20px;
+  border: none;
+  border-radius: 5px;
+  background-color: #f7f7f7;
+  color: #0d0d0d;
+
+  .contents {
+    @extend %contents;
+  }
+
+  .price::after {
+    content: "원";
+  }
+
+  .subContents {
+    @extend %subContents;
+  }
+
+  .letterBox {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+
+    .deleteBtn {
+      display: flex;
+      justify-content: center;
+      width: 20px;
+      height: 20px;
+      margin-top: 4px;
+      border: 1px solid #0d0d0d;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+  }
+}
+
 .totalPrice {
   display: flex;
   flex-direction: column;
