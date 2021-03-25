@@ -1,7 +1,8 @@
-export const commonAPI = {
-  api: "http://10.58.7.81:8000",
+export const config = {
+  api: "http://10.58.2.60:8000",
 };
-export const mainSubscribeAPI = "http://10.58.6.0:8000/subscription";
+export const ACCESS_TOKEN = "accessToken";
+export const mainSubscribeAPI = "10.58.3.125:8000/subscription";
 export const mainProductAPI = "http://10.58.6.0:8000/product/main";
 export const loginAPI = "http://10.58.6.0:8000/kkakka/signin";
 export const signupAPI = "http://10.58.6.0:8000/kkakka/signup";
