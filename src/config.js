@@ -1,5 +1,5 @@
 export const config = {
-  api: "http://10.58.7.107:8000",
+  api: "http://10.58.2.60:8000",
 };
 export const ACCESS_TOKEN = "accessToken";
 export const mainSubscribeAPI = "10.58.3.125:8000/subscription";

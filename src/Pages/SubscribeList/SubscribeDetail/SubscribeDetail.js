@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import moment from "moment";
 import { config } from "../../../config.js";
 import SubDetailCard from "./SubDetailCard";
 import "./SubscribeDetail.scss";
@@ -24,6 +25,7 @@ class SubscribeDetail extends Component {
 
   // detail에서 order으로 이동시킬 fetch 함수 //
   goToOrder = () => {
+    const newDate = this.state.subscribeData.delivery_date;
     fetch(`${config.api}/order/subscription/${this.props.match.params.id}`, {
       method: "POST",
       headers: {
@@ -34,8 +36,8 @@ class SubscribeDetail extends Component {
       body: JSON.stringify({
         account: 1,
         option: 1,
-        monthly_plan: this.state.subscribeData.subscribeOption,
-        delivery_date: this.state.subscribeData.delivery_date,
+        monthly_plan: 1,
+        delivery_date: moment(newDate).format("YYYY-MM-DD"),
         quantity: this.state.subscribeData.quantity,
       }),
     })
@@ -57,8 +59,8 @@ class SubscribeDetail extends Component {
   //   if (res.status === 400) {
 
   getData = () => {
-    fetch("http://localhost:3000/data/subscribeData.json", {
-      // fetch(`${config.api}/subscription/${this.props.match.params.id}`, {
+    // fetch("http://localhost:3000/data/subscribeData.json", {
+    fetch(`${config.api}/subscription/${this.props.match.params.id}`, {
       // const token = localStorage.getItem("token");
       // fetch(`${config.api}/subscription/${this.props.match.params.id}`, {
       headers: {
