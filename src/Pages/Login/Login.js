@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { withRouter } from "react-router";
 import { Link } from "react-router-dom";
+import Nav from "../../Components/Nav/Nav";
 import Footer from "../../Components/Footer/Footer";
 import { loginAPI } from "../../config";
 import "./Login.scss";
@@ -60,6 +61,7 @@ class Login extends Component {
     const { isValid } = this.state;
     return (
       <div className="login">
+        <Nav />
         <div className="loginBox">
           <h1 className="loginText">로그인</h1>
           <form className="loginField">

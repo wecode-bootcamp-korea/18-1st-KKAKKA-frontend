@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import { withRouter } from "react-router";
 import { signupAPI } from "../../config";
+import Nav from "../../Components/Nav/Nav";
+import Footer from "../../Components/Footer/Footer";
 import "./SignUp.scss";
 
 class SignUp extends Component {
@@ -116,6 +118,7 @@ class SignUp extends Component {
     } = this.state;
     return (
       <div className="signUp">
+        <Nav />
         <div className="headBox">
           <h1 className="headText">회원가입</h1>
         </div>
@@ -191,6 +194,7 @@ class SignUp extends Component {
             회원가입
           </button>
         </div>
+        <Footer />
       </div>
     );
   }
