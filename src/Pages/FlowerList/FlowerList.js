@@ -19,31 +19,33 @@ class FlowerList extends Component {
           {
             listDatas: data.result,
           },
-          () => {
-            // console.log(this.state);
-          }
+          () => {}
         );
       });
   };
 
   startBrandnew = () => {
     const { listDatas } = this.state;
+
     this.setState({
-      listDatas: listDatas.sort((a, b) => a.createdAt - b.createdAt),
+      //console.log(this.state.listDatas);()
+      listDatas: listDatas.sort((a, b) => {
+        return new Date(a.created_at) - new Date(b.created_at);
+      }),
     });
   };
 
   startHighPrice = () => {
     const { listDatas } = this.state;
     this.setState({
-      listDatas: listDatas.sort((a, b) => a.originPrice - b.originPrice),
+      listDatas: listDatas.sort((a, b) => a.orign_price - b.orign_price),
     });
   };
 
   startLowPrice = () => {
     const { listDatas } = this.state;
     this.setState({
-      listDatas: listDatas.sort((a, b) => b.originPrice - a.originPrice),
+      listDatas: listDatas.sort((a, b) => b.orign_price - a.orign_price),
     });
   };
 
@@ -63,13 +65,12 @@ class FlowerList extends Component {
   // };
 
   render() {
-    console.log(this.state.listDatas);
     const { listDatas } = this.state;
-    //console.log(this.state.listDatas);
+
     return (
       <div className="flowerListMain">
         <div className="sortButton">
-          <button class="startLowPrice" onClick={this.startBrandnew}>
+          <button class="startBrandnew" onClick={this.startBrandnew}>
             신상품순
           </button>
           <button class="startLowPrice" onClick={this.startLowPrice}>
@@ -85,7 +86,6 @@ class FlowerList extends Component {
             return (
               <ListDatas
                 key={list.id}
-                //isFreeShipping={{list.isFreeShipping}
                 createdAt={list.created_at}
                 detail={list.detail}
                 discountRate={list.discount_rate}

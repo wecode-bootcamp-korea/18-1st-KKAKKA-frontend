@@ -42,16 +42,6 @@ class ListDatas extends React.Component {
           )}
         </div>
 
-        {/* {{ discountRate } ? (
-          <div className="discountedPrice">{discountedPrice}</div>
-        ) : (
-          <div className="originPrice">{originPrice}</div>
-        )}
-        {discountedPrice && <div className="discountRate">{discountRate}</div>}
-        <span className="discountedPrice">{discountedPrice}</span>
-        <p className="createdAt">{createdAt}</p>
-
-        <p className="id">{id}</p> */}
         <div className="detailFourth">
           <span className="size">{size}</span>
           <span className="freeshipping">무료배송</span>
