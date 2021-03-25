@@ -13,6 +13,7 @@ import OrderList from "./Pages/OrderList/OrderList.js";
 import SignUp from "./Pages/SignUp/SignUp.js";
 import SubscribeDetail from "./Pages/SubscribeList/SubscribeDetail/SubscribeDetail.js";
 import SubscribeList from "./Pages/SubscribeList/SubscribeList.js";
+import Congratulation from "./Pages/SignUp/Congratulation.js";
 
 class Routes extends React.Component {
   render() {
@@ -36,6 +37,11 @@ class Routes extends React.Component {
           <Route exact path="/signup" component={SignUp} />
           <Route exact path="/subscription/:id" component={SubscribeDetail} />
           <Route exact path="/subscription" component={SubscribeList} />
+          <Route
+            exact
+            path="/signup-congratulation"
+            component={Congratulation}
+          />
         </Switch>
       </Router>
     );
