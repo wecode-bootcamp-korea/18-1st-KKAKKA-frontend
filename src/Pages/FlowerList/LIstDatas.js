@@ -4,7 +4,7 @@ import "./ListDatas.scss";
 class ListDatas extends React.Component {
   render() {
     const {
-      createdAt,
+      // createdAt,
       detail,
 
       discountRate,
@@ -18,7 +18,7 @@ class ListDatas extends React.Component {
     return (
       <div className="listDatas">
         <p className="image">
-          <img alt="image" src={image} />
+          <image alt="image" src={image} />
         </p>
         <p className="detail">{detail}</p>
         <p className="name">{name}</p>

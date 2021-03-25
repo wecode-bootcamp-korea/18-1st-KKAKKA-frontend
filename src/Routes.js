@@ -11,7 +11,7 @@ import Mypage from "./Pages/Mypage/Mypage.js";
 import Order from "./Pages/Order/Order.js";
 import OrderList from "./Pages/OrderList/OrderList.js";
 import SignUp from "./Pages/SignUp/SignUp.js";
-import SubscribeDetail from "./Pages/SubscribeDetail/SubscribeDetail.js";
+import SubscribeDetail from "./Pages/SubscribeList/SubscribeDetail/SubscribeDetail.js";
 import SubscribeList from "./Pages/SubscribeList/SubscribeList.js";
 import Congratulation from "./Pages/SignUp/Congratulation.js";
 
@@ -29,14 +29,14 @@ class Routes extends React.Component {
             component={FlowerClassDetail}
           />
           <Route exact path="/flower-class-list" component={FlowerClassList} />
-          <Route exact path="/flower-detail" component={FlowerDetail} />
-          <Route exact path="/flower-list" component={FlowerList} />
+          <Route exact path="/product/:id" component={FlowerDetail} />
+          <Route exact path="/product" component={FlowerList} />
           <Route exact path="/mypage" component={Mypage} />
-          <Route exact path="/order" component={Order} />
+          <Route exact path="/order/subscription/:id" component={Order} />
           <Route exact path="/order-list" component={OrderList} />
           <Route exact path="/signup" component={SignUp} />
-          <Route exact path="/subscribe-detail" component={SubscribeDetail} />
-          <Route exact path="/subscribe-list" component={SubscribeList} />
+          <Route exact path="/subscription/:id" component={SubscribeDetail} />
+          <Route exact path="/subscription" component={SubscribeList} />
           <Route
             exact
             path="/signup-congratulation"
