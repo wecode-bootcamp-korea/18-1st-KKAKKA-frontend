@@ -5,7 +5,6 @@ import Footer from "../../Components/Footer/Footer";
 import "./FlowerList.scss";
 import Nav from "../../Components/Nav/Nav";
 import SubNav from "../../Components/SubNav/SubNav";
-import { SiNotion, SiInstagram, SiGithub } from "react-icons/si";
 
 class FlowerList extends Component {
   constructor() {

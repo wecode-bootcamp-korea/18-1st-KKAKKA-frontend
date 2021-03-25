@@ -1,11 +1,11 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import Nav from "../../Components/Nav/Nav";
-import SubNav from "../../Components/SubNav/SubNav";
 import Footer from "../../Components/Footer/Footer";
 import Cards from "./Components/Cards/Cards";
 import DataList from "./Components/DataList/DataList";
-import { mainSubscribeAPI, mainProductAPI } from "../../config";
+// import { mainSubscribeAPI, mainProductAPI } from "../../config";
+import { mockCookieDataAPI, mockCookieSubscribeAPI } from "../../config";
 import "../../styles/common.scss";
 import "./Main.scss";
 
@@ -21,14 +21,14 @@ class Main extends Component {
   //mainAPI는 수정 되어서 구현할 떄는 mockdata 변수로 다시 할당
   // 백엔드와 통신은 완료
   componentDidMount = () => {
-    fetch(mainProductAPI)
+    fetch(mockCookieDataAPI)
       .then(response => response.json())
       .then(result => {
         this.setState({
           cookieData: result.product_list,
         });
       });
-    fetch(mainSubscribeAPI)
+    fetch(mockCookieSubscribeAPI)
       .then(response => response.json())
       .then(({ result }) => {
         this.setState({
@@ -43,7 +43,13 @@ class Main extends Component {
       <div className="main">
         <div className="container">
           <Nav />
-          <SubNav />
+          <div className="subNav">
+            <img
+              alt="main"
+              src="https://kukka-2-media-123.s3.amazonaws.com/media/ckeditor_uploads/2021/02/26/pc_001.png"
+              className="subNavImg"
+            />
+          </div>
         </div>
         <div className="subscribeList">
           <div className="cookieSubscribeList">
@@ -65,29 +71,33 @@ class Main extends Component {
               })}
             </div>
           </div>
-          <div className="cookieList">
-            <div className="cookieListTxt">
-              <h2 className="cookieTxt">
-                과자가 필요한 순간, <span className="cookieBold">쿠키쿠키</span>
-              </h2>
-              <Link to="/flower-list">
-                <button className="moreBtn">더보기</button>
-              </Link>
-            </div>
-            <div className="cookieDataItems">
-              {cookieData.map(cookieDataList => {
-                return (
-                  <DataList
-                    key={cookieDataList.id}
-                    cookieName={cookieDataList.name}
-                    cookieIntro={cookieDataList.introduction}
-                    cookieImg={cookieDataList.image}
-                    cookiePrice={cookieDataList.orign_price}
-                    cookieDiscountRate={cookieDataList.discount_rate}
-                    cookieDiscountPrice={cookieDataList.discounted_price}
-                  />
-                );
-              })}
+
+          <div className="cookieListBox">
+            <div className="cookieList">
+              <div className="cookieListTxt">
+                <h2 className="cookieTxt">
+                  과자가 필요한 순간,{" "}
+                  <span className="cookieBold">쿠키쿠키</span>
+                </h2>
+                <Link to="/flower-list">
+                  <button className="moreBtn">더보기</button>
+                </Link>
+              </div>
+              <div className="cookieDataItems">
+                {cookieData.map(cookieDataList => {
+                  return (
+                    <DataList
+                      key={cookieDataList.id}
+                      cookieName={cookieDataList.name}
+                      cookieIntro={cookieDataList.introduction}
+                      cookieImg={cookieDataList.image}
+                      cookiePrice={cookieDataList.orign_price}
+                      cookieDiscountRate={cookieDataList.discount_rate}
+                      cookieDiscountPrice={cookieDataList.discounted_price}
+                    />
+                  );
+                })}
+              </div>
             </div>
           </div>
         </div>
