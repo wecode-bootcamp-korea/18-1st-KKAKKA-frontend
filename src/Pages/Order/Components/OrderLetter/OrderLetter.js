@@ -13,7 +13,6 @@ class OrderLetter extends Component {
 
   changeInput = e => {
     this.setState({ letterText: e.target.value });
-    console.log(this.state.letterText);
   };
 
   render() {
