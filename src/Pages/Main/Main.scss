@@ -11,7 +11,9 @@
   }
 
   .cookieSubscribeList {
-    padding: 0 10% 50px 10%;
+    max-width: 1240px;
+    margin: 0 auto;
+    padding: 40px 60px;
 
     .subscribeTxt {
       padding: 40px 0 20px 0;
@@ -28,7 +30,8 @@
   }
 
   .cookieList {
-    padding: 0 10% 50px 10%;
+    margin: 0 auto;
+    padding: 40px 60px;
     background-color: #f7f7f7;
 
     .cookieListTxt {
