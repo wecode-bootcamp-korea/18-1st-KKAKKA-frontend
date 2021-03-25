@@ -1,5 +1,5 @@
 export const config = {
-  api: "http://10.58.2.60:8000",
+  api: "http://192.168.200.107:8000",
 };
 export const mainSubscribeAPI = "10.58.3.125:8000/subscription";
 export const mockAPI = "http://localhost:3000/data/FlowerList.json";

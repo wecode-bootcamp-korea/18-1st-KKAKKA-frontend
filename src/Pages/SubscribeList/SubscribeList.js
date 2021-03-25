@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-// import { config } from "../../config.js";
+import { config } from "../../config.js";
 import Nav from "../../Components/Nav/Nav";
 import SubNav from "../../Components/SubNav/SubNav";
 import Footer from "../../Components/Footer/Footer";
@@ -29,8 +29,8 @@ class SubscribeList extends Component {
   };
 
   componentDidMount() {
-    fetch("http://localhost:3000/data/subscribeData.json")
-      // fetch(`${config.api}/subscription`)
+    // fetch("http://localhost:3000/data/subscribeData.json")
+    fetch(`${config.api}/subscription`)
       .then(res => res.json())
       .then(data => {
         this.setState({

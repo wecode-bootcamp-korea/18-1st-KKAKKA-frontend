@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import ListDatas from "./ListDatas";
+import { config } from "../../config.js";
 import Footer from "../../Components/Footer/Footer";
 import Nav from "../../Components/Nav/Nav";
 import SubNav from "../../Components/SubNav/SubNav";
@@ -18,7 +19,8 @@ class FlowerList extends Component {
   }
 
   componentDidMount = () => {
-    fetch("http://localhost:3000/data/FlowerList.json")
+    // fetch("http://localhost:3000/data/FlowerList.json")
+    fetch(`${config.api}/product`)
       .then(res => res.json())
       .then(data => {
         this.setState(

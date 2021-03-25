@@ -61,17 +61,15 @@ class SubscribeDetail extends Component {
   //   if (res.status === 400) {
 
   getData = () => {
-    fetch("http://localhost:3000/data/subscribeData.json", {
-      // fetch(`${config.api}/subscription/${this.props.match.params.id}`, {
+    // fetch("http://localhost:3000/data/subscribeData.json", {
+    fetch(`${config.api}/subscription/${this.props.match.params.id}`, {
       // const token = localStorage.getItem("token");
-      // fetch(`${config.api}/subscription/${this.props.match.params.id}`, {
       headers: {
         Authorization:
           "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6NH0.BmykDxMZydx7PPn-H89k04E3wCKCya3c4nwh8zxUqMU",
       },
-    })
-      // .then((res) => console.log(res))
-      // fetch(`${config.api}/subscription`)
+    }).then(res => console.log(res));
+    fetch(`${config.api}/subscription/${this.props.match.params.id}`)
       .then(res => res.json())
       .then(data => {
         this.setState({

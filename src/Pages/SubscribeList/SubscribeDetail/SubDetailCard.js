@@ -41,7 +41,7 @@ class SubDetailCard extends Component {
                 return (
                   <div>
                     <img
-                      alt={`"쿠키 미니 이미지"${index}`}
+                      alt={`쿠키 미니 이미지${index}`}
                       src={image && image.length > 0 && image[n]}
                       className="thumnailMini"
                     />
