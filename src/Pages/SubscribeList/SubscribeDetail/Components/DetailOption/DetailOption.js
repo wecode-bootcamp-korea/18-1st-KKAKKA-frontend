@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { withRouter } from "react-router-dom";
+import { BsX } from "react-icons/bs";
 import DateInput from "../../../../../Components/DateInput/DateInput";
 import Modal from "../../../../../Components/Modal/Modal";
 import "./DetailOption.scss";
@@ -197,13 +198,14 @@ class DetailOption extends Component {
             </div>
             <div className="letterBox">
               <span className="price">{Number(2500).toLocaleString()}</span>
-              <button
-                type="button"
+
+              <BsX
+                value={{ className: "navIcon" }}
+                size="2em"
+                verticalalign="middle"
                 className="deleteBtn"
                 onClick={chkHasLetter}
-              >
-                X
-              </button>
+              />
             </div>
           </div>
         )}
