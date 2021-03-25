@@ -67,13 +67,13 @@ class Nav extends React.Component {
 
             <ul className="navMenu">
               <li>
-                <Link to="/subscribe-list">쿠키 정기구독</Link>
+                <Link to="/subscription">쿠키 정기구독</Link>
               </li>
               <li>
-                <Link to="/flower-list">쿠키쿠키</Link>
+                <Link to="/product">쿠키쿠키</Link>
               </li>
               <li>
-                <Link to="/flower-class-list">쿠킹클래스</Link>
+                <Link to="/main">쿠킹클래스</Link>
               </li>
               <li>
                 <Link to="/main">쿠킹샵</Link>

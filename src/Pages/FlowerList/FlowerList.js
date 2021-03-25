@@ -1,7 +1,11 @@
 import React, { Component } from "react";
 import { mockAPI } from "../../config";
 import ListDatas from "./ListDatas";
+import Footer from "../../Components/Footer/Footer";
 import "./FlowerList.scss";
+import Nav from "../../Components/Nav/Nav";
+import SubNav from "../../Components/SubNav/SubNav";
+import { SiNotion, SiInstagram, SiGithub } from "react-icons/si";
 
 class FlowerList extends Component {
   constructor() {
@@ -19,7 +23,9 @@ class FlowerList extends Component {
           {
             listDatas: data.result,
           },
-          () => {}
+          () => {
+            console.log(data);
+          }
         );
       });
   };
@@ -28,7 +34,6 @@ class FlowerList extends Component {
     const { listDatas } = this.state;
 
     this.setState({
-      //console.log(this.state.listDatas);()
       listDatas: listDatas.sort((a, b) => {
         return new Date(a.created_at) - new Date(b.created_at);
       }),
@@ -66,40 +71,44 @@ class FlowerList extends Component {
 
   render() {
     const { listDatas } = this.state;
-
     return (
-      <div className="flowerListMain">
-        <div className="sortButton">
-          <button class="startBrandnew" onClick={this.startBrandnew}>
-            신상품순
-          </button>
-          <button class="startLowPrice" onClick={this.startLowPrice}>
-            가격낮은순
-          </button>
-          <button class="startHighPrice" onClick={this.startHighPrice}>
-            가격높은순
-          </button>
-        </div>
+      <>
+        <Nav />
+        <SubNav />
+        <div className="flowerListMain">
+          <div className="sortButton">
+            <button class="startBrandnew" onClick={this.startBrandnew}>
+              신상품순
+            </button>
+            <button class="startLowPrice" onClick={this.startLowPrice}>
+              가격낮은순
+            </button>
+            <button class="startHighPrice" onClick={this.startHighPrice}>
+              가격높은순
+            </button>
+          </div>
 
-        <div className="list">
-          {listDatas.map(list => {
-            return (
-              <ListDatas
-                key={list.id}
-                createdAt={list.created_at}
-                detail={list.detail}
-                discountRate={list.discount_rate}
-                discountedPrice={list.discounted_price}
-                id={list.id}
-                image={list.image}
-                name={list.name}
-                originPrice={list.orign_price}
-                size={list.size}
-              />
-            );
-          })}
+          <div className="list">
+            {listDatas.map(list => {
+              return (
+                <ListDatas
+                  key={list.id}
+                  createdAt={list.created_at}
+                  detail={list.detail}
+                  discountRate={list.discount_rate}
+                  discountedPrice={list.discounted_price}
+                  id={list.id}
+                  image={list.image}
+                  name={list.name}
+                  originPrice={list.orign_price}
+                  size={list.size}
+                />
+              );
+            })}
+          </div>
         </div>
-      </div>
+        <Footer />
+      </>
     );
   }
 }

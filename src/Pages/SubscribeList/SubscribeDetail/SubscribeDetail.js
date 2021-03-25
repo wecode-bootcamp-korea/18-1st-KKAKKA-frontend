@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import moment from "moment";
 import { config } from "../../../config.js";
+import Nav from "../../../Components/Nav/Nav";
+import Footer from "../../../Components/Footer/Footer";
 import SubDetailCard from "./SubDetailCard";
 import "./SubscribeDetail.scss";
 
@@ -43,7 +45,7 @@ class SubscribeDetail extends Component {
     })
       .then(response => response.json())
       .then(result => console.log(result))
-      .then(alert("구매 페이지로 이동합니다"));
+      .then(this.props.history.push("/order"));
   };
   // .then(res => {
   //   console.log("확인:", res);
@@ -150,19 +152,6 @@ class SubscribeDetail extends Component {
     this.setState({ subscribeData: updateDate });
   };
 
-  // 추가구현 : 이전 이후 상품 보기
-  // goToPrevious = () => {
-  //   if (this.props.match.params.id > 1) {
-  //     this.props.history.push(`/subscription/${--this.props.match.params.id}`);
-  //   }
-  // };
-
-  // goToNext = () => {
-  //   if (this.props.match.params.id < 3) {
-  //     this.props.history.push(`/subscription/${++this.props.match.params.id}`);
-  //   }
-  // };
-
   render() {
     const {
       id,
@@ -173,38 +162,29 @@ class SubscribeDetail extends Component {
       image,
     } = this.state.subscribeList;
     return (
-      <div>
-        {id >= 0 && (
-          <SubDetailCard
-            key={id}
-            id={id}
-            introduction={introduction}
-            name={name}
-            price={price}
-            description={description}
-            image={image}
-            subscribeData={this.state.subscribeData}
-            changeDate={this.changeDate}
-            changeCount={this.changeCount}
-            chkHasLetter={this.chkHasLetter}
-            changeSubOption={this.changeSubOption}
-            goToOrder={this.goToOrder}
-          />
-        )}
-
-        <div className="urlButtons">
-          <button
-            type="button"
-            className="urlButton"
-            onClick={this.goToPrevious}
-          >
-            이전 상품
-          </button>
-          <button type="button" className="urlButton" onClick={this.goToNext}>
-            다음 상품
-          </button>
+      <>
+        <Nav />
+        <div>
+          {id >= 0 && (
+            <SubDetailCard
+              key={id}
+              id={id}
+              introduction={introduction}
+              name={name}
+              price={price}
+              description={description}
+              image={image}
+              subscribeData={this.state.subscribeData}
+              changeDate={this.changeDate}
+              changeCount={this.changeCount}
+              chkHasLetter={this.chkHasLetter}
+              changeSubOption={this.changeSubOption}
+              goToOrder={this.goToOrder}
+            />
+          )}
         </div>
-      </div>
+        <Footer />
+      </>
     );
   }
 }
