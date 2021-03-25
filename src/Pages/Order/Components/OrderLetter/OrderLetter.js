@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import FooterBtn from "../FooterBtn/FooterBtn";
 import "./OrderLetter.scss";
 
 class OrderLetter extends Component {
@@ -50,6 +51,7 @@ class OrderLetter extends Component {
             </div>
           </div>
         </div>
+        <FooterBtn />
       </div>
     );
   }

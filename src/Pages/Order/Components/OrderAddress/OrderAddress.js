@@ -47,13 +47,12 @@ class OrderAddress extends Component {
               </li>
             </ul>
           </nav>
-          <div className="contentsBox">
-            {this.state.deliveryId === 1 && (
-              <AddressInput deliveryData={this.props.deliveryData} />
-            )}
-            {this.state.deliveryId === 2}
-            {this.state.deliveryId === 3}
-          </div>
+
+          {this.state.deliveryId === 1 && (
+            <AddressInput deliveryData={this.props.deliveryData} />
+          )}
+          {this.state.deliveryId === 2}
+          {this.state.deliveryId === 3}
         </div>
       </div>
     );
