@@ -79,7 +79,7 @@ class Main extends Component {
                   과자가 필요한 순간,{" "}
                   <span className="cookieBold">쿠키쿠키</span>
                 </h2>
-                <Link to="/flower-list">
+                <Link to="/product">
                   <button className="moreBtn">더보기</button>
                 </Link>
               </div>
