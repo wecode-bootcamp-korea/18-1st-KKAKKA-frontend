@@ -6,7 +6,8 @@ import Footer from "../../Components/Footer/Footer";
 import Cards from "./Components/Cards/Cards";
 import DataList from "./Components/DataList/DataList";
 import {
-  mainAPI,
+  mainSubscribeAPI,
+  mainProductAPI,
   mockCookieDataAPI,
   mockCookieSubscribeAPI,
 } from "../../config";
