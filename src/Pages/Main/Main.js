@@ -5,12 +5,7 @@ import SubNav from "../../Components/SubNav/SubNav";
 import Footer from "../../Components/Footer/Footer";
 import Cards from "./Components/Cards/Cards";
 import DataList from "./Components/DataList/DataList";
-import {
-  mainSubscribeAPI,
-  mainProductAPI,
-  mockCookieDataAPI,
-  mockCookieSubscribeAPI,
-} from "../../config";
+import { mainSubscribeAPI, mainProductAPI } from "../../config";
 import "../../styles/common.scss";
 import "./Main.scss";
 
@@ -26,18 +21,18 @@ class Main extends Component {
   //mainAPI는 수정 되어서 구현할 떄는 mockdata 변수로 다시 할당
   // 백엔드와 통신은 완료
   componentDidMount = () => {
-    fetch(mockCookieDataAPI)
+    fetch(mainProductAPI)
       .then(response => response.json())
       .then(result => {
         this.setState({
           cookieData: result.product_list,
         });
       });
-    fetch(mockCookieSubscribeAPI)
+    fetch(mainSubscribeAPI)
       .then(response => response.json())
-      .then(result => {
+      .then(({ result }) => {
         this.setState({
-          cookieSubscribe: result.subscription_list,
+          cookieSubscribe: result,
         });
       });
   };
@@ -57,7 +52,7 @@ class Main extends Component {
               <span className="subscribeBold">쿠키 정기구독</span>
             </h2>
             <div class="subscribeItemBox">
-              {cookieSubscribe.map(subscribeList => {
+              {cookieSubscribe?.map(subscribeList => {
                 return (
                   <Cards
                     key={subscribeList.id}
