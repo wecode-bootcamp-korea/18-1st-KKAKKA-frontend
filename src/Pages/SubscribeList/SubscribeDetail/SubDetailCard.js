@@ -83,8 +83,7 @@ class SubDetailCard extends Component {
                 price={price}
                 subscribeData={subscribeData}
                 changeDate={this.props.changeDate}
-                addCount={this.props.addCount}
-                minusCount={this.props.minusCount}
+                changeCount={this.props.changeCount}
                 chkHasLetter={this.props.chkHasLetter}
                 changeSubOption={this.props.changeSubOption}
                 goToOrder={this.props.goToOrder}

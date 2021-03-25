@@ -59,8 +59,8 @@ class SubscribeDetail extends Component {
   //   if (res.status === 400) {
 
   getData = () => {
-    // fetch("http://localhost:3000/data/subscribeData.json", {
-    fetch(`${config.api}/subscription/${this.props.match.params.id}`, {
+    fetch("http://localhost:3000/data/subscribeData.json", {
+      // fetch(`${config.api}/subscription/${this.props.match.params.id}`, {
       // const token = localStorage.getItem("token");
       // fetch(`${config.api}/subscription/${this.props.match.params.id}`, {
       headers: {
@@ -104,34 +104,19 @@ class SubscribeDetail extends Component {
     }
   };
 
-  addCount = () => {
-    const { subscribeOption } = this.state.subscribeData;
-    if (
-      subscribeOption === "정기구독" &&
-      this.state.subscribeData.quantity < 10
-    ) {
-      let countUp = {
-        ...this.state.subscribeData,
-        quantity: this.state.subscribeData.quantity + 1,
-      };
+  changeCount = modifier => {
+    const { subscribeOption, quantity } = this.state.subscribeData;
+    if (subscribeOption !== "정기구독") return;
+    const newObj = { ...this.state.subscribeData };
+    if (modifier === "add" && quantity < 10) {
+      newObj.quantity += 1;
       this.setState({
-        subscribeData: countUp,
+        subscribeData: newObj,
       });
-    }
-  };
-
-  minusCount = () => {
-    const { subscribeOption } = this.state.subscribeData;
-    if (
-      subscribeOption === "정기구독" &&
-      this.state.subscribeData.quantity > 1
-    ) {
-      let countDown = {
-        ...this.state.subscribeData,
-        quantity: this.state.subscribeData.quantity - 1,
-      };
+    } else if (modifier === "minus" && quantity > 1) {
+      newObj.quantity -= 1;
       this.setState({
-        subscribeData: countDown,
+        subscribeData: newObj,
       });
     }
   };
@@ -200,13 +185,13 @@ class SubscribeDetail extends Component {
             image={image}
             subscribeData={this.state.subscribeData}
             changeDate={this.changeDate}
-            addCount={this.addCount}
-            minusCount={this.minusCount}
+            changeCount={this.changeCount}
             chkHasLetter={this.chkHasLetter}
             changeSubOption={this.changeSubOption}
             goToOrder={this.goToOrder}
           />
         )}
+
         <div className="urlButtons">
           <button
             type="button"

@@ -44,8 +44,7 @@ class DetailOption extends Component {
       hasLetter,
     } = this.props.subscribeData;
     const {
-      minusCount,
-      addCount,
+      changeCount,
       chkHasLetter,
       changeDate,
       price,
@@ -99,7 +98,7 @@ class DetailOption extends Component {
                       <button
                         type="button"
                         className="btnAmount"
-                        onClick={minusCount}
+                        onClick={() => changeCount("minus")}
                       >
                         -
                       </button>
@@ -107,7 +106,7 @@ class DetailOption extends Component {
                       <button
                         type="button"
                         className="btnAmount"
-                        onClick={addCount}
+                        onClick={() => changeCount("add")}
                       >
                         +
                       </button>
