@@ -4,15 +4,9 @@ import "./SubStart.scss";
 
 class SubStart extends Component {
   render() {
-    // const STEP_INFO_LIST = [
-    //   "에어비엔비 이용 방법",
-    //   "뉴스룸",
-    //   "에어비엔비 플러스",
-    // ];
-
     return (
       <section className="subStart">
-        <h2 className="title">꽃 정기구독, 이렇게 시작해보세요!</h2>
+        <h2 className="title">🍪 쿠키 정기구독, 이렇게 시작해보세요! 🍪</h2>
         <ol>
           <li className="subSteplist">
             <div className="steplistImg">
@@ -27,7 +21,8 @@ class SubStart extends Component {
               정기구독 상품 중{" "}
               <strong>
                 원하시는
-                <br />꽃 사이즈
+                <br />
+                쿠키박스 사이즈
               </strong>
               를 선택해주세요.
             </span>
@@ -42,7 +37,7 @@ class SubStart extends Component {
             </div>
             <strong className="stepNum">02</strong>
             <span>
-              꽃을{" "}
+              쿠키를{" "}
               <strong>
                 구독하고 싶은
                 <br />총 기간
@@ -60,7 +55,7 @@ class SubStart extends Component {
             </div>
             <strong className="stepNum">03</strong>
             <span>
-              꽃을 <strong>받고 싶은 요일</strong>을
+              쿠키를 <strong>받고 싶은 요일</strong>을
               <br />
               선택해주세요.
             </span>
@@ -76,11 +71,11 @@ class SubStart extends Component {
             <strong className="stepNum">04</strong>
             <span>
               <strong>
-                2주에 한번 그 계절 가장
+                2주에 한번
                 <br />
-                이쁜 꽃
+                가장 달콤한 쿠키
               </strong>
-              으로 찾아갈게요.
+              로 찾아갈게요.
             </span>
           </li>
         </ol>

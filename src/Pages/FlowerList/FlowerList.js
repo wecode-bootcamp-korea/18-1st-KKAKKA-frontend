@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import { mockAPI } from "../../config";
 import ListDatas from "./ListDatas";
 import Footer from "../../Components/Footer/Footer";
 import "./FlowerList.scss";
@@ -11,11 +10,15 @@ class FlowerList extends Component {
     super();
     this.state = {
       listDatas: [],
+      subNav: {
+        title: "🍪 까까 쿠키쿠키 랜덤박스 🍪",
+        desc: "달콤함 가득 담은 쿠키로 당신의 일상을 특별한 날로 만들어보세요.",
+      },
     };
   }
 
   componentDidMount = () => {
-    fetch(mockAPI)
+    fetch("http://localhost:3000/data/FlowerList.json")
       .then(res => res.json())
       .then(data => {
         this.setState(
@@ -69,11 +72,11 @@ class FlowerList extends Component {
   // };
 
   render() {
-    const { listDatas } = this.state;
+    const { listDatas, subNav } = this.state;
     return (
       <>
         <Nav />
-        <SubNav />
+        <SubNav title={subNav.title} desc={subNav.desc} />
         <div className="flowerListMain">
           <div className="sortButton">
             <button class="startBrandnew" onClick={this.startBrandnew}>

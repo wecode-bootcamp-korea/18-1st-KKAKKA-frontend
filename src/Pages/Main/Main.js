@@ -54,7 +54,7 @@ class Main extends Component {
         <div className="subscribeList">
           <div className="cookieSubscribeList">
             <h2 className="subscribeTxt">
-              2주에 한번, 나를 위한 행복 까까{" "}
+              2주에 한번, 나를 위한 작은 행복 까까{" "}
               <span className="subscribeBold">쿠키 정기구독</span>
             </h2>
             <div class="subscribeItemBox">
@@ -77,7 +77,7 @@ class Main extends Component {
               <div className="cookieListTxt">
                 <h2 className="cookieTxt">
                   과자가 필요한 순간,{" "}
-                  <span className="cookieBold">쿠키쿠키</span>
+                  <span className="cookieBold">쿠키쿠키 랜덤박스</span>
                 </h2>
                 <Link to="/product">
                   <button className="moreBtn">더보기</button>

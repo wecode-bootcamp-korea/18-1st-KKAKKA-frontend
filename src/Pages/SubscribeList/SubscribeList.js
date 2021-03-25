@@ -16,6 +16,11 @@ class SubscribeList extends Component {
     this.state = {
       subscribeList: [],
       currentId: 1,
+      subNav: {
+        title: "🍪 까까 쿠키 정기구독 🍪",
+        desc:
+          "2주에 한 번, 매번 새로운 쿠키로 당신의 일상을 행복으로 채울게요.",
+      },
     };
   }
 
@@ -35,11 +40,11 @@ class SubscribeList extends Component {
   }
 
   render() {
-    const { subscribeList, currentId } = this.state;
+    const { subscribeList, currentId, subNav } = this.state;
     return (
       <>
         <Nav />
-        <SubNav />
+        <SubNav title={subNav.title} desc={subNav.desc} />
         <section className="sublistContainer">
           <nav className="subToggle">
             <ul className="toggleBtns">

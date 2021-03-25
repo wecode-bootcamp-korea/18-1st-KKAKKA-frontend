@@ -16,7 +16,7 @@ class ListDatas extends React.Component {
     return (
       <div className="listDatas">
         <p className="image">
-          <image alt="image" src={image} />
+          <img alt="img" src={image} />
         </p>
         <p className="detail">{detail}</p>
         <p className="name">{name}</p>
