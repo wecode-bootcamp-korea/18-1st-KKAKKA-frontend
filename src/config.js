@@ -1,3 +1,4 @@
+export const mockAPI = "http://localhost:3000/data/FlowerList.json";
 export const mainSubscribeAPI = "http://10.58.6.0:8000/subscription";
 export const mainProductAPI = "http://10.58.6.0:8000/product/main";
 export const loginAPI = "http://10.58.6.0:8000/kkakka/signin";
