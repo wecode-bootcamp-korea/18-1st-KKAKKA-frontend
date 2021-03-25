@@ -4,6 +4,11 @@
   .cookieImg {
     width: 100%;
     height: auto;
+
+    &:hover {
+      -webkit-transform: scale(1.05);
+      transform: scale(1.05);
+    }
   }
 
   .cookieIntro {

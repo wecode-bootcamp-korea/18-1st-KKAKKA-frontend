@@ -10,7 +10,7 @@ export class DataList extends Component {
       cookieDiscountPrice,
       cookieDiscountRate,
     } = this.props;
-    console.log("props >>>", this.props);
+
     return (
       <div className="dataList">
         <img src={this.props.cookieImg} className="cookieImg" alt="product" />

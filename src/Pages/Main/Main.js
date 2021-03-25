@@ -43,7 +43,6 @@ class Main extends Component {
   };
 
   render() {
-    console.log("render state >>", this.state);
     const { cookieSubscribe, cookieData } = this.state;
     return (
       <div className="main">
@@ -96,7 +95,6 @@ class Main extends Component {
               })}
             </div>
           </div>
-          <div className="cookie"></div>
         </div>
         <Footer />
       </div>

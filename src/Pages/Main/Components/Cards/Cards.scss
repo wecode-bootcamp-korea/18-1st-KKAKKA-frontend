@@ -1,8 +1,14 @@
 .cards {
-  margin: 0 10px 0 10px;
+  margin: 0 10px;
+
   .subscribeImg {
     width: 100%;
     height: auto;
+
+    &:hover {
+      -webkit-transform: scale(1.05);
+      transform: scale(1.05);
+    }
   }
   .subscribeIntro {
     margin: 6px 0px 6px 0px;
