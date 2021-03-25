@@ -39,8 +39,7 @@ class ProductOption extends Component {
       discounted_price,
       chkHasLetter,
       changeDate,
-      minusCount,
-      addCount,
+      changeCount,
     } = this.props;
     const { quantity, delivery_date, hasLetter } = this.props.productData;
 
@@ -59,7 +58,7 @@ class ProductOption extends Component {
               <tbody>
                 <tr className="optionRow1">
                   <th>
-                    <span className="contents">구독옵션</span>
+                    <span className="contents">수령일</span>
                   </th>
                   <td>
                     <DateInput
@@ -77,7 +76,7 @@ class ProductOption extends Component {
                       <button
                         type="button"
                         className="btnAmount"
-                        onClick={() => minusCount()}
+                        onClick={() => changeCount("minus")}
                       >
                         -
                       </button>
@@ -85,7 +84,7 @@ class ProductOption extends Component {
                       <button
                         type="button"
                         className="btnAmount"
-                        onClick={() => addCount()}
+                        onClick={() => changeCount("add")}
                       >
                         +
                       </button>

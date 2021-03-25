@@ -45,26 +45,18 @@ class FlowerDetail extends Component {
     }
   }
 
-  addCount = () => {
-    if (this.state.productData.quantity < 10) {
-      let countUp = {
-        ...this.state.productData,
-        quantity: this.state.productData.quantity + 1,
-      };
+  changeCount = modifier => {
+    const { quantity } = this.state.productData;
+    const newObj = { ...this.state.productData };
+    if (modifier === "add" && quantity < 10) {
+      newObj.quantity += 1;
       this.setState({
-        productData: countUp,
+        productData: newObj,
       });
-    }
-  };
-
-  minusCount = () => {
-    if (this.state.productData.quantity > 1) {
-      let countDown = {
-        ...this.state.productData,
-        quantity: this.state.productData.quantity - 1,
-      };
+    } else if (modifier === "minus" && quantity > 1) {
+      newObj.quantity -= 1;
       this.setState({
-        productData: countDown,
+        productData: newObj,
       });
     }
   };
@@ -128,35 +120,20 @@ class FlowerDetail extends Component {
             <img
               alt="쿠키 이미지"
               src={image && image.length > 0 && image[0]}
+              className="thumnail"
             />
             <div className="detailSlider">
-              <img
-                alt="쿠키 미니 썸네일1"
-                src={image && image.length > 0 && image[3]}
-                className="thumnailMini"
-              />
-              <img
-                alt="쿠키 미니 썸네일2"
-                src={image && image.length > 0 && image[2]}
-                className="thumnailMini"
-              />
-              <img
-                alt="쿠키 미니 썸네일3"
-                src={image && image.length > 0 && image[1]}
-                className="thumnailMini"
-              />
-
-              <img
-                alt="쿠키 미니 썸네일4"
-                src={image && image.length > 0 && image[2]}
-                className="thumnailMini"
-              />
-
-              <img
-                alt="쿠키 미니 썸네일5"
-                src={image && image.length > 0 && image[4]}
-                className="thumnailMini"
-              />
+              {[1, 2, 3, 2, 4].map((n, index) => {
+                return (
+                  <div>
+                    <img
+                      alt={`"쿠키 미니 이미지"${index}`}
+                      src={image && image.length > 0 && image[n]}
+                      className="thumnailMini"
+                    />
+                  </div>
+                );
+              })}
             </div>
           </div>
 
@@ -180,8 +157,7 @@ class FlowerDetail extends Component {
                 discounted_price={discounted_price}
                 productData={productData}
                 changeDate={this.changeDate}
-                addCount={this.addCount}
-                minusCount={this.minusCount}
+                changeCount={this.changeCount}
                 chkHasLetter={this.chkHasLetter}
                 changePrice={this.changePrice}
               />
@@ -192,4 +168,5 @@ class FlowerDetail extends Component {
     );
   }
 }
+
 export default FlowerDetail;

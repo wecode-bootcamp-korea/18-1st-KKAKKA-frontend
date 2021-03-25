@@ -37,35 +37,20 @@ class SubDetailCard extends Component {
               className="thumnail"
             />
             <div className="detailSlider">
-              <img
-                alt="쿠키 미니 썸네일1"
-                src={image && image.length > 0 && image[2]}
-                className="thumnailMini"
-              />
-              <img
-                alt="쿠키 미니 썸네일2"
-                src={image && image.length > 0 && image[2]}
-                className="thumnailMini"
-              />
-              <img
-                alt="쿠키 미니 썸네일3"
-                src={image && image.length > 0 && image[1]}
-                className="thumnailMini"
-              />
-
-              <img
-                alt="쿠키 미니 썸네일4"
-                src={image && image.length > 0 && image[4]}
-                className="thumnailMini"
-              />
-
-              <img
-                alt="쿠키 미니 썸네일5"
-                src={image && image.length > 0 && image[3]}
-                className="thumnailMini"
-              />
+              {[1, 2, 3, 2, 4].map((n, index) => {
+                return (
+                  <div>
+                    <img
+                      alt={`"쿠키 미니 이미지"${index}`}
+                      src={image && image.length > 0 && image[n]}
+                      className="thumnailMini"
+                    />
+                  </div>
+                );
+              })}
             </div>
           </div>
+
           <div className="productDetailRight">
             <DetailInfo
               key={id}
@@ -95,4 +80,5 @@ class SubDetailCard extends Component {
     );
   }
 }
+
 export default withRouter(SubDetailCard);
