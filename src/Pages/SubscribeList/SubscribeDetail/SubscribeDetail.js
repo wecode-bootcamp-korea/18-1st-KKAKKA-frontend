@@ -32,7 +32,8 @@ class SubscribeDetail extends Component {
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
-        account: 1234,
+        account: 1,
+        option: 1,
         monthly_plan: this.state.subscribeData.subscribeOption,
         delivery_date: this.state.subscribeData.delivery_date,
         quantity: this.state.subscribeData.quantity,
@@ -56,7 +57,8 @@ class SubscribeDetail extends Component {
   //   if (res.status === 400) {
 
   getData = () => {
-    fetch(`${config.api}/subscription/${this.props.match.params.id}`, {
+    fetch("http://localhost:3000/data/subscribeData.json", {
+      // fetch(`${config.api}/subscription/${this.props.match.params.id}`, {
       // const token = localStorage.getItem("token");
       // fetch(`${config.api}/subscription/${this.props.match.params.id}`, {
       headers: {

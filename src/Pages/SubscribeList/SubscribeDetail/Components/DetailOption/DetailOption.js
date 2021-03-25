@@ -99,7 +99,7 @@ class DetailOption extends Component {
                       <button
                         type="button"
                         className="btnAmount"
-                        onClick={() => minusCount()}
+                        onClick={minusCount}
                       >
                         -
                       </button>
@@ -107,7 +107,7 @@ class DetailOption extends Component {
                       <button
                         type="button"
                         className="btnAmount"
-                        onClick={() => addCount()}
+                        onClick={addCount}
                       >
                         +
                       </button>
