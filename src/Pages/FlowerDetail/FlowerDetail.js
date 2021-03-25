@@ -22,8 +22,6 @@ class FlowerDetail extends Component {
     };
   }
 
-  //  baskerItem 변경 시
-
   getData = () => {
     fetch("http://localhost:3000/data/productData.json")
       // fetch(`${config.api}/product/${this.props.match.params.id}`)
