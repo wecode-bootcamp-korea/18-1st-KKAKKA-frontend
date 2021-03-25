@@ -1,12 +1,16 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
+import { Nav } from "../../Components/Nav";
+import { SubNav } from "../../Components/SubNav";
+import { Footer } from "../../Components/Footer";
 import "./Congratulation.scss";
 
 export class Congratulation extends Component {
   render() {
     return (
       <div className="congratulation">
-        {/* Nav 컴포넌트 추가 예정 */}
+        <Nav />
+        <SubNav />
         <div className="congratsupperBox">
           <header className="textBox">
             <p className="nameTxt">{`${this.props.location.state.userName}님,`}</p>
@@ -27,7 +31,7 @@ export class Congratulation extends Component {
             <button className="shoppingBtn">쇼핑 계속하기</button>
           </Link>
         </div>
-        {/* Footer 컴포넌트 추가 예정 */}
+        <Footer />
       </div>
     );
   }
