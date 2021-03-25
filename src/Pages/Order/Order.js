@@ -24,16 +24,6 @@ class Order extends Component {
   }
 
   inputChange = e => {
-    // let {
-    //   recipient_phone,
-    //   recipient,
-    //   postal_code,
-    //   address,
-    //   address_detail,
-    //   save_address,
-    //   sender,
-    // } = e.target;
-
     this.setState({
       deliveryData: { [e.target.name]: e.target.value },
     });
@@ -49,9 +39,9 @@ class Order extends Component {
         <nav className="orderToggle">
           <ul className="toggleBtns">
             <li
-              className={
-                this.state.currentId === 1 ? "toggleBtn selected" : "toggleBtn"
-              }
+              className={`toggleBtn ${
+                this.state.currentId === 1 && "selected"
+              }`}
               onClick={() => this.clickHandler(1)}
             >
               <div className="toggleContents">

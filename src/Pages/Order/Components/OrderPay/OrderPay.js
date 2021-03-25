@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import OrderProduct from "./OrderProduct/OrderProduct";
 import "./OrderPay.scss";
 
 class OrderPay extends Component {
@@ -18,8 +19,10 @@ class OrderPay extends Component {
   render() {
     return (
       <div className="addressContainer">
-        <h4>거의 다 왔어요, 이제 주소만 넣으면 돼요😎 </h4>
-        <div className="addressBox"></div>
+        <h4>마지막으로 다시 한 번 주문내역을 확인해보세요.🎁 </h4>
+        <div className="addressBox">
+          <OrderProduct />
+        </div>
       </div>
     );
   }
