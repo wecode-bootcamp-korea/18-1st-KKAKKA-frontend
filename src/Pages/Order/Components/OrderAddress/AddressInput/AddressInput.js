@@ -32,19 +32,34 @@ class AddressInput extends Component {
   handleSubmit = e => {
     e.preventDefault();
     this.props.onCreate(this.state);
-    this.setState({
-      recipient_phone: "",
-      recipient: "",
-      postal_code: "",
-      address: "",
-      address_detail: "",
-      sender: "",
-      save_address: true,
-    });
+
+    if (true) {
+      fetch("http://local/", {
+        method: "POST",
+        body: JSON.stringify({
+          recipient_phone: this.state.recipient_phone,
+          recipient: this.state.recipient,
+          postal_code: this.state.postal_code,
+          phone_number: this.state.phone,
+          address: this.state.address + this.state.address_detail,
+          sender: this.state.sender,
+        }),
+      })
+        .then(res => res.json())
+        .then(result => {
+          // if (response.status === 400) {
+          //   alert("다시 한번 확인해주세요");
+          // } else {
+          alert("주문완료!");
+          this.props.history.push("/main");
+          window.location.reload();
+          // }
+        });
+    }
   };
 
   render() {
-    console.log("확인:", this.props.deliveryData);
+    // console.log("확인:", this.props.deliveryData);
     // const {
     //   recipient_phone,
     //   recipient,
