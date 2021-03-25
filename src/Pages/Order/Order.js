@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import OrderLetter from "./Components/OrderLetter/OrderLetter";
 import OrderAddress from "./Components/OrderAddress/OrderAddress";
 import OrderPay from "./Components/OrderPay/OrderPay";
+
 import "./Order.scss";
 
 class Order extends Component {
@@ -10,33 +11,37 @@ class Order extends Component {
     this.state = {
       orderList: [],
       currentId: 1,
+      deliveryData: {
+        recipient_phone: "",
+        recipient: "",
+        postal_code: "",
+        address: "",
+        address_detail: "",
+        save_address: true,
+        sender: "",
+      },
     };
   }
 
-  clickHandler = id => {
-    this.setState({ currentId: id });
-    console.log(this.state.currentId);
+  inputChange = e => {
+    this.setState({
+      deliveryData: { [e.target.name]: e.target.value },
+    });
   };
 
-  // componentDidMount() {
-  //   fetch("http://10.58.7.81:8000/")
-  //     .then(res => res.json())
-  //     .then(data => {
-  //       console.log("haha: ", data);
-  //       this.setState({
-  //         orderList: data.result,
-  //       });
-  //     });
-  // }
+  clickHandler = id => {
+    this.setState({ currentId: id });
+  };
+
   render() {
     return (
       <section className="orderContainer">
         <nav className="orderToggle">
           <ul className="toggleBtns">
             <li
-              className={
-                this.state.currentId === 1 ? "toggleBtn selected" : "toggleBtn"
-              }
+              className={`toggleBtn ${
+                this.state.currentId === 1 && "selected"
+              }`}
               onClick={() => this.clickHandler(1)}
             >
               <div className="toggleContents">
@@ -70,7 +75,12 @@ class Order extends Component {
         </nav>
         <div className="contentsBox">
           {this.state.currentId === 1 && <OrderLetter />}
-          {this.state.currentId === 2 && <OrderAddress />}
+          {this.state.currentId === 2 && (
+            <OrderAddress
+              deliveryData={this.state.deliveryData}
+              inputChange={this.inputChange}
+            />
+          )}
           {this.state.currentId === 3 && <OrderPay />}
         </div>
       </section>

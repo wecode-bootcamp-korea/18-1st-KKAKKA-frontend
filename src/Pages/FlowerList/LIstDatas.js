@@ -6,10 +6,8 @@ class ListDatas extends React.Component {
     const {
       // createdAt,
       detail,
-
       discountRate,
       discountedPrice,
-
       image,
       name,
       originPrice,
