@@ -1,8 +1,10 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
-// import { config } from "../../config.js";
+import { config } from "../../config.js";
 import ProductInfo from "./Components/ProductInfo/ProductInfo";
 import ProductOption from "./Components/ProductOption/ProductOption";
+import Footer from "../../Components/Footer/Footer";
+import Nav from "../../Components/Nav/Nav";
 import "./FlowerDetail.scss";
 
 class FlowerDetail extends Component {
@@ -22,11 +24,9 @@ class FlowerDetail extends Component {
     };
   }
 
-  //  baskerItem 변경 시
-
   getData = () => {
-    fetch("http://localhost:3000/data/productData.json")
-      // fetch(`${config.api}/product/${this.props.match.params.id}`)
+    // fetch("http://localhost:3000/data/productData.json")
+    fetch(`${config.api}/product/${this.props.match.params.id}`)
       .then(res => res.json())
       .then(data => {
         this.setState({
@@ -99,72 +99,76 @@ class FlowerDetail extends Component {
       orign_price,
       discount_rate,
       discounted_price,
-      image,
+      images,
     } = this.state.productList;
     const { productData } = this.state;
     return (
-      <section className="detailContainer">
-        <ul className="categoryNav">
-          <li>
-            <Link to="/">HOME</Link>
-          </li>
-          <li>
-            <Link to="/subscription">쿠키박스</Link>
-          </li>
-          <li>
-            <Link to={`./${this.props.match.params.id}`}>{name}</Link>
-          </li>
-        </ul>
-        <div className="detailContents">
-          <div className="productThumnail">
-            <img
-              alt="쿠키 이미지"
-              src={image && image.length > 0 && image[0]}
-              className="thumnail"
-            />
-            <div className="detailSlider">
-              {[1, 2, 3, 2, 4].map((n, index) => {
-                return (
-                  <div>
-                    <img
-                      alt={`"쿠키 미니 이미지"${index}`}
-                      src={image && image.length > 0 && image[n]}
-                      className="thumnailMini"
-                    />
-                  </div>
-                );
-              })}
-            </div>
-          </div>
-
-          <div className="productDetailRight">
-            <ProductInfo
-              key={id}
-              detail={detail}
-              name={name}
-              size={size}
-              origin_price={orign_price}
-              discount_rate={discount_rate}
-              discounted_price={discounted_price}
-              image={image}
-            />
-
-            <div className="detailInfo">
-              <span className="contents"> 3만원 이상 구매 시</span>
-              <p className="contentsHighlight">무료배송!</p>
-              <ProductOption
-                key={id}
-                discounted_price={discounted_price}
-                productData={productData}
-                changeDate={this.changeDate}
-                changeCount={this.changeCount}
-                chkHasLetter={this.chkHasLetter}
-                changePrice={this.changePrice}
+      <>
+        <Nav />
+        <section className="detailContainer">
+          <ul className="categoryNav">
+            <li>
+              <Link to="/">HOME</Link>
+            </li>
+            <li>
+              <Link to="/subscription">쿠키박스</Link>
+            </li>
+            <li>
+              <Link to={`./${this.props.match.params.id}`}>{name}</Link>
+            </li>
+          </ul>
+          <div className="detailContents">
+            <div className="productThumnail">
+              <img
+                alt="쿠키 이미지"
+                src={images && images.length > 0 && images[0]}
+                className="thumnail"
               />
+              <div className="detailSlider">
+                {[1, 2, 3, 2, 4].map((n, index) => {
+                  return (
+                    <div>
+                      <img
+                        alt={`쿠키 미니 이미지${index}`}
+                        src={images && images.length > 0 && images[n]}
+                        className="thumnailMini"
+                      />
+                    </div>
+                  );
+                })}
+              </div>
+            </div>
+
+            <div className="productDetailRight">
+              <ProductInfo
+                key={id}
+                detail={detail}
+                name={name}
+                size={size}
+                origin_price={orign_price}
+                discount_rate={discount_rate}
+                discounted_price={discounted_price}
+                image={images}
+              />
+
+              <div className="detailInfo">
+                <span className="contents"> 3만원 이상 구매 시</span>
+                <p className="contentsHighlight">무료배송!</p>
+                <ProductOption
+                  key={id}
+                  discounted_price={discounted_price}
+                  productData={productData}
+                  changeDate={this.changeDate}
+                  changeCount={this.changeCount}
+                  chkHasLetter={this.chkHasLetter}
+                  changePrice={this.changePrice}
+                />
+              </div>
             </div>
           </div>
-        </div>
-      </section>
+        </section>
+        <Footer />
+      </>
     );
   }
 }

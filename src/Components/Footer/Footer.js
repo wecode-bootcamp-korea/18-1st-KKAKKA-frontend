@@ -9,7 +9,7 @@ class Footer extends React.Component {
         <footer className="footerBox">
           <div className="upperBox">
             <div className="iconBox">
-              <a href="https://www.notion.so/1-_Key-56a79b25481c49cca828e41af869898b">
+              <a href="https://www.notion.so/haribot/1-KKAKKA-56a79b25481c49cca828e41af869898b">
                 <SiNotion className="icons" />
               </a>
               <a href="https://www.instagram.com/wecode_bootcamp/">
