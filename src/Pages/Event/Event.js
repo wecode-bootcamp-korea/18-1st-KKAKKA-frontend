@@ -60,7 +60,7 @@ class Event extends Component {
   render() {
     const { listDatas, subNav } = this.state;
     return (
-      <div className="eventContainer">
+      <div className="eventBox">
         <Nav />
         <SubNav title={subNav.title} desc={subNav.desc} />
         <div className="flowerListMain">

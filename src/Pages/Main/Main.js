@@ -4,8 +4,8 @@ import Nav from "../../Components/Nav/Nav";
 import Footer from "../../Components/Footer/Footer";
 import Cards from "./Components/Cards/Cards";
 import DataList from "./Components/DataList/DataList";
-// import { mainSubscribeAPI, mainProductAPI } from "../../config";
-import { mockCookieDataAPI, mockCookieSubscribeAPI } from "../../config";
+import { mainSubscribeAPI, mainProductAPI } from "../../config";
+// import { mockCookieDataAPI, mockCookieSubscribeAPI } from "../../config";
 import "../../styles/common.scss";
 import "./Main.scss";
 
@@ -21,14 +21,14 @@ class Main extends Component {
   //mainAPI는 수정 되어서 구현할 떄는 mockdata 변수로 다시 할당
   // 백엔드와 통신은 완료
   componentDidMount = () => {
-    fetch(mockCookieDataAPI)
+    fetch(mainProductAPI)
       .then(response => response.json())
       .then(result => {
         this.setState({
           cookieData: result.product_list,
         });
       });
-    fetch(mockCookieSubscribeAPI)
+    fetch(mainSubscribeAPI)
       .then(response => response.json())
       .then(({ result }) => {
         this.setState({
