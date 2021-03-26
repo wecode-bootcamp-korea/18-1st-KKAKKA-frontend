@@ -61,7 +61,7 @@ class Event extends Component {
   render() {
     const { listDatas, subNav } = this.state;
     return (
-      <>
+      <div className="eventContainer">
         <Nav />
         <SubNav title={subNav.title} desc={subNav.desc} />
         <div className="flowerListMain">
@@ -94,7 +94,7 @@ class Event extends Component {
           </div>
         </div>
         <Footer />
-      </>
+      </div>
     );
   }
 }
