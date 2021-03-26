@@ -29,7 +29,7 @@ class Login extends Component {
 
     if (
       regExpression.test(this.state.email) &&
-      this.state.password.length > 8
+      this.state.password.length >= 8
     ) {
       fetch(loginAPI, {
         method: "POST",

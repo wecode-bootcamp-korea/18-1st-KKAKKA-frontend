@@ -81,7 +81,7 @@ class Nav extends React.Component {
                 <Link to="/main">쿠킹샵</Link>
               </li>
               <li>
-                <Link to="/main">이벤트</Link>
+                <Link to="/event">이벤트</Link>
               </li>
             </ul>
 
