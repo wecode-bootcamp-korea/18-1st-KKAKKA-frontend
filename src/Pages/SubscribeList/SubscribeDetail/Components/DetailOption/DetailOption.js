@@ -129,7 +129,7 @@ class DetailOption extends Component {
                           checked={hasLetter ? true : false}
                           onClick={chkHasLetter}
                         />
-                        <label htmlFor="letter">추가할게요(+2,500)</label>
+                        <label htmlFor="letter">추가할게요(FREE)</label>
                       </div>
                       <div className="letterCheckbox">
                         <input
@@ -212,7 +212,7 @@ class DetailOption extends Component {
             <h2 className="title price">
               {(
                 Number(price) * quantity +
-                (hasLetter && Number(2500))
+                (hasLetter && Number(0))
               ).toLocaleString()}
             </h2>
           </div>
