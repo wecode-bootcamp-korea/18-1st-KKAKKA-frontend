@@ -46,9 +46,11 @@ class Nav extends React.Component {
     return (
       <div className="navContainer">
         <div className="topBanner">
-          <span className="banner">
-            🍪 까까 팀이 궁금하다면? 🍪 노션 페이지 바로가기💨
-          </span>
+          <a href="https://www.notion.so/haribot/1-KKAKKA-56a79b25481c49cca828e41af869898b">
+            <span className="banner">
+              🍪 까까 팀이 궁금하다면? 🍪 노션 페이지 바로가기💨
+            </span>
+          </a>
         </div>
         <div className="navInfo">
           <li className="navUser">
