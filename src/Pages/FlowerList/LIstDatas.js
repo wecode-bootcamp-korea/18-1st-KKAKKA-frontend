@@ -4,13 +4,11 @@ import "./ListDatas.scss";
 
 class ListDatas extends React.Component {
   goToDetail = () => {
-    console.log("프롭프롭:", this.props);
     this.props.history.push(`/product/${this.props.id}`);
   };
 
   render() {
     const {
-      // createdAt,
       detail,
       discountRate,
       discountedPrice,

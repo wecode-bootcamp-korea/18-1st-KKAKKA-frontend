@@ -9,6 +9,7 @@ import FlowerDetail from "./Pages/FlowerDetail/FlowerDetail.js";
 import FlowerList from "./Pages/FlowerList/FlowerList.js";
 import Mypage from "./Pages/Mypage/Mypage.js";
 import Order from "./Pages/Order/Order.js";
+import Event from "./Pages/Event/Event.js";
 import OrderList from "./Pages/OrderList/OrderList.js";
 import SignUp from "./Pages/SignUp/SignUp.js";
 import SubscribeDetail from "./Pages/SubscribeList/SubscribeDetail/SubscribeDetail.js";
@@ -31,6 +32,7 @@ class Routes extends React.Component {
           <Route exact path="/flower-class-list" component={FlowerClassList} />
           <Route exact path="/product/:id" component={FlowerDetail} />
           <Route exact path="/product" component={FlowerList} />
+          <Route exact path="/event" component={Event} />
           <Route exact path="/mypage" component={Mypage} />
           <Route exact path="/order/subscription/:id" component={Order} />
           <Route exact path="/order" component={Order} />
