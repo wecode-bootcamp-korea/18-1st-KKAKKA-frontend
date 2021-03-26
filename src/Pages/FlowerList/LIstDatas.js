@@ -1,10 +1,14 @@
 import React from "react";
+import { withRouter } from "react-router-dom";
 import "./ListDatas.scss";
 
 class ListDatas extends React.Component {
+  goToDetail = () => {
+    this.props.history.push(`/product/${this.props.id}`);
+  };
+
   render() {
     const {
-      // createdAt,
       detail,
       discountRate,
       discountedPrice,
@@ -16,10 +20,12 @@ class ListDatas extends React.Component {
     return (
       <div className="listDatas">
         <p className="image">
-          <image alt="image" src={image} />
+          <img alt="img" src={image} onClick={this.goToDetail} />
         </p>
         <p className="detail">{detail}</p>
-        <p className="name">{name}</p>
+        <p className="name" onClick={this.goToDetail}>
+          {name}
+        </p>
 
         <div className="detailThird">
           {discountRate > 0.0 && (
@@ -45,4 +51,4 @@ class ListDatas extends React.Component {
   }
 }
 
-export default ListDatas;
+export default withRouter(ListDatas);

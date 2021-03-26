@@ -14,7 +14,7 @@ class SubCard extends Component {
         <div className="subImageBox">
           <img
             alt="정기구독 상품1"
-            src={image[0]}
+            src={image}
             className="subImage"
             onClick={this.goToDetail}
           />

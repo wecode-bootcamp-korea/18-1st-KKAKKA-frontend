@@ -4,7 +4,7 @@
       "id": 1,
       "name": "폴인로즈 에디션",
       "introduction": "핑크빛 분위기의 완성",
-      "image": "https://kukka-2-media-123.s3.amazonaws.com/media/class-name/Contents/2345/0_1.png",
+      "image": "https://user-images.githubusercontent.com/46774456/112266898-032bb800-8cb8-11eb-8faa-115276adc745.png",
       "orign_price": "59900",
       "discount_rate": 0.1,
       "discounted_price": "53900"
@@ -13,7 +13,7 @@
       "id": 2,
       "name": "로맨틱 아네모네 에디션",
       "introduction": "마음을 간질이는 설렘",
-      "image": "https://kukka-2-media-123.s3.amazonaws.com/media/class-name/Contents/2347/category.png",
+      "image": "https://user-images.githubusercontent.com/46774456/112266905-058e1200-8cb8-11eb-80aa-ae807a1b3bed.png",
       "orign_price": "42900",
       "discount_rate": 0.1,
       "discounted_price": "37900"
@@ -22,7 +22,7 @@
       "id": 3,
       "name": "솜사탕 로즈 에디션",
       "introduction": "알록달록한 매력",
-      "image": "https://kukka-2-media-123.s3.amazonaws.com/media/class-name/Contents/2346/category.png",
+      "image": "https://user-images.githubusercontent.com/46774456/112266909-0757d580-8cb8-11eb-8306-8da6ac54d897.png",
       "orign_price": "33900",
       "discount_rate": 0.1,
       "discounted_price": "29900"
@@ -31,7 +31,7 @@
       "id": 4,
       "name": "솜사탕 로즈 에디션",
       "introduction": "알록달록한 매력",
-      "image": "https://kukka-2-media-123.s3.amazonaws.com/media/class-name/Contents/2346/category.png",
+      "image": "https://user-images.githubusercontent.com/46774456/112266913-08890280-8cb8-11eb-8b4c-c5c8583229ee.png",
       "orign_price": "33900",
       "discount_rate": 0.1,
       "discounted_price": "29900"

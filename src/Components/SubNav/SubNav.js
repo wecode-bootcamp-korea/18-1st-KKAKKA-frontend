@@ -7,10 +7,8 @@ class SubNav extends React.Component {
       <div className="subNavContainer">
         <nav className="subNav">
           <div className="subNavContent">
-            <h2 className="title">까까 쿠키 정기구독</h2>
-            <span className="subTitle">
-              2주에 한 번, 매번 새로운 쿠키로 당신의 일상을 행복으로 채울게요.
-            </span>
+            <h2 className="title">{this.props.title}</h2>
+            <span className="subTitle">{this.props.desc}</span>
           </div>
         </nav>
       </div>

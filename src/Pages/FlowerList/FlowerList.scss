@@ -1,5 +1,5 @@
 .flowerListMain {
-  padding: 0 20% 0 20%;
+  padding: 50px 20% 100px 20%;
 
   .sortButton {
     display: flex;
@@ -11,18 +11,31 @@
   .startLowPrice,
   .startHighPrice,
   .startBrandnew {
-    margin: 5px;
-    border: none;
+    margin: 4px;
+    padding: 4px 6px;
+    border: 1px solid #ffd232;
+    border-radius: 4px;
+    background-color: #fff;
     font-weight: 500;
-    background-color: white;
+    font-size: 10px;
+    color: #868e96;
   }
 
   .startLowPrice:hover,
   .startHighPrice:hover,
   .startBrandnew:hover {
-    background-color: #f9a825;
-    opacity: 0.5;
+    background-color: #ffd232;
+    border-radius: 4px;
     text-align: center;
+    color: #222;
+  }
+  .startLowPrice:focus,
+  .startHighPrice:focus,
+  .startBrandnew:focus {
+    background-color: #ffd232;
+    border-radius: 4px;
+    text-align: center;
+    color: #222;
   }
 
   .list {
