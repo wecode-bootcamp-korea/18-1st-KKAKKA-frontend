@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import ListDatas from "../FlowerList/ListDatas";
-import { config } from "../../config.js";
 import Footer from "../../Components/Footer/Footer";
 import Nav from "../../Components/Nav/Nav";
 import SubNav from "../../Components/SubNav/SubNav";
