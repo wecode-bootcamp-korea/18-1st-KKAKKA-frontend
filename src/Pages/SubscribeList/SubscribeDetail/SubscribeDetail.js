@@ -30,11 +30,6 @@ class SubscribeDetail extends Component {
     const newDate = this.state.subscribeData.delivery_date;
     fetch(`${config.api}/order/subscription/${this.props.match.params.id}`, {
       method: "POST",
-      headers: {
-        Authorization:
-          "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6NH0.BmykDxMZydx7PPn-H89k04E3wCKCya3c4nwh8zxUqMU",
-        "Content-Type": "application/json",
-      },
       body: JSON.stringify({
         account: 1,
         option: 1,
