@@ -39,14 +39,19 @@ class Login extends Component {
         }),
       })
         .then(response => response.json())
-        .then(result => {
-          console.log(result);
-          if (result.message === "success_signin") {
+        .then(response => {
+          console.log(response);
+          if (response.message === "success_signin") {
             this.props.history.push("/main");
-          } else if (result.message === "error_password_matching") {
+          } else if (response.message === "error_password_matching") {
             alert("비밀번호를 다시 입력해주세요");
-          } else if (result.message === "error_mutiple_id" || "error_no_id") {
+          } else if (response.message === "error_mutiple_id" || "error_no_id") {
             alert("아이디(이메일)를 다시 입력해주세요");
+          }
+        })
+        .then(response => {
+          if (response.access_token) {
+            sessionStorage.setItem("token", response.access_token);
           }
         });
     } else {
