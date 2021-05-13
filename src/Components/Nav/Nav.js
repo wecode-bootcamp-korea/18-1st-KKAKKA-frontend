@@ -24,6 +24,9 @@ class Nav extends React.Component {
 
   componentDidMount() {
     window.addEventListener("scroll", this.handleScroll);
+    if (!sessionStorage.getItem("token")) {
+      this.setState({ isLogin: false });
+    }
   }
 
   componentWillUnmount() {
@@ -43,6 +46,7 @@ class Nav extends React.Component {
   };
 
   render() {
+    const { isLogin, navTop } = this.state;
     return (
       <div className="navContainer">
         <div className="topBanner">
@@ -52,17 +56,26 @@ class Nav extends React.Component {
             </span>
           </a>
         </div>
-        <div className="navInfo">
-          <li className="navUser">
-            <Link to="/login">로그인</Link>
-          </li>
-          <li className="navUser">
-            <Link to="/signup">회원가입</Link>
-            <p>(10000 포인트 지급!)</p>
-          </li>
-        </div>
-        <div className={`navbarContainer ${this.state.navTop && "sticky"}`}>
-          <nav className={`navbar ${this.state.navTop && "sticky"}`}>
+        {!isLogin && (
+          <div className="navInfo">
+            <li className="navUser">
+              <Link to="/login">로그인</Link>
+            </li>
+            <li className="navUser">
+              <Link to="/signup">회원가입</Link>
+              <p>(10000 포인트 지급!)</p>
+            </li>
+          </div>
+        )}
+        {isLogin && (
+          <div className="navInfo">
+            <li className="navUser">
+              <Link to="/login">로그아웃</Link>
+            </li>
+          </div>
+        )}
+        <div className={`navbarContainer ${navTop && "sticky"}`}>
+          <nav className={`navbar ${navTop && "sticky"}`}>
             <div className="navLogo">
               <Link to="/main">KKAKKA</Link>
             </div>
