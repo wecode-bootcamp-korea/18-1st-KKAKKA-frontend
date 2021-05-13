@@ -1,11 +1,3 @@
-# KKAKKA Front-end
-
-### 🎨 팀원별 작업 현황
-
-- 권영균: 개별 상품 리스트 페이지
-- 남궁선아
-- 이근화
-
 # 🍪 KKAKKA 🍪
 
 > 안녕하세요! <br>
@@ -73,15 +65,19 @@
 ## 시연영상
 
 AWS 사용료 이슈로 관련 사이트는 아래의 시연영상으로 확인 부탁 드립니다!
-<a herf ="https://www.youtube.com/watch?v=UmerdMVMHbw">kkakka video</a>
+<a href="https://www.youtube.com/watch?v=UmerdMVMHbw">kkakka video</a>
 
 ## 구현 기능
 
 ### Front-end
 
-- 메인 페이지
+#### user related
+
 - 회원가입 페이지
 - 로그인 페이지
+
+- 메인 페이지
+
 - Navigation Bar
 - Sub Navigation Bar
 - 정기구독 상품 리스트 페이지
