@@ -33,8 +33,8 @@
 ### Front-end
 
 - [권영균](https://github.com/MrFabulous00)
-- [이근화](https://github.com/GEUNNN)
 - [남궁선아](https://github.com/sunaaank)
+- [이근화](https://github.com/GEUNNN)
 
 ### Back-end
 
@@ -64,26 +64,30 @@
 
 ## 시연영상
 
-AWS 사용료 이슈로 관련 사이트는 아래의 시연영상으로 확인 부탁 드립니다!
+AWS 사용료 이슈로 관련 사이트는 아래의 시연영상으로 확인 부탁 드립니다!<br>
 <a href="https://www.youtube.com/watch?v=UmerdMVMHbw">kkakka video</a>
 
 ## 구현 기능
 
 ### Front-end
 
-#### user related
-
-- 회원가입 페이지
-- 로그인 페이지
-
-- 메인 페이지
+#### 공통
 
 - Navigation Bar
 - Sub Navigation Bar
-- 정기구독 상품 리스트 페이지
-- 개별 상품 리스트 페이지
-- 상품 상세 페이지
 - Footer
+
+#### Authentication
+
+- 회원가입
+- 로그인
+
+#### Products
+
+- 메인
+- 정기구독
+- 상품 리스트
+- 상품 상세
 
 ### Back-end
 
